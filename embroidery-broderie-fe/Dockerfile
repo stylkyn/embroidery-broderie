@@ -4,5 +4,5 @@ COPY package.json .
 RUN npm i
 COPY . .
 ## EXPOSE [Port you mentioned in the vite.config file]
-EXPOSE 5200
+EXPOSE 5173
 CMD ["npm", "run", "dev"]

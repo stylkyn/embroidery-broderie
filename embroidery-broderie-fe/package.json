@@ -4,9 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 5173",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --port 5173",
+    "dn": "docker run -d --rm -p 5173:5173 --name dcsportselfstudy quay.io/livesport/dcsportselfstudy",
+    "ds": "docker stop dcsportselfstudy",
+    "de": "docker exec -it dcsportselfstudy bash",
+    "dall": "yarn ds && yarn dn && yarn de && yarn build && yarn preview"
   },
   "dependencies": {
     "react": "^18.2.0",
