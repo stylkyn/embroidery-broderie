@@ -1,0 +1,60 @@
+version: "3.4"
+
+x-common-variables: &common-variables
+  REACT_APP_SERVER_PORT: 8000
+
+services:
+  ebpostrgres:
+    image: postgres
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=banicek21
+      - POSTGRES_USER=stylkyn
+      - POSTGRES_DB=embroidery_broderie
+    ports:
+      - '5432:5432'
+    networks:
+      - ebadminpostgressnetwork
+    volumes:
+      - pgdata:/var/lib/postgresql
+
+  ebclientssr:
+    build: ./ebclientssr
+    container_name: ebclientssr_container
+    environment:
+      <<: *common-variables
+      NODE_PATH: src
+    ports:
+      - 7456:7456
+    volumes:
+      - ./ebclientssr/src:/app/src
+    command: yarn dev:server
+
+  ebadmin:
+    build: ./ebadmin
+    container_name: ebadmin_container
+    restart: unless-stopped
+    environment:
+      <<: *common-variables
+      NODE_PATH: src
+    ports:
+      - 1337:1337
+    depends_on:
+      - ebpostrgres
+    volumes:
+      - ./ebadmin/src:/app/src
+    networks:
+      - ebadminpostgressnetwork
+    links:
+      - ebpostrgres
+    command: bash -c "yarn start"
+
+networks:
+  ebadminpostgressnetwork:
+    name: ebadminpostgressnetwork
+    driver: bridge
+
+volumes:
+  pgdata:

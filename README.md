@@ -1,24 +1,6 @@
-:sparkles::sparkles::sparkles: **I am currently updating this project to use WP GraphQL & NextJS's SSG (Static Site Generation)!** :tada::tada:
+# REACT-NODEJS-MYSQL-DOCKER 
 
-## :moneybag: React eCommerce Application
+Tutorial
+---------
 
-<p align="center">
-  <img src="./doc/recording.gif">
-</p>
-
-## Basic Overview
-
-This simple eCommerce application shows how to integrate WooCommerce REST API into a NextJS framework. It is also using Typescript, Redux & React hooks making this application fun to use. Also with Ant Design as the design system, this project can be a very good starting point for your next shopping cart website.
-
-## Setup
-
-```bash
-yarn install
-yarn dev
-```
-
-Then open http://localhost:3000/
-
-## Copyright and license
-
-MIT
+[Docker compose : NodeJS and MySQL app with React in a docker](http://www.bogotobogo.com/DevOps/Docker/Docker-React-Node-MySQL-App.php) 
