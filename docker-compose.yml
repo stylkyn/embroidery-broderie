@@ -49,7 +49,7 @@ services:
       - ebadminpostgressnetwork
     links:
       - ebpostrgres
-    command: bash -c "yarn start"
+    command: bash -c "yarn develop"
 
 networks:
   ebadminpostgressnetwork:
