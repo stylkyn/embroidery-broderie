@@ -1,5 +1,5 @@
-import { Menu, MenuProps, Layout } from 'antd';
-import { FC } from 'react';
+import { Menu, type MenuProps, Layout } from 'antd';
+import { type FC } from 'react';
 
 const { Header: HeaderAntd } = Layout;
 

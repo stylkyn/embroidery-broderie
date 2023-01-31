@@ -1,6 +1,6 @@
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import { Menu, MenuProps, theme, Layout } from 'antd';
-import { createElement, FC } from 'react';
+import { Menu, type MenuProps, theme, Layout } from 'antd';
+import { createElement, type FC } from 'react';
 
 const { Sider } = Layout;
 
@@ -14,6 +14,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
 
 		children: new Array(4).fill(null).map((_, j) => {
 			const subKey = index * 4 + j + 1;
+
 			return {
 				key: subKey,
 				label: `option${subKey}`,

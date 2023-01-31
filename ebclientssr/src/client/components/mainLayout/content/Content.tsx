@@ -1,5 +1,5 @@
 import { Layout, theme } from 'antd';
-import { FC } from 'react';
+import { type FC } from 'react';
 
 const { Content: ContentAntd } = Layout;
 

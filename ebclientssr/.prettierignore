@@ -2,3 +2,7 @@ dist
 build
 node_modules
 .github
+.yarn
+**/dist
+**/*.css.d.ts
+**/*.scss.d.ts

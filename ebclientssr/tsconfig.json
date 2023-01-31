@@ -10,15 +10,15 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
-    "jsx": "react-jsxdev",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "react-jsx",
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "es2020", ],
     "strict": true,
     "outDir": "dist",
     "module": "ESNext",
     "moduleResolution": "Node",
     "skipLibCheck": true,
     "sourceMap": true,
-    "target": "ES2017"
+    "target": "ES2019"
   },
   "include": ["src/**/*", "types/*", "server.ts", "node_modules/vite/types/*"],
   "ts-node": {
