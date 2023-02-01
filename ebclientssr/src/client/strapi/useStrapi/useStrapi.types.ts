@@ -14,3 +14,10 @@ export interface UseStrapiResult<T extends StrapiEntityTypes> {
 export interface BuildBaseQueryProps {
     entityType: StrapiEntityTypes;
 }
+
+export type StrapiRawData<T extends StrapiEntityTypes> = Record<string, {
+    data: Array<{
+        id: string;
+        attributes: StrapiSchemasMapper[T];
+    }>;
+}>

@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import tsconfigPaths from 'vite-tsconfig-paths'
 import react from "@vitejs/plugin-react";
 
 import type { UserConfig } from "vitest/config";
@@ -13,7 +14,10 @@ const test = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    tsconfigPaths(),
+  ],
   server: { port: 3000 },
   build: {
     minify: false,

@@ -28,6 +28,8 @@ services:
       NODE_PATH: src
     ports:
       - 7456:7456
+    networks:
+      - ebclientssrebadminnetwork
     volumes:
       - ./ebclientssr/src:/app/src
     command: yarn dev:server
@@ -47,6 +49,7 @@ services:
       - ./ebadmin/src:/app/src
     networks:
       - ebadminpostgressnetwork
+      - ebclientssrebadminnetwork
     links:
       - ebpostrgres
     command: bash -c "yarn develop"
@@ -55,6 +58,10 @@ networks:
   ebadminpostgressnetwork:
     name: ebadminpostgressnetwork
     driver: bridge
+  ebclientssrebadminnetwork:
+    name: ebclientssrebadminnetwork
+    driver: bridge
 
 volumes:
   pgdata:
+  ebadmin:

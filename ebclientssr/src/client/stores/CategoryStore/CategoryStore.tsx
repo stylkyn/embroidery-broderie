@@ -1,8 +1,11 @@
 import { createContext, useContext } from 'react';
 import { useStrapi } from '../../strapi';
-import { type CategoryStore, type Category } from './CategoryStore.types';
+import { type CategoryStore } from './CategoryStore.types';
 
-const CategoriesContext = createContext<CategoryStore>({});
+const CategoriesContext = createContext<CategoryStore>({
+	categories: [],
+	loading: false,
+});
 
 export const CategoriesContextProvider: FCC = ({ children }) => {
 	const { data, loading } = useStrapi({ entityType: 'category' });
@@ -19,4 +22,4 @@ export const CategoriesContextProvider: FCC = ({ children }) => {
 	);
 };
 
-export const useCategoriesContext = (): Category[] => useContext(CategoriesContext);
+export const useCategoriesContext = (): CategoryStore => useContext(CategoriesContext);
