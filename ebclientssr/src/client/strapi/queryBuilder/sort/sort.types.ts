@@ -1,4 +1,4 @@
-import { type StrapiEntityTypes, type StrapiSchemasMapper } from '../schemas/schemas.types';
+import { type StrapiEntityTypes, type StrapiSchemasMapper } from '../../schemas/schemas.types';
 
 export type Sort<T extends StrapiEntityTypes> = SortColumn<T> | SortWithOrder<T> | Array<SortColumn<T> | SortWithOrder<T>>
 

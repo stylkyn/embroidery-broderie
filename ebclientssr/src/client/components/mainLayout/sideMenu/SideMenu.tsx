@@ -13,8 +13,6 @@ export const SideMenu: FC = () => {
 	const { categories } = useCategoriesContext();
 	const menuItems = categoriesToMenuItems(categories);
 
-	console.log(categories);
-
 	return (
 		<Sider width={200} style={{ background: colorBgContainer }}>
 			<Menu

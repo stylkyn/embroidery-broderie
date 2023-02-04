@@ -1,4 +1,4 @@
-import { type StrapiSchemasMapper, type StrapiEntityTypes, type StrapiEntities } from '../schemas/schemas.types';
+import { type StrapiSchemasMapper, type StrapiEntityTypes, type StrapiEntities } from '../../schemas/schemas.types';
 
 export type Operator =
     | 'eq'
@@ -25,7 +25,7 @@ type PartialRecord<K extends keyof any, T> = {
     [P in K]?: T;
   };
 
-export type Filters<T extends StrapiEntityTypes> = FiltersInner<StrapiSchemasMapper[T]>
+export type Filters<T extends StrapiEntityTypes = StrapiEntityTypes> = FiltersInner<StrapiSchemasMapper[T]>
 
 type FiltersInner<E extends StrapiEntities> = {
     [P in keyof E]?: Unpack<E[P]> extends StrapiEntities ? FiltersInner<Unpack<E[P]>> : FiltersItem;
