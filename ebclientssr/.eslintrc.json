@@ -135,30 +135,6 @@
         "react/react-in-jsx-scope": "off",
 
         // @NOTE - empty lines codestyle
-        "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
-        "padding-line-between-statements": [
-            "error",
-            // prázdný řádek před returnem
-            { "blankLine": "always", "prev": "*", "next": "return" },
-
-            // prázdný řádek po bloku const a let
-            { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
-            { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"] },
-
-            // prázdný řádek po blokových definicích (if, function, ...)
-            { "blankLine": "always", "prev": ["multiline-block-like", "block-like", "block"], "next": "*" },
-            { "blankLine": "always", "prev": "*", "next": ["multiline-block-like", "block-like", "block"] },
-
-            // prázdný řádek před každým casem - můžeme změnit na always, až budeme mít eslint v8 a budeme moci použít: no-fallthrough: ["error", { "allowEmptyCase": true }]
-            { "blankLine": "any", "prev": "case", "next": "*" },
-
-            // prázdný řádek před a po deklaraci class
-            { "blankLine": "always", "prev": "*", "next": "class" },
-            { "blankLine": "always", "prev": "class", "next": "*" },
-
-            // prázdný řádek před a po deklaraci switch
-            { "blankLine": "always", "prev": "*", "next": "switch" },
-            { "blankLine": "always", "prev": "switch", "next": "*" }
-        ]
+        "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }]
 	}
 }

@@ -3,6 +3,7 @@ import { type StrapiSchemasMapper, type StrapiEntityTypes } from '../schemas/sch
 
 export interface UseStrapiProps {
     entityType: StrapiEntityTypes;
+    attributes: object;
 }
 
 export interface UseStrapiResult<T extends StrapiEntityTypes> {
@@ -13,11 +14,14 @@ export interface UseStrapiResult<T extends StrapiEntityTypes> {
 
 export interface BuildBaseQueryProps {
     entityType: StrapiEntityTypes;
+    attributes: object;
 }
 
-export type StrapiRawData<T extends StrapiEntityTypes> = Record<string, {
+export type StrapiRawData<T extends StrapiEntityTypes> = Record<string, StrapiRawDataItem<T>>;
+
+export interface StrapiRawDataItem<T extends StrapiEntityTypes> {
     data: Array<{
         id: string;
         attributes: StrapiSchemasMapper[T];
     }>;
-}>
+}

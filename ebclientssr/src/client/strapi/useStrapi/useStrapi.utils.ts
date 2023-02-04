@@ -1,28 +1,54 @@
 import { type StrapiEntityTypes, type StrapiSchemasMapper } from '../schemas/schemas.types'
 import { STRAPI_ENTITY_TYPES_MAPPER_PLURAL } from '../schemas/schemas.utils'
-import { type StrapiRawData, type BuildBaseQueryProps } from './useStrapi.types'
+import { type StrapiRawDataItem, type BuildBaseQueryProps } from './useStrapi.types'
+import { isObject, reduce } from 'lodash';
 
-// TODO: Dodelat where, limit atd...
+export const isRelation = <T extends StrapiEntityTypes >(value: StrapiRawDataItem<T> | any): value is StrapiRawDataItem<T> => {
+    return !!(value as StrapiRawDataItem<T>).data;
+}
+
+const toGraphQlAttributes = (object: Record<string, any>): string => {
+    return Object.keys(object).reduce((accum, key) => {
+        const comma = accum.length ? ',' : '';
+
+        const accumWithNextKey = `${accum}${comma} ${key}`;
+        if (isObject(object[key])) {
+            return `${accumWithNextKey} {${toGraphQlAttributes(object[key])}}`;
+        }
+
+        return accumWithNextKey;
+    }, '')
+}
 
 export const buildBaseQuery = ({
-    entityType
+    entityType,
+    attributes
 }: BuildBaseQueryProps): string => {
     return `query ${STRAPI_ENTITY_TYPES_MAPPER_PLURAL[entityType]} {
         ${STRAPI_ENTITY_TYPES_MAPPER_PLURAL[entityType]} {
             data {
                 id,
-                attributes {
-                    name,
-                    description,
-                }
+                attributes {${toGraphQlAttributes(attributes)}}
             }
         }
     }`
 }
 
-export const toSchemaData = <T extends StrapiEntityTypes>(rawData: StrapiRawData<T>, entityType: StrapiEntityTypes): Array<StrapiSchemasMapper[T]> => {
-    return rawData[STRAPI_ENTITY_TYPES_MAPPER_PLURAL[entityType]].data.map(({ id, attributes }) => ({
-        ...attributes,
-        id,
-    }));
+export const toSchemaData = <T extends StrapiEntityTypes>(item: StrapiRawDataItem<T>): Array<StrapiSchemasMapper[T]> => {
+    return item.data.map(({ id, attributes }) => {
+
+        const flatAttributes = reduce(attributes, (accum, value, key) => {
+            if (isRelation(value)) {
+                return { ...accum, [key]: toSchemaData(value) };
+            }
+
+            return { ...accum, [key]: value };
+        // TODO: Dotypovat
+        }, {}) as Record<keyof StrapiSchemasMapper[T], any>
+
+        return {
+            ...flatAttributes,
+            id,
+        };
+    });
 }

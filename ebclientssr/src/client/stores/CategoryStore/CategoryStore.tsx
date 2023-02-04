@@ -8,7 +8,22 @@ const CategoriesContext = createContext<CategoryStore>({
 });
 
 export const CategoriesContextProvider: FCC = ({ children }) => {
-	const { data, loading } = useStrapi({ entityType: 'category' });
+	const { data, loading } = useStrapi({
+		entityType: 'category',
+		attributes: {
+			name: null,
+			description: null,
+			categories: {
+				data: {
+					id: null,
+					attributes: {
+						name: null,
+						description: null,
+					},
+				},
+			},
+		},
+	});
 
 	return (
 		<CategoriesContext.Provider
