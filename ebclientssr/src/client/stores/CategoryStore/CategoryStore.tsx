@@ -18,6 +18,13 @@ export const CategoriesContextProvider: FCC = ({ children }) => {
 				description: null,
 			},
 		},
+		filters: {
+			categories: {
+				id: {
+					notNull: true,
+				},
+			},
+		},
 	});
 
 	return (
