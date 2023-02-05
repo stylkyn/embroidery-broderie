@@ -8,60 +8,16 @@ const CategoriesContext = createContext<CategoryStore>({
 });
 
 export const CategoriesContextProvider: FCC = ({ children }) => {
-	// TODO: Testovaci kod
-	// const { data: category } = useStrapiOne({
-	// 	entityType: 'category',
-	// 	id: 1,
-	// 	attributes: {
-	// 		name: null,
-	// 		description: null,
-	// 		categories: {
-	// 			data: {
-	// 				id: null,
-	// 				attributes: {
-	// 					name: null,
-	// 					description: null,
-	// 				},
-	// 			},
-	// 		},
-	// 	},
-	// });
-
 	const { data, loading } = useStrapi({
 		entityType: 'category',
 		attributes: {
 			name: null,
 			description: null,
 			categories: {
-				data: {
-					id: null,
-					attributes: {
-						name: null,
-						description: null,
-					},
-				},
+				name: null,
+				description: null,
 			},
 		},
-		// TODO: Testovaci kod
-		// filters: {
-		// 	and: [
-		// 		{
-		// 			id: {
-		// 				in: [0, 1, 2, 3],
-		// 			},
-		// 		},
-		// 		{
-		// 			id: {
-		// 				in: [0, 1, 2, 3],
-		// 			},
-		// 		},
-		// 	],
-		// },
-		// sort: 'id:desc',
-		// pagination: {
-		// 	limit: 1,
-		// 	start: 0,
-		// },
 	});
 
 	return (

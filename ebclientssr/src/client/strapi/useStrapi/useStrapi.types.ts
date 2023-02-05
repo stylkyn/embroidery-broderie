@@ -3,10 +3,11 @@ import { type StrapiSchemasMapper, type StrapiEntityTypes } from '../schemas/sch
 import { type Filters } from '../queryBuilder/filters/filters.types'
 import { type Pagination } from '../queryBuilder/pagination/pagination.types';
 import { type Sort } from '../queryBuilder/sort/sort.types';
+import { type Attributes } from '../queryBuilder/attributes/attributes.types';
 
 export interface UseStrapiProps<T extends StrapiEntityTypes> {
     entityType: T;
-    attributes: object;
+    attributes: Attributes<T>;
     filters?: Filters<T>;
     pagination?: Pagination;
     sort?: Sort<T>;
