@@ -1,8 +1,8 @@
 import { type FC } from 'react';
 import { Layout } from 'antd';
-import { SideMenu } from './sideMenu/SideMenu';
-import { Header } from './header/Header';
-import { Content } from './content/Content';
+import { SideMenu } from './SideMenu/SideMenu';
+import { Header } from './Header/Header';
+import { LayoutRoutes } from './LayoutRoutes/LayoutRoutes';
 
 export const MainLayout: FC = () => {
 	return (
@@ -10,7 +10,7 @@ export const MainLayout: FC = () => {
 			<Header />
 			<Layout>
 				<SideMenu />
-				<Content />
+				<LayoutRoutes />
 			</Layout>
 		</Layout>
 	);

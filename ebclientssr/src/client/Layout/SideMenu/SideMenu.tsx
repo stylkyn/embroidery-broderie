@@ -1,6 +1,6 @@
 import { Menu, theme, Layout } from 'antd';
 import { type FC } from 'react';
-import { useCategoriesContext } from '../../../stores';
+import { useCategoriesStore } from '../../stores';
 import { categoriesToMenuItems } from './SideMenu.utils';
 
 const { Sider } = Layout;
@@ -10,7 +10,7 @@ export const SideMenu: FC = () => {
 		token: { colorBgContainer },
 	} = theme.useToken();
 
-	const { categories } = useCategoriesContext();
+	const { categories } = useCategoriesStore();
 	const menuItems = categoriesToMenuItems(categories);
 
 	return (

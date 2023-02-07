@@ -31,6 +31,18 @@
       "relation": "oneToMany",
       "target": "api::category.category",
       "mappedBy": "parent_category"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "categories"
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "([a-z]|-)+"
     }
   }
 }

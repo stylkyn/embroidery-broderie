@@ -21,6 +21,10 @@ export const useStrapi = <T extends StrapiEntityTypes = StrapiEntityTypes>({
 		throw new Error(`API problem ${entityType}`);
 	}
 
+	if (rawData) {
+		console.log(toSchemaData(rawData[STRAPI_ENTITY_TYPES_MAPPER_PLURAL[entityType]]));
+	}
+
 	return {
 		loading,
 		error,

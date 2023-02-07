@@ -20,15 +20,25 @@
     "description": {
       "type": "text"
     },
-    "files": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
+    "image_main": {
       "type": "media",
-      "multiple": true
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "([a-z]|-)+"
     }
   }
 }
