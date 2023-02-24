@@ -24,7 +24,7 @@ export type LogicalOperator = 'and' | 'or' | 'not';
 export type Filters<T extends StrapiEntityTypes = StrapiEntityTypes> = FiltersInner<StrapiSchemasMapper[T]>
 
 type FiltersInner<E extends StrapiEntities> = {
-    [P in keyof E]?: Unpack<E[P]> extends StrapiEntities ? FiltersInner<Unpack<E[P]>> : FiltersItem;
+    [P in keyof E]?: NonNullable<Unpack<E[P]>> extends StrapiEntities ? FiltersInner<NonNullable<Unpack<E[P]>>> : FiltersItem;
 } | {
     [P in LogicalOperator]?: Array<FiltersInner<E>>
 }

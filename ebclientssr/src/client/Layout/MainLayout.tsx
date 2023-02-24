@@ -1,17 +1,15 @@
 import { type FC } from 'react';
-import { Layout } from 'antd';
-import { SideMenu } from './SideMenu/SideMenu';
+import { Layout, ConfigProvider } from 'antd';
 import { Header } from './Header/Header';
 import { LayoutRoutes } from './LayoutRoutes/LayoutRoutes';
 
 export const MainLayout: FC = () => {
 	return (
-		<Layout>
-			<Header />
+		<ConfigProvider>
 			<Layout>
-				<SideMenu />
+				<Header />
 				<LayoutRoutes />
 			</Layout>
-		</Layout>
+		</ConfigProvider>
 	);
 };

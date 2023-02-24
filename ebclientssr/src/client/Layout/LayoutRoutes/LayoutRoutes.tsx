@@ -1,4 +1,4 @@
-import { CategoryPage } from '../../pages/CategoryPage';
+import { CategoryPage } from '../../pages/CategoryPage/CategoryPage';
 import { type FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 

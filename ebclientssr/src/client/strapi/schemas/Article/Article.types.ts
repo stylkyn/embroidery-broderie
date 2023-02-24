@@ -1,6 +1,6 @@
 import { type Image } from '../dataTypes/Image/Image.types';
 
-export interface Category {
+export interface Article {
     id: string;
     name: string;
     description: string;

@@ -12,13 +12,23 @@ export const CategoriesStoreProvider: FCC = ({ children }) => {
 		entityType: 'category',
 		attributes: {
 			...CATEGORY_ATTR,
-			categories: CATEGORY_ATTR,
+			categories: {
+				...CATEGORY_ATTR,
+				parent_category: CATEGORY_ATTR,
+				categories: {
+					...CATEGORY_ATTR,
+					parent_category: {
+						...CATEGORY_ATTR,
+						parent_category: CATEGORY_ATTR,
+					},
+				},
+			},
 			parent_category: CATEGORY_ATTR,
 		},
 		filters: {
-			categories: {
+			parent_category: {
 				id: {
-					notNull: true,
+					null: true,
 				},
 			},
 		},

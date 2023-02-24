@@ -43,6 +43,14 @@
       "required": true,
       "unique": true,
       "regex": "([a-z]|-)+"
+    },
+    "image_main": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

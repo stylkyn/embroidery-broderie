@@ -15,11 +15,35 @@ export const CategoryProductsStoreProvider: FCC<CategoryProductsStoreProviderPro
 			categories: CATEGORY_ATTR,
 		},
 		filters: {
-			categories: {
-				url: {
-					eq: categoryUrl,
+			or: [
+				{
+					categories: {
+						url: {
+							eq: categoryUrl,
+						},
+					},
 				},
-			},
+				{
+					categories: {
+						parent_category: {
+							url: {
+								eq: categoryUrl,
+							},
+						},
+					},
+				},
+				{
+					categories: {
+						parent_category: {
+							parent_category: {
+								url: {
+									eq: categoryUrl,
+								},
+							},
+						},
+					},
+				},
+			],
 		},
 	});
 
