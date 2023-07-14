@@ -7,71 +7,27 @@ import {
 	PopoverContent,
 	useColorModeValue,
 } from '@chakra-ui/react';
+import { buildArticlePath } from 'client/Layout/LayoutRoutes/LayoutRoutes.utils';
+import { usePagesStore } from 'client/stores/PagesStore/PagesStore';
 import { type FC } from 'react';
-import { HeaderNavbarItem } from '../HeaderNavbarItem/HeaderNavbarItem';
-
-interface NavItem {
-	label: string;
-	subLabel?: string;
-	children?: NavItem[];
-	href?: string;
-}
-
-const NAV_ITEMS: NavItem[] = [
-	{
-		label: 'Inspiration',
-		children: [
-			{
-				label: 'Explore Design Work',
-				subLabel: 'Trending Design to inspire you',
-				href: '#',
-			},
-			{
-				label: 'New & Noteworthy',
-				subLabel: 'Up-and-coming Designers',
-				href: '#',
-			},
-		],
-	},
-	{
-		label: 'Find Work',
-		children: [
-			{
-				label: 'Job Board',
-				subLabel: 'Find your dream design job',
-				href: '#',
-			},
-			{
-				label: 'Freelance Projects',
-				subLabel: 'An exclusive list for contract work',
-				href: '#',
-			},
-		],
-	},
-	{
-		label: 'Learn Design',
-		href: '#',
-	},
-	{
-		label: 'Hire Designers',
-		href: '#',
-	},
-];
+import { HeaderNavbarItem } from './HeaderNavbarItem/HeaderNavbarItem';
 
 export const HeaderNavbar: FC = () => {
 	const linkColor = useColorModeValue('gray.600', 'gray.200');
 	const linkHoverColor = useColorModeValue('gray.800', 'white');
 	const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
+	const { pages } = usePagesStore();
+
 	return (
 		<Stack direction={'row'} spacing={4}>
-			{NAV_ITEMS.map((navItem) => (
-				<Box key={navItem.label}>
+			{pages.map((page) => (
+				<Box key={page.id}>
 					<Popover trigger={'hover'} placement={'bottom-start'}>
 						<PopoverTrigger>
 							<Link
 								p={2}
-								href={navItem.href ?? '#'}
+								href={buildArticlePath(page.url)}
 								fontSize={'sm'}
 								fontWeight={500}
 								color={linkColor}
@@ -80,11 +36,11 @@ export const HeaderNavbar: FC = () => {
 									color: linkHoverColor,
 								}}
 							>
-								{navItem.label}
+								{page.short_name}
 							</Link>
 						</PopoverTrigger>
 
-						{navItem.children && (
+						{page.articles.length ? (
 							<PopoverContent
 								border={0}
 								boxShadow={'xl'}
@@ -94,15 +50,15 @@ export const HeaderNavbar: FC = () => {
 								minW={'sm'}
 							>
 								<Stack>
-									{navItem.children.map((child) => (
+									{page.articles.map((subpage) => (
 										<HeaderNavbarItem
-											key={child.label}
-											{...child}
+											key={subpage.id}
+											page={subpage}
 										/>
 									))}
 								</Stack>
 							</PopoverContent>
-						)}
+						) : null}
 					</Popover>
 				</Box>
 			))}

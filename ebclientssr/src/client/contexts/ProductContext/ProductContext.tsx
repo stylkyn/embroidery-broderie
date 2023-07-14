@@ -1,22 +1,28 @@
 import { createContext, useContext, useState } from 'react';
-import { type ProductContext, type ProductContextProviderProps } from './ProductContext.types';
+import {
+	type ProductContext,
+	type ProductContextProviderProps,
+} from './ProductContext.types';
 
-const CategoriesStoreContext = createContext<ProductContext>({
+const ProductStoreContext = createContext<ProductContext>({
 	product: {} as any,
 });
 
-export const ProductContextProvider: FCC<ProductContextProviderProps> = ({ children, product: initialProduct }) => {
+export const ProductContextProvider: FCC<ProductContextProviderProps> = ({
+	children,
+	product: initialProduct,
+}) => {
 	const [product] = useState(initialProduct);
 
 	return (
-		<CategoriesStoreContext.Provider
+		<ProductStoreContext.Provider
 			value={{
 				product,
 			}}
 		>
 			{children}
-		</CategoriesStoreContext.Provider>
+		</ProductStoreContext.Provider>
 	);
 };
 
-export const useProduct = (): ProductContext => useContext(CategoriesStoreContext);
+export const useProduct = (): ProductContext => useContext(ProductStoreContext);

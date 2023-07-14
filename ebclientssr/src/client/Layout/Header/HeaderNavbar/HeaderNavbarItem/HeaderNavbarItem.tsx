@@ -9,21 +9,12 @@ import {
 	Link,
 } from '@chakra-ui/react';
 import { type FC } from 'react';
+import { type headerNavbarItemProps } from './HeaderNavbarItem.types';
 
-export interface HeaderNavbarItemProps {
-	label: string;
-	href: string;
-	subLabel?: string;
-}
-
-export const HeaderNavbarItem: FC<HeaderNavbarItemProps> = ({
-	label,
-	href,
-	subLabel,
-}) => {
+export const HeaderNavbarItem: FC<headerNavbarItemProps> = ({ page }) => {
 	return (
 		<Link
-			href={href}
+			href={page.url}
 			role={'group'}
 			display={'block'}
 			p={2}
@@ -37,9 +28,9 @@ export const HeaderNavbarItem: FC<HeaderNavbarItemProps> = ({
 						_groupHover={{ color: 'pink.400' }}
 						fontWeight={500}
 					>
-						{label}
+						{page.short_name}
 					</Text>
-					<Text fontSize={'sm'}>{subLabel}</Text>
+					{page.title && <Text fontSize={'sm'}>{page.title}</Text>}
 				</Box>
 				<Flex
 					transition={'all .3s ease'}

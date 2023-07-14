@@ -1,7 +1,11 @@
 export const buildCategoryPath = (categoryUrl: string): string => {
-    return `/category/${categoryUrl}`;
-}
+	return `/category/${categoryUrl}`;
+};
 
 export const buildHomePath = (): string => {
-    return '/';
-}
+	return '/';
+};
+
+export const buildArticlePath = (articleUrl: string): string => {
+	return `/article/${articleUrl}`;
+};

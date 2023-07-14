@@ -5,4 +5,5 @@ export const ARTICLE_ATTR: Attributes<'article'> = {
 	url: null,
 	content: null,
 	type: null,
+	title: null,
 } as const;

@@ -9,16 +9,18 @@ import {
 	useColorModeValue,
 	useDisclosure,
 } from '@chakra-ui/react';
+import { type HeaderNavbarMobileItemProps } from './HeaderNavbarMobileItem.types';
 
-export const HeaderNavbarMobileItem: FC<HeaderNavbarMobileItemProps> = ({
+export const HeaderNavbarMobileItem: FCC<HeaderNavbarMobileItemProps> = ({
 	label,
 	children,
 	href,
+	items,
 }) => {
 	const { isOpen, onToggle } = useDisclosure();
 
 	return (
-		<Stack spacing={4} onClick={children && onToggle}>
+		<Stack spacing={4} onClick={items?.length ? onToggle : undefined}>
 			<Flex
 				py={2}
 				as={Link}
@@ -59,7 +61,7 @@ export const HeaderNavbarMobileItem: FC<HeaderNavbarMobileItemProps> = ({
 					borderColor={useColorModeValue('gray.200', 'gray.700')}
 					align={'start'}
 				>
-					{children?.map((child) => (
+					{items?.map((child) => (
 						<Link key={child.label} py={2} href={child.href}>
 							{child.label}
 						</Link>

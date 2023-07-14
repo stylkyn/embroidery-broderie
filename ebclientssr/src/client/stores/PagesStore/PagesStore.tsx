@@ -1,4 +1,4 @@
-import { CATEGORY_ATTR, useStrapi } from '../../strapi';
+import { useStrapi } from '../../strapi';
 import { createContext, useContext } from 'react';
 import { type PagesStore } from './PagesStore.types';
 import { ARTICLE_ATTR } from 'client/strapi/schemas/Article/Article.consts';
@@ -15,12 +15,14 @@ export const PagesStoreProvider: FCC = ({ children }) => {
 			...ARTICLE_ATTR,
 			articles: {
 				...ARTICLE_ATTR,
-				parent_article: CATEGORY_ATTR,
+				parent_article: ARTICLE_ATTR,
 			},
 			parent_article: ARTICLE_ATTR,
 		},
 		filters: {
-			type: 'page',
+			type: {
+				eq: 'page',
+			},
 			parent_article: {
 				id: {
 					null: true,

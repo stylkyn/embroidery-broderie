@@ -1,6 +1,7 @@
 import { Stack, useColorModeValue } from '@chakra-ui/react';
 import { type FC } from 'react';
-import { HeaderNavbarMobileItem } from '../HeaderNavbarMobileItem/HeaderNavbarMobileItem';
+import { NAV_ITEMS } from '../HeaderNavbar/HeaderNavbar.consts';
+import { HeaderNavbarMobileItem } from './HeaderNavbarMobileItem/HeaderNavbarMobileItem';
 
 export const HeaderNavbarMobile: FC = () => {
 	return (
