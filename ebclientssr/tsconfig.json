@@ -11,7 +11,12 @@
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "jsx": "react-jsx",
-    "lib": ["DOM", "DOM.Iterable", "ESNext", "es2020", ],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext",
+      "es2020",
+    ],
     "strict": true,
     "outDir": "dist",
     "module": "ESNext",
@@ -20,11 +25,16 @@
     "sourceMap": true,
     "target": "ES2019"
   },
-  "include": ["src/**/*", "types/*", "server.ts", "node_modules/vite/types/*"],
+  "include": [
+    "src/**/*",
+    "types/*",
+    "server.ts",
+    "node_modules/vite/types/*"
+  ],
   "ts-node": {
     "transpileOnly": true,
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
 }

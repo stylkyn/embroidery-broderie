@@ -1,11 +1,9 @@
-import { Card, Anchor, Image } from 'antd';
 import { buildCategoryPath } from 'client/Layout/LayoutRoutes/LayoutRoutes.utils';
 import { getImagePath } from 'client/utils/filePath';
 import { type FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCategory } from '../../contexts';
-
-const { Meta } = Card;
+import { Box, Image, Flex, Text } from '@chakra-ui/react';
 
 export const CategoryCard: FC = () => {
 	const { category } = useCategory();
@@ -20,12 +18,39 @@ export const CategoryCard: FC = () => {
 	};
 
 	return (
-		<Card.Grid
+		<Flex
+			position="relative"
+			rounded="md"
+			_hover={{ cursor: 'pointer' }}
 			onClick={onSelectCategory}
-			style={{ width: '25%', padding: 10, textAlign: 'center', cursor: 'pointer' }}
 		>
-			<Meta title={category.name} style={{ fontSize: 12, marginBottom: 5 }} />
-			<Image alt={category.name} src={getImagePath(category.image_main.url)} preview={false} />
-		</Card.Grid>
+			<Flex>
+				<Image
+					src={getImagePath(category.image_main.url)}
+					objectFit="cover"
+				/>
+				<Box
+					background="black"
+					w="full"
+					inset={0}
+					h="full"
+					position="absolute"
+					bg="linear-gradient(rgba(0, 0, 0, 0) 32%, rgb(0, 0, 0) 100%)"
+					opacity="0.7"
+				></Box>
+			</Flex>
+			<Text
+				position="absolute"
+				bottom="3"
+				color="white"
+				width="100%"
+				textAlign="center"
+				fontSize="18px"
+				autoCapitalize="uppercase"
+				fontWeight="semibold"
+			>
+				{category.name}
+			</Text>
+		</Flex>
 	);
 };

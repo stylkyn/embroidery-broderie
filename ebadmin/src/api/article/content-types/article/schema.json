@@ -39,6 +39,18 @@
       ],
       "default": "article",
       "required": true
+    },
+    "parent_article": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article.article",
+      "inversedBy": "articles"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "parent_article"
     }
   }
 }

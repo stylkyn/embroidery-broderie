@@ -1,14 +1,16 @@
-import { CategoryProductsStoreProvider, useCategoriesStore, useCategoryProductsStore } from '../../stores';
+import {
+	CategoryProductsStoreProvider,
+	useCategoriesStore,
+	useCategoryProductsStore,
+} from '../../stores';
 import { type FC } from 'react';
 import { BreadcrumbLink, ProductList } from '../../components';
 import { useParams } from 'react-router-dom';
 import { CategoryContextProvider } from '../../contexts';
-import { Layout } from 'antd';
-import { SideMenu } from '../../Layout/SideMenu/SideMenu';
-import { findActiveCategory } from './CategoryPage.utils';
 import { SubCategoryList } from 'client/components/SubCategoryList/SubCategoryList';
-
-const { Content } = Layout;
+import { Container, Flex } from '@chakra-ui/react';
+import { SideMenu } from 'client/Layout/SideMenu/SideMenu';
+import { findActiveCategory } from 'client/utils/findActiveCategory';
 
 export const CategoryPage: FC = () => {
 	const { categoryUrl } = useParams();
@@ -18,18 +20,16 @@ export const CategoryPage: FC = () => {
 	return (
 		<CategoryContextProvider category={category}>
 			<CategoryProductsStoreProvider categoryUrl={categoryUrl}>
-				<Layout>
+				<Flex>
 					<SideMenu />
-					<Layout style={{ padding: '0 24px 24px' }}>
+					<Container marginTop="60px" maxW="90%">
 						<div style={{ margin: '16px 0' }}>
 							<BreadcrumbLink />
 						</div>
-						<Content>
-							<SubCategoryList />
-							<ProductList getProductsFn={useCategoryProductsStore} />
-						</Content>
-					</Layout>
-				</Layout>
+						<SubCategoryList />
+						<ProductList getProductsFn={useCategoryProductsStore} />
+					</Container>
+				</Flex>
 			</CategoryProductsStoreProvider>
 		</CategoryContextProvider>
 	);

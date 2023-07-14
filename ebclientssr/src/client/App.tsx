@@ -3,6 +3,17 @@ import { MainLayout } from './Layout/MainLayout';
 import { GraphQLClient, ClientContext } from 'graphql-hooks';
 import { CategoriesStoreProvider } from './stores';
 import { BEARER_TOKEN, GRAPHQL_URL } from './client.config';
+import { extendTheme, ChakraProvider } from '@chakra-ui/react';
+
+const theme = extendTheme({
+	styles: {
+		global: () => ({
+			button: {
+				bg: '',
+			},
+		}),
+	},
+});
 
 const client = new GraphQLClient({
 	url: GRAPHQL_URL,
@@ -13,11 +24,13 @@ const client = new GraphQLClient({
 
 export const App: FC = () => {
 	return (
-		<ClientContext.Provider value={client}>
-			<CategoriesStoreProvider>
-				<MainLayout />
-			</CategoriesStoreProvider>
-		</ClientContext.Provider>
+		<ChakraProvider theme={theme}>
+			<ClientContext.Provider value={client}>
+				<CategoriesStoreProvider>
+					<MainLayout />
+				</CategoriesStoreProvider>
+			</ClientContext.Provider>
+		</ChakraProvider>
 	);
 };
 

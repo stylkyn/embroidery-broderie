@@ -1,27 +1,43 @@
 import { type FC } from 'react';
-import { Breadcrumb } from 'antd';
 import { useCategory } from '../../contexts';
 import { getParentCategories } from './BreadcrumbLink.utils';
-import { buildCategoryPath, buildHomePath } from 'client/Layout/LayoutRoutes/LayoutRoutes.utils';
-import { HomeOutlined } from '@ant-design/icons';
+import {
+	buildCategoryPath,
+	buildHomePath,
+} from 'client/Layout/LayoutRoutes/LayoutRoutes.utils';
+import { ChevronRightIcon } from '@chakra-ui/icons';
+import {
+	Breadcrumb,
+	BreadcrumbItem,
+	BreadcrumbLink as CKBreadcrumbLink,
+} from '@chakra-ui/react';
 
 export const BreadcrumbLink: FC = () => {
 	const { category } = useCategory();
 
 	const parentCategories = getParentCategories(category);
-	console.log(parentCategories);
 	return (
-		<Breadcrumb>
-			<Breadcrumb.Item href={buildHomePath()}>
-				<HomeOutlined />
-				<span>Home</span>
-			</Breadcrumb.Item>
-			{parentCategories.map(c => (
-				<Breadcrumb.Item key={c.id} href={buildCategoryPath(c.url)}>
-					<span>{c.name}</span>
-				</Breadcrumb.Item>
+		<Breadcrumb
+			spacing="8px"
+			separator={<ChevronRightIcon color="gray.500" />}
+		>
+			<BreadcrumbItem>
+				<CKBreadcrumbLink href={buildHomePath()}>Home</CKBreadcrumbLink>
+			</BreadcrumbItem>
+			{parentCategories.map((c) => (
+				<BreadcrumbItem key={c.id}>
+					<CKBreadcrumbLink href={buildCategoryPath(c.url)}>
+						{c.name}
+					</CKBreadcrumbLink>
+				</BreadcrumbItem>
 			))}
-			{category && <Breadcrumb.Item>{category?.name}</Breadcrumb.Item>}
+			{category && (
+				<BreadcrumbItem>
+					<CKBreadcrumbLink href={buildCategoryPath(category.url)}>
+						{category.name}
+					</CKBreadcrumbLink>
+				</BreadcrumbItem>
+			)}
 		</Breadcrumb>
 	);
 };

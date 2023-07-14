@@ -1,39 +1,46 @@
-import { Menu, theme, Layout } from 'antd';
-import { useCategory } from 'client/contexts';
-import { type FC } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useCategoriesStore } from '../../stores';
-import { buildCategoryPath } from '../LayoutRoutes/LayoutRoutes.utils';
-import { categoriesToMenuItems } from './SideMenu.utils';
+import {
+	Box,
+	useColorModeValue,
+	Drawer,
+	DrawerContent,
+	useDisclosure,
+} from '@chakra-ui/react';
+import { SideMenuContent } from './SideMenuContent/SideMenuContent';
+import { SideMenuMobile } from './SideMenuMobile/SideMenuMobile';
 
-const { Sider } = Layout;
-
-export const SideMenu: FC = () => {
-	const {
-		token: { colorBgContainer },
-	} = theme.useToken();
-
-	const { categories } = useCategoriesStore();
-	const { category } = useCategory();
-	const navigate = useNavigate();
-
-	const menuItems = categoriesToMenuItems(categories);
-	const selectedKeys = category ? [category.url] : [];
-
-	const onSelectCategory = (e: any): void => {
-		navigate(buildCategoryPath(e.key));
-	};
-
+export const SideMenu: FCC = ({ children }) => {
+	const { isOpen, onOpen, onClose } = useDisclosure();
 	return (
-		<Sider width={200} style={{ background: colorBgContainer }}>
-			<Menu
-				mode="vertical"
-				selectedKeys={selectedKeys}
-				onClick={onSelectCategory}
-				defaultOpenKeys={selectedKeys}
-				style={{ height: '100%', borderRight: 0 }}
-				items={menuItems}
+		<Box
+			minH="100vh"
+			w="240px"
+			bg={useColorModeValue('gray.100', 'gray.900')}
+		>
+			<SideMenuContent
+				onClose={() => onClose}
+				display={{ base: 'none', md: 'block' }}
 			/>
-		</Sider>
+			<Drawer
+				autoFocus={false}
+				isOpen={isOpen}
+				placement="left"
+				onClose={onClose}
+				returnFocusOnClose={false}
+				onOverlayClick={onClose}
+				size="full"
+			>
+				<DrawerContent>
+					<SideMenuContent onClose={onClose} />
+				</DrawerContent>
+			</Drawer>
+			{/* mobilenav */}
+			<SideMenuMobile
+				display={{ base: 'flex', md: 'none' }}
+				onOpen={onOpen}
+			/>
+			<Box ml={{ base: 0, md: 60 }} p="4">
+				{children}
+			</Box>
+		</Box>
 	);
 };

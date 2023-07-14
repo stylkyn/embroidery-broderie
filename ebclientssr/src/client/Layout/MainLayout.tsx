@@ -1,15 +1,15 @@
 import { type FC } from 'react';
-import { Layout, ConfigProvider } from 'antd';
 import { Header } from './Header/Header';
 import { LayoutRoutes } from './LayoutRoutes/LayoutRoutes';
+import { Footer } from './Footer/Footer';
+import { Flex } from '@chakra-ui/react';
 
 export const MainLayout: FC = () => {
 	return (
-		<ConfigProvider>
-			<Layout>
-				<Header />
-				<LayoutRoutes />
-			</Layout>
-		</ConfigProvider>
+		<Flex direction="column">
+			<Header />
+			<LayoutRoutes />
+			<Footer />
+		</Flex>
 	);
 };
