@@ -1,17 +1,18 @@
 import { useParams } from 'react-router-dom';
 import { type FC } from 'react';
 import { Article } from 'client/components';
-import {
-	ArticlesStoreProvider,
-	useArticleStore,
-} from 'client/stores/ArticleStore/ArticleStore';
 import { ArticleContextProvider } from 'client/contexts/ArticleContext/ArticleContext';
+import { Container } from '@chakra-ui/react';
+import {
+	PagesStoreProvider,
+	usePagesStore,
+} from 'client/stores/PagesStore/PagesStore';
 
 const ArticleContextContainer: FCC = ({ children }) => {
-	const { articles } = useArticleStore();
+	const { pages } = usePagesStore();
 
 	return (
-		<ArticleContextProvider article={articles[0]}>
+		<ArticleContextProvider article={pages[0]?.article}>
 			{children}
 		</ArticleContextProvider>
 	);
@@ -21,7 +22,7 @@ export const ArticlePage: FC = () => {
 	const { articleUrl } = useParams();
 
 	return (
-		<ArticlesStoreProvider
+		<PagesStoreProvider
 			filters={{
 				url: {
 					eq: articleUrl,
@@ -29,8 +30,10 @@ export const ArticlePage: FC = () => {
 			}}
 		>
 			<ArticleContextContainer>
-				<Article />
+				<Container maxW="container.lg">
+					<Article />
+				</Container>
 			</ArticleContextContainer>
-		</ArticlesStoreProvider>
+		</PagesStoreProvider>
 	);
 };

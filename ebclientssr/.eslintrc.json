@@ -26,6 +26,7 @@
 	},
 	"plugins": ["react", "react-hooks"],
 	"rules": {
+		"@typescript-eslint/naming-convention": "off",
 		"multiline-ternary": 0,
 		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
 		"no-lone-blocks": "error",

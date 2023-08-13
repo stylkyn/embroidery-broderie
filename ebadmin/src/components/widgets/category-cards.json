@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_widgets_category_cards",
+  "info": {
+    "displayName": "CategoriesCards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

@@ -12,32 +12,8 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "text",
-      "required": true,
-      "unique": false
-    },
-    "short_name": {
-      "type": "string",
-      "required": true,
-      "unique": false
-    },
-    "url": {
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
     "content": {
       "type": "richtext",
-      "required": true
-    },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "page",
-        "article"
-      ],
-      "default": "article",
       "required": true
     },
     "parent_article": {
@@ -51,6 +27,21 @@
       "relation": "oneToMany",
       "target": "api::article.article",
       "mappedBy": "parent_article"
+    },
+    "preview_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "required": true
     }
   }
 }

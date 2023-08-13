@@ -1,6 +1,6 @@
-import { type Article } from '../../strapi/schemas/Article/Article.types';
+import { type Page } from '../../strapi/schemas/Page/Page.types';
 
 export interface PagesStore {
-	pages: Article[];
+	pages: Page[];
 	loading: boolean;
 }

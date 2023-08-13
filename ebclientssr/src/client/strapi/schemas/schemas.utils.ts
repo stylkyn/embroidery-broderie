@@ -15,6 +15,9 @@ export const STRAPI_ENTITY_TYPES_MAPPER_PLURAL: Record<
 	category: 'categories',
 	product: 'products',
 	article: 'articles',
+	page: 'pages',
+	widget: 'widgets',
+	header: 'header',
 };
 
 export const isRelation = <T extends StrapiEntityTypes>(

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_widgets_products_cards",
+  "info": {
+    "displayName": "ProductsCards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

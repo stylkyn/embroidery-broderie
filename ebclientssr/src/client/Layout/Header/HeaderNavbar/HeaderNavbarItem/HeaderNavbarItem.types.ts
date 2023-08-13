@@ -1,5 +1,6 @@
-import { type Article } from 'client/strapi/schemas/Article/Article.types';
+import { type Page } from 'client/strapi/schemas/Page/Page.types';
 
-export interface headerNavbarItemProps {
-	page: Article;
+export interface HeaderNavbarItemProps {
+	page: Page;
+	isFixed?: boolean;
 }

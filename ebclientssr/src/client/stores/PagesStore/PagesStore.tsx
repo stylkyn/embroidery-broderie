@@ -2,33 +2,27 @@ import { useStrapi } from '../../strapi';
 import { createContext, useContext } from 'react';
 import { type PagesStore } from './PagesStore.types';
 import { ARTICLE_ATTR } from 'client/strapi/schemas/Article/Article.consts';
+import { PAGE_ATTR } from 'client/strapi/schemas/Page/Page.consts';
+import { type Filters } from 'client/strapi/queryBuilder/filters/filters.types';
 
 const PagesStoreContext = createContext<PagesStore>({
 	pages: [],
 	loading: false,
 });
 
-export const PagesStoreProvider: FCC = ({ children }) => {
+export const PagesStoreProvider: FCC<{ filters: Filters<'page'> }> = ({
+	children,
+	filters,
+}) => {
 	const { data, loading } = useStrapi({
-		entityType: 'article',
+		entityType: 'page',
 		attributes: {
-			...ARTICLE_ATTR,
-			articles: {
-				...ARTICLE_ATTR,
-				parent_article: ARTICLE_ATTR,
-			},
-			parent_article: ARTICLE_ATTR,
+			...PAGE_ATTR,
+			article: ARTICLE_ATTR,
+			pages: PAGE_ATTR,
+			parent_page: PAGE_ATTR,
 		},
-		filters: {
-			type: {
-				eq: 'page',
-			},
-			parent_article: {
-				id: {
-					null: true,
-				},
-			},
-		},
+		filters,
 	});
 
 	return (

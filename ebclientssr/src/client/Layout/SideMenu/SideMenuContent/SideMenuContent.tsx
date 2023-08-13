@@ -25,7 +25,6 @@ export const SideMenuContent: FC<SidebarProps> = ({ onClose, ...rest }) => {
 			w={{ base: 'full', md: 60 }}
 			pos="fixed"
 			h="full"
-			mt="60px"
 			{...rest}
 		>
 			<Flex

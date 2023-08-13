@@ -14,11 +14,11 @@ services:
       - POSTGRES_USER=stylkyn
       - POSTGRES_DB=embroidery_broderie
     ports:
-      - '5432:5432'
+      - "5432:5432"
     networks:
       - ebadminpostgressnetwork
     volumes:
-      - pgdata:/var/lib/postgresql
+      - pgdata:/var/lib/postgresql/data
 
   ebclientssr:
     build: ./ebclientssr

@@ -14,6 +14,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { type FC } from 'react';
 import { HeaderNavbar } from './HeaderNavbar/HeaderNavbar';
 import { HeaderNavbarMobile } from './HeaderNavbarMobile/HeaderNavbarMobile';
+import { HEADER_HEIGHT } from './Header.consts';
 
 export const Header: FC = () => {
 	const { isOpen, onToggle } = useDisclosure();
@@ -23,7 +24,7 @@ export const Header: FC = () => {
 			<Flex
 				bg={useColorModeValue('white', 'gray.800')}
 				color={useColorModeValue('gray.600', 'white')}
-				minH={'60px'}
+				minH={HEADER_HEIGHT}
 				py={{ base: 2 }}
 				px={{ base: 4 }}
 				borderBottom={1}
@@ -64,7 +65,7 @@ export const Header: FC = () => {
 						fontFamily={'heading'}
 						color={useColorModeValue('gray.800', 'white')}
 					>
-						Logo
+						Embroidery-broderie
 					</Text>
 
 					<Flex display={{ base: 'none', md: 'flex' }} ml={10}>
