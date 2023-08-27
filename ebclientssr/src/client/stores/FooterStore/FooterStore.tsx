@@ -21,6 +21,10 @@ export const FooterStoreProvider: FCC = ({ children }) => {
 		},
 	});
 
+	if (loading) {
+		return null;
+	}
+
 	return (
 		<FooterStoreContext.Provider
 			value={{

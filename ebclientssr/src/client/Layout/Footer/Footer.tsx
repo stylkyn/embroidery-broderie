@@ -16,12 +16,25 @@ import { ListMenu } from './ListMenu';
 import { useFooterStore } from 'client/stores/FooterStore/FooterStore';
 
 export const Footer: FC = () => {
-	const { footer: { box1_pages, box1_title, box2_pages, box2_title, newsletter_content, newsletter_title } } = useFooterStore();
+	const { loading, footer: { box1_pages, box1_title, box2_pages, box2_title, newsletter_content, newsletter_title } } = useFooterStore();
+
+	const bgColor = useColorModeValue('gray.50', 'gray.900');
+	const color = useColorModeValue('gray.700', 'gray.200')
+	const iconBgColor = useColorModeValue('green.400', 'green.800')
+	const iconColor = useColorModeValue('white', 'gray.800')
+	const inputBgColor = useColorModeValue(
+		'blackAlpha.100',
+		'whiteAlpha.100'
+	)
+
+	if (loading) {
+		return null;
+	}
 
 	return (
 		<Box
-			bg={useColorModeValue('gray.50', 'gray.900')}
-			color={useColorModeValue('gray.700', 'gray.200')}
+			bg={bgColor}
+			color={color}
 		>
 			<Container as={Stack} maxW={'6xl'} py={10}>
 				<SimpleGrid
@@ -43,18 +56,15 @@ export const Footer: FC = () => {
 						<Stack direction={'row'}>
 							<Input
 								placeholder={'Your email address'}
-								bg={useColorModeValue(
-									'blackAlpha.100',
-									'whiteAlpha.100'
-								)}
+								bg={inputBgColor}
 								border={0}
 								_focus={{
 									bg: 'whiteAlpha.300',
 								}}
 							/>
 							<IconButton
-								bg={useColorModeValue('green.400', 'green.800')}
-								color={useColorModeValue('white', 'gray.800')}
+								bg={iconBgColor}
+								color={iconColor}
 								_hover={{
 									bg: 'green.600',
 								}}

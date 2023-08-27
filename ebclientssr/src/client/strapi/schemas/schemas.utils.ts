@@ -18,12 +18,13 @@ export const STRAPI_ENTITY_TYPES_MAPPER_PLURAL: Record<
 	page: 'pages',
 	widget: 'widgets',
 	header: 'header',
+	footer: 'footer',
 };
 
 export const isRelation = <T extends StrapiEntityTypes>(
 	value: StrapiRawDataItem<T> | any
 ): value is StrapiRawDataItem<T> => {
-	return !!(value as StrapiRawDataItem<T>).data;
+	return !!(value as StrapiRawDataItem<T>)?.data;
 };
 
 export const toSchemaData = <T extends StrapiEntityTypes>(
@@ -60,7 +61,7 @@ export const toSchemaDataOne = <T extends StrapiEntityTypes>(
 ): StrapiSchemasMapper[T] => {
 	if (isArray(item.data)) {
 		// TODO: Doresit any
-		return toSchemaData(item as any)[0] as any;
+		return toSchemaData(item as any)[0];
 	}
 
 	const flatAttributes = reduce(

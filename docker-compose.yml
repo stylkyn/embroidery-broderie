@@ -4,21 +4,22 @@ x-common-variables: &common-variables
   REACT_APP_SERVER_PORT: 8000
 
 services:
-  ebpostrgres:
-    image: postgres
-    cap_add:
-      - SYS_NICE
-    restart: always
-    environment:
-      - POSTGRES_PASSWORD=banicek21
-      - POSTGRES_USER=stylkyn
-      - POSTGRES_DB=embroidery_broderie
-    ports:
-      - "5432:5432"
-    networks:
-      - ebadminpostgressnetwork
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+  # ebpostrgres:
+  #   image: postgres
+  #   cap_add:
+  #     - SYS_NICE
+  #   restart: always
+  #   environment:
+  #     - POSTGRES_PASSWORD=banicek21
+  #     - POSTGRES_USER=stylkyn
+  #     - POSTGRES_DB=s
+  #     - PGDATA=/var/lib/postgresql/data/pgemb/
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - ebadminpostgressnetwork
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data/
 
   ebclientssr:
     build: ./ebclientssr
@@ -43,25 +44,25 @@ services:
       NODE_PATH: src
     ports:
       - 1337:1337
-    depends_on:
-      - ebpostrgres
+    # depends_on:
+    #   - ebpostrgres
     volumes:
       - ./ebadmin/src:/app/src
     networks:
-      - ebadminpostgressnetwork
+      # - ebadminpostgressnetwork
       - ebclientssrebadminnetwork
-    links:
-      - ebpostrgres
+    # links:
+    #   - ebpostrgres
     command: bash -c "yarn develop"
 
 networks:
-  ebadminpostgressnetwork:
-    name: ebadminpostgressnetwork
-    driver: bridge
+  # ebadminpostgressnetwork:
+  #   name: ebadminpostgressnetwork
+  #   driver: bridge
   ebclientssrebadminnetwork:
     name: ebclientssrebadminnetwork
     driver: bridge
 
 volumes:
-  pgdata:
+  # pgdata:
   ebadmin:

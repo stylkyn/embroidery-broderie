@@ -1,7 +1,7 @@
 {
   "collectionName": "components_widgets_products_cards",
   "info": {
-    "displayName": "ProductsCards",
+    "displayName": "ProductCards",
     "description": ""
   },
   "options": {},
@@ -14,7 +14,7 @@
     "title": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "text"
     }
   }

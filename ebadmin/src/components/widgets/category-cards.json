@@ -1,7 +1,7 @@
 {
   "collectionName": "components_widgets_category_cards",
   "info": {
-    "displayName": "CategoriesCards",
+    "displayName": "CategoryCards",
     "description": ""
   },
   "options": {},
@@ -11,10 +11,10 @@
       "relation": "oneToMany",
       "target": "api::category.category"
     },
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "text"
     }
   }
