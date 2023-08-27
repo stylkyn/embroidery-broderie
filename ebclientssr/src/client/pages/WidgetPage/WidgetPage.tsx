@@ -1,20 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { type FC } from 'react';
-import { Article } from 'client/components';
 import { Container } from '@chakra-ui/react';
 import {
-	useWidgetPageStore,
 	WidgetPageStoreProvider,
 } from 'client/stores/WidgetPageStore/WidgetPageStore';
-import { PageContextProvider } from 'client/contexts/PageContext/PageContext';
-
-const ArticleContextContainer: FCC = ({ children }) => {
-	const { widgetPage } = useWidgetPageStore();
-
-	return (
-		<PageContextProvider page={widgetPage}>{children}</PageContextProvider>
-	);
-};
+import { WidgetsSwitch } from 'client/components/Widgets/WidgetsSwitch';
 
 export const WidgetPage: FC = () => {
 	const { pageUrl } = useParams();
@@ -27,11 +17,9 @@ export const WidgetPage: FC = () => {
 				},
 			}}
 		>
-			<ArticleContextContainer>
-				<Container maxW="container.lg">
-					<Article />
-				</Container>
-			</ArticleContextContainer>
+			<Container maxW="container.lg">
+				<WidgetsSwitch />
+			</Container>
 		</WidgetPageStoreProvider>
 	);
 };

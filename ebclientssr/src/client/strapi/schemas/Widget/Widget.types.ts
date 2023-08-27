@@ -1,12 +1,10 @@
-import { type Category } from '../Category/Category.types';
-import { type Article } from '../Article/Article.types';
+import { type WidgetCategoryCard } from './WidgetCategoryCard/WidgetCategoryCard.types';
+import { type WidgetProductCard } from './WidgetProductCard/WidgetProductCard.types';
 
-export type WidgetType = 'product' | 'article' | 'category';
+export type WidgetType = 'ComponentWidgetsCategoryCards' | 'ComponentWidgetsProductsCards';
 
-export type Widget = 
-}
-interface WidgetBase {
+export type Widget = WidgetCategoryCard | WidgetProductCard;
+
+export interface WidgetBase {
 	__typename: string;
-	
 }
-

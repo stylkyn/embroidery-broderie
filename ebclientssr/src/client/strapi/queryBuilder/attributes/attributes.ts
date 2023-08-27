@@ -10,7 +10,16 @@ export const toGraphQlAttributes = (attributes: Attributes): string => {
 
 export const toGraphQlAttributesObject = (attributes: Attributes): object => {
     return reduce(attributes, (accum, value, key) => {
+
         if (isObject(value)) {
+            // components
+            if (isDynamicContent(value)) {
+                return {
+                    ...accum,
+                    [key]: graphQlAttributesToDynamicContent(value)
+                }
+            }
+
             return {
                 ...accum,
                 [key]: {
@@ -28,6 +37,20 @@ export const toGraphQlAttributesObject = (attributes: Attributes): object => {
         }
     }, {})
 }
+
+// Imlementace kuvli dynamic contentu - https://github.com/strapi/strapi/issues/4849 (... NazevContentu { ... })
+const graphQlAttributesToDynamicContent = (object: Record<string, any>): object => {
+    const { isDynamicContent, ...validObject } = object;
+
+    return Object.keys(validObject).reduce((accum: object, key: string) => {
+        return {
+            ...accum,
+            [`... on ${key}`]: toGraphQlAttributesObject(validObject[key]),
+        }
+    }, {});
+}
+
+const isDynamicContent = (value: Record<string, any>): boolean => !!value.isDynamicContent;
 
 const graphQlAttributesToString = (object: Record<string, any>): string => {
     return Object.keys(object).reduce((accum, key) => {

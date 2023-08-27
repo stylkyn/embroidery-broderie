@@ -5,6 +5,8 @@ import { type Widget } from './Widget/Widget.types';
 import { type Page } from './Page/Page.types';
 import { type Header } from './Header/Header.types';
 import { type Footer } from './Footer/Footer.types';
+import { type WidgetCategoryCard } from './Widget/WidgetCategoryCard/WidgetCategoryCard.types';
+import { type WidgetProductCard } from './Widget/WidgetProductCard/WidgetProductCard.types';
 
 export type StrapiEntityTypes =
 	| 'header'
@@ -13,7 +15,10 @@ export type StrapiEntityTypes =
 	| 'widget'
 	| 'category'
 	| 'product'
-	| 'article';
+	| 'article'
+	| 'widget_category_card'
+	| 'widget_product_card';
+
 export type StrapiEntities =
 	| Header
 	| Footer
@@ -21,7 +26,9 @@ export type StrapiEntities =
 	| Category
 	| Product
 	| Article
-	| Widget;
+	| Widget
+	| WidgetCategoryCard
+	| WidgetProductCard;
 
 export interface StrapiSchemasMapper {
 	footer: Footer;
@@ -31,4 +38,6 @@ export interface StrapiSchemasMapper {
 	product: Product;
 	page: Page;
 	widget: Widget;
+	widget_category_card: WidgetCategoryCard;
+	widget_product_card: WidgetProductCard;
 }

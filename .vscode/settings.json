@@ -4,5 +4,9 @@
     "**/.pnp.*": true
   },
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "git-blame.gitWebUrl": ""
+  "git-blame.gitWebUrl": "",
+  "cSpell.words": [
+    "accum",
+    "Strapi"
+  ]
 }

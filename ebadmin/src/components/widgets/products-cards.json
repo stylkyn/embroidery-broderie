@@ -11,7 +11,7 @@
       "relation": "oneToMany",
       "target": "api::product.product"
     },
-    "title": {
+    "name": {
       "type": "string"
     },
     "description": {

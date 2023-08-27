@@ -11,7 +11,7 @@
       "relation": "oneToMany",
       "target": "api::category.category"
     },
-    "title": {
+    "name": {
       "type": "string"
     },
     "description": {
