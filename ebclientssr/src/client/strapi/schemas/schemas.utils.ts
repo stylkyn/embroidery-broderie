@@ -19,6 +19,8 @@ export const STRAPI_ENTITY_TYPES_MAPPER_PLURAL: Record<
 	widget: 'widgets',
 	header: 'header',
 	footer: 'footer',
+	widget_category_card: 'widget-category-cards',
+	widget_product_card: 'widget-product-cards',
 };
 
 export const isRelation = <T extends StrapiEntityTypes>(
@@ -43,6 +45,10 @@ export const toSchemaData = <T extends StrapiEntityTypes>(
 					return { ...accum, [key]: toSchemaData(value) };
 				}
 
+				if (isArray(value)) {
+					return { ...accum, [key]: arrayToSchemaData(value) };
+				}
+
 				return { ...accum, [key]: value };
 				// TODO: Dotypovat
 			},
@@ -56,12 +62,24 @@ export const toSchemaData = <T extends StrapiEntityTypes>(
 	});
 };
 
+const arrayToSchemaData = (values: any[]): any => {
+	return values.map((value) => {
+		return Object.keys(value).reduce((accum, key) => {
+			if (isRelation(value[key])) {
+				return { ...accum, [key]: toSchemaData(value[key]) };
+			}
+
+			return { ...accum, [key]: value[key] };
+		}, {});
+	});
+}
+
 export const toSchemaDataOne = <T extends StrapiEntityTypes>(
 	item: StrapiRawDataItemOne<T>
 ): StrapiSchemasMapper[T] => {
 	if (isArray(item.data)) {
 		// TODO: Doresit any
-		return toSchemaData(item as any)[0];
+		return toSchemaData(item as any)[0] as any;
 	}
 
 	const flatAttributes = reduce(
