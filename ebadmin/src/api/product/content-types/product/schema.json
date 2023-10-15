@@ -39,6 +39,17 @@
       "required": true,
       "unique": true,
       "regex": "([a-z]|-)+"
+    },
+    "price": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.price",
+      "required": true
+    },
+    "mainCategory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   }
 }

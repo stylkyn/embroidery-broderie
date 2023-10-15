@@ -1,21 +1,26 @@
+import { Box, VStack } from '@chakra-ui/react';
 import { useWidgetPageStore } from 'client/stores/WidgetPageStore/WidgetPageStore';
 import { type FC } from 'react';
 import { Widget } from './Widget/Widget';
 
 export const WidgetsSwitch: FC = () => {
-    const { widgetPage, loading } = useWidgetPageStore();
+	const { widgetPage, loading } = useWidgetPageStore();
 
-    if (loading || !widgetPage) {
-        return null;
-    }
+	if (loading || !widgetPage) {
+		return null;
+	}
 
-    const { widgets } = widgetPage;
+	const { widgets } = widgetPage;
 
-	return <>
-    {
-        widgets?.map((widget, index) => {
-           return <Widget key={index} widget={widget} />
-        })
-    }
-    </>
+	return (
+		<VStack spacing="2rem">
+			{widgets?.map((widget, index) => {
+				return (
+					<Box key={index}>
+						<Widget widget={widget} />
+					</Box>
+				);
+			})}
+		</VStack>
+	);
 };

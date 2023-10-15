@@ -12,6 +12,7 @@ export const CategoryProductsStoreProvider: FCC<CategoryProductsStoreProviderPro
 		entityType: 'product',
 		attributes: {
 			...PRODUCT_ATTR,
+			mainCategory: CATEGORY_ATTR,
 			categories: CATEGORY_ATTR,
 		},
 		filters: {

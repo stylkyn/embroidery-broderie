@@ -5,8 +5,5 @@
   },
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "git-blame.gitWebUrl": "",
-  "cSpell.words": [
-    "accum",
-    "Strapi"
-  ]
+  "cSpell.words": ["accum", "chakra", "Strapi"]
 }

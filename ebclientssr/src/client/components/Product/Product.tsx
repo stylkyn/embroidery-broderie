@@ -3,11 +3,13 @@ import { useProduct } from '../../contexts/ProductContext/ProductContext';
 import { getImagePath } from '../../utils/filePath';
 import { truncate } from 'lodash';
 
-import { Flex, Box, Image, useColorModeValue, Button } from '@chakra-ui/react';
-import { MdShoppingBasket } from 'react-icons/md';
+import { Flex, Box, Image, useColorModeValue } from '@chakra-ui/react';
+import { AddCardButton } from '../shared/AddCardButton/AddCardButton';
+import { usePrice } from 'client/hooks';
 
 export const Product: FC = () => {
 	const { product } = useProduct();
+	const { value, currencyChar } = usePrice(product.price);
 	return (
 		<Flex w="full" alignItems="center" justifyContent="center">
 			<Box maxW="sm" borderWidth="1px" rounded="lg" position="relative">
@@ -48,23 +50,16 @@ export const Product: FC = () => {
 					</Flex>
 
 					<Flex justifyContent="space-between" mt="5">
-						<Button
-							leftIcon={<MdShoppingBasket />}
-							colorScheme="pink"
-							variant="outline"
-							w="half"
-						>
-							Add to Card
-						</Button>
+						<AddCardButton />
 						<Box
 							fontSize="2xl"
 							fontWeight="bold"
 							color={useColorModeValue('red.600', 'white')}
 						>
 							<Box as="span" color={'red.600'} fontSize="lg">
-								£
+								{currencyChar}
 							</Box>
-							20
+							{value}
 						</Box>
 					</Flex>
 				</Box>

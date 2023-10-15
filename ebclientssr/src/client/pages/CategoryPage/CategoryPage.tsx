@@ -8,7 +8,7 @@ import { type FC } from 'react';
 import { BreadcrumbLink, ProductList } from '../../components';
 import { useParams } from 'react-router-dom';
 import { CategoryContextProvider } from '../../contexts';
-import { SubCategoryList } from 'client/components/SubCategoryList/SubCategoryList';
+import { SubCategoryList } from 'client/components/Category/SubCategoryList/SubCategoryList';
 import { Container, Flex } from '@chakra-ui/react';
 import { SideMenu } from 'client/Layout/SideMenu/SideMenu';
 import { findActiveCategory } from 'client/utils/findActiveCategory';

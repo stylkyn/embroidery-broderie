@@ -29,7 +29,10 @@ export const WidgetPageStoreProvider: FCC<{ filters: Filters<'page'> }> = ({
 				},
 				ComponentWidgetsProductsCards: {
 					...WIDGET_PRODUCT_CARD_ATTR,
-					products: PRODUCT_ATTR,
+					products: {
+						...PRODUCT_ATTR,
+						mainCategory: CATEGORY_ATTR,
+					},
 				},
 				// TODO: Vyresit any, tady nejak obecne vymyslet praci s dotazovanim an dynamic content (result funguje dobre)
 			} as any,
