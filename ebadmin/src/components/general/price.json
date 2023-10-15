@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_general_prices",
+  "info": {
+    "displayName": "Price"
+  },
+  "options": {},
+  "attributes": {
+    "eur": {
+      "type": "decimal"
+    }
+  }
+}
