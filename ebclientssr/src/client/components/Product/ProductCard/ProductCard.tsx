@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { useProduct } from '../../../contexts';
 import { Box, Image, Flex, useColorModeValue } from '@chakra-ui/react';
 import { truncate } from 'lodash';
-import { AddCardButton } from '../../shared/AddCardButton/AddCardButton';
 import { usePrice } from 'client/hooks';
+import { ProductButton } from '../ProductButton/ProductButton';
 
 export const ProductCard: FC = () => {
 	const { product } = useProduct();
@@ -67,7 +67,7 @@ export const ProductCard: FC = () => {
 					</Flex>
 
 					<Flex justifyContent="space-between" mt="5">
-						<AddCardButton />
+						<ProductButton />
 						<Box fontSize="2xl" fontWeight="bold" color={boxColor}>
 							<Box as="span" color={'red.600'} fontSize="lg">
 								{currencyChar}

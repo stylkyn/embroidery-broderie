@@ -4,8 +4,8 @@ import { getImagePath } from '../../utils/filePath';
 import { truncate } from 'lodash';
 
 import { Flex, Box, Image, useColorModeValue } from '@chakra-ui/react';
-import { AddCardButton } from '../shared/AddCardButton/AddCardButton';
 import { usePrice } from 'client/hooks';
+import { ProductButton } from './ProductButton/ProductButton';
 
 export const Product: FC = () => {
 	const { product } = useProduct();
@@ -50,7 +50,7 @@ export const Product: FC = () => {
 					</Flex>
 
 					<Flex justifyContent="space-between" mt="5">
-						<AddCardButton />
+						<ProductButton />
 						<Box
 							fontSize="2xl"
 							fontWeight="bold"

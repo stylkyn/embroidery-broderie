@@ -5,7 +5,6 @@ import {
 	Text,
 	Image,
 	Flex,
-	Button,
 	Heading,
 	SimpleGrid,
 	StackDivider,
@@ -16,6 +15,7 @@ import { getImagePath } from 'client/utils/filePath';
 import { type FC } from 'react';
 import { MdLocalShipping } from 'react-icons/md';
 import { usePrice } from 'client/hooks';
+import { ProductButton } from '../ProductButton/ProductButton';
 
 export const ProductDetail: FC = () => {
 	const { product } = useProduct();
@@ -164,22 +164,7 @@ export const ProductDetail: FC = () => {
 						</Box> */}
 					</Stack>
 
-					<Button
-						rounded={'none'}
-						w={'full'}
-						mt={8}
-						size={'lg'}
-						py={'7'}
-						bg={useColorModeValue('gray.900', 'gray.50')}
-						color={useColorModeValue('white', 'gray.900')}
-						textTransform={'uppercase'}
-						_hover={{
-							transform: 'translateY(2px)',
-							boxShadow: 'lg',
-						}}
-					>
-						Add to cart
-					</Button>
+					<ProductButton />
 
 					<Stack
 						direction="row"
