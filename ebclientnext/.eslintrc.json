@@ -1,121 +1,129 @@
 {
-	"env": {
-		"browser": true,
-		"es2021": true
-	},
-	"settings": {
-		"react": {
-			"version": "detect"
-		}
-	},
-	"extends": ["next/core-web-vitals", "eslint:recommended", "plugin:react/recommended"],
-	"overrides": [
-		{
-			"files": ["**/*.tsx"],
-			"rules": {
-				"react/prop-types": 0,
-				"react/no-unused-prop-types": 0,
-				"react/require-default-props": "off"
-			}
-		}
-	],
-	"plugins": [
-		"react-hooks",
-		"@next/eslint-plugin-next",
-		 "eslint-plugin-react-hooks",
-		 "unused-imports"
-	],
-	"rules": {
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "extends": [
+        "next/core-web-vitals",
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "overrides": [
+        {
+            "files": ["**/*.tsx"],
+            "rules": {
+                "react/prop-types": 0,
+                "react/no-unused-prop-types": 0,
+                "react/require-default-props": "off"
+            }
+        }
+    ],
+    "plugins": [
+        "react-hooks",
+        "@next/eslint-plugin-next",
+        "eslint-plugin-react-hooks",
+        "unused-imports"
+    ],
+    "rules": {
+        "padding-line-between-statements": [
+            "error",
+            { "blankLine": "always", "prev": "import", "next": "export" }
+        ],
+        "newline-before-return": "error",
         "unused-imports/no-unused-imports": "error",
-		"object-curly-spacing": ["error", "always"],
-		"@typescript-eslint/naming-convention": "off",
-		"multiline-ternary": 0,
-		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
-		"no-lone-blocks": "error",
-		"no-multi-spaces": "error",
-		"@typescript-eslint/strict-boolean-expressions": 0,
-		"@typescript-eslint/camelcase": "off",
-		"@typescript-eslint/explicit-module-boundary-types": "off",
-		"@typescript-eslint/lines-between-class-members": "off",
-		"@typescript-eslint/no-explicit-any": "off",
-		"@typescript-eslint/no-non-null-assertion": "off",
-		"@typescript-eslint/no-use-before-define": "off",
-		"arrow-parens": "off",
-		"camelcase": "off",
-		"class-methods-use-this": "off",
-		"default-case": "off",
-		"eqeqeq": "error",
-		"comma-dangle": "off",
-		"@typescript-eslint/comma-dangle": "off",
-		"import/extensions": "off",
-		"import/no-cycle": "off",
-		"import/prefer-default-export": "off",
-		"indent": "off",
-		"@typescript-eslint/indent": "off",
-		"jsx-a11y/click-events-have-key-events": "off",
-		"jsx-a11y/label-has-associated-control": "off",
-		"jsx-a11y/label-has-for": "off",
-		"jsx-a11y/no-static-element-interactions": "off",
-		"max-classes-per-file": ["off"],
-		"max-len": "off",
-		"require-await": "off",
-		"no-alert": "off",
-		"no-await-in-loop": "warn",
-		"no-case-declarations": "warn",
-		"no-continue": "off",
-		"no-console": "error",
-		"no-dupe-class-members": "off",
-		"no-mixed-operators": "off",
-		"no-plusplus": "off",
-		"no-prototype-builtins": "off",
-		"no-restricted-globals": "off",
-		"no-tabs": "off",
-		"no-undef": "off",
-		"no-underscore-dangle": "off",
-		"no-unused-expressions": "off",
-		"no-unused-vars": "off",
-		"no-use-before-define": "off",
-		"no-useless-constructor": "off",
-		"object-curly-newline": "off",
-		"padded-blocks": "off",
-		"radix": "off",
-		"react/jsx-filename-extension": [
-			"warn",
-			{
-				"extensions": [".js", ".jsx", ".ts", ".tsx"]
-			}
-		],
-		"react/jsx-indent": "off",
-		"react/jsx-indent-props": "off",
-		"react/jsx-key": [
-			"error",
-			{
-				"checkFragmentShorthand": true
-			}
-		],
-		"react/jsx-props-no-spreading": "off",
-		"react/sort-comp": "off",
-		"semi": "off",
-		"@typescript-eslint/semi": "off",
-		"react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-		"react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
-		"no-param-reassign": [
-			"error",
-			{
-				"ignorePropertyModificationsFor": ["draft", "draftState"]
-			}
-		], // ignorujeme "draft" prop kvuli immeru
-		"no-shadow": "off",
-		"newline-per-chained-call": "off",
-		"curly": ["error", "all"],
-		"react/react-in-jsx-scope": "off",
-		// @NOTE - empty lines codestyle
-		"lines-between-class-members": [
-			"error",
-			"always",
-			{
-				"exceptAfterSingleLine": true
-			}
-		]
-	}
+        "object-curly-spacing": ["error", "always"],
+        "@typescript-eslint/naming-convention": "off",
+        "multiline-ternary": 0,
+        "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+        "no-lone-blocks": "error",
+        "no-multi-spaces": "error",
+        "@typescript-eslint/strict-boolean-expressions": 0,
+        "@typescript-eslint/camelcase": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/lines-between-class-members": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "arrow-parens": "off",
+        "camelcase": "off",
+        "class-methods-use-this": "off",
+        "default-case": "off",
+        "eqeqeq": "error",
+        "comma-dangle": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "import/extensions": "off",
+        "import/no-cycle": "off",
+        "import/prefer-default-export": "off",
+        "indent": ["error", 4],
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "jsx-a11y/label-has-for": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "max-classes-per-file": ["off"],
+        "max-len": "off",
+        "require-await": "off",
+        "no-alert": "off",
+        "no-await-in-loop": "warn",
+        "no-case-declarations": "warn",
+        "no-continue": "off",
+        "no-console": "error",
+        "no-dupe-class-members": "off",
+        "no-mixed-operators": "off",
+        "no-plusplus": "off",
+        "no-prototype-builtins": "off",
+        "no-restricted-globals": "off",
+        "no-tabs": "off",
+        "no-undef": "off",
+        "no-underscore-dangle": "off",
+        "no-unused-expressions": "off",
+        "no-unused-vars": "off",
+        "no-use-before-define": "off",
+        "no-useless-constructor": "off",
+        "object-curly-newline": "off",
+        "padded-blocks": "off",
+        "radix": "off",
+        "react/jsx-filename-extension": [
+            "warn",
+            {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        ],
+        // "react/jsx-indent": [],
+        // "react/jsx-indent-props": "off",
+        "react/jsx-key": [
+            "error",
+            {
+                "checkFragmentShorthand": true
+            }
+        ],
+        "react/jsx-props-no-spreading": "off",
+        "react/sort-comp": "off",
+        "semi": "off",
+        "@typescript-eslint/semi": "off",
+        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+        "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+        "no-param-reassign": [
+            "error",
+            {
+                "ignorePropertyModificationsFor": ["draft", "draftState"]
+            }
+        ], // ignorujeme "draft" prop kvuli immeru
+        "no-shadow": "off",
+        "newline-per-chained-call": "off",
+        "curly": ["error", "all"],
+        "react/react-in-jsx-scope": "off",
+        // @NOTE - empty lines codestyle
+        "lines-between-class-members": [
+            "error",
+            "always",
+            {
+                "exceptAfterSingleLine": true
+            }
+        ]
+    }
 }

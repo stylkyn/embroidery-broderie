@@ -14,21 +14,22 @@ interface ModalProviderProps {
 }
 
 export const ModalProvider = ({ children, close }: ModalProviderProps) => {
-  return (
-    <ModalContext.Provider
-      value={{
-        close,
-      }}
-    >
-      {children}
-    </ModalContext.Provider>
-  )
+    return (
+        <ModalContext.Provider
+            value={{
+                close,
+            }}
+        >
+            {children}
+        </ModalContext.Provider>
+    )
 }
 
 export const useModal = () => {
-  const context = useContext(ModalContext)
-  if (context === null) {
-    throw new Error("useModal must be used within a ModalProvider")
-  }
-  return context
+    const context = useContext(ModalContext)
+    if (context === null) {
+        throw new Error("useModal must be used within a ModalProvider")
+    }
+  
+    return context
 }

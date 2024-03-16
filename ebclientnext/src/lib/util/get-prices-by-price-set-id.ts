@@ -14,29 +14,30 @@ type Props = {
  * @returns The list of products with prices calculated.
  */
 export async function getPricesByPriceSetId({
-  products,
-  currency_code,
-  pricingService,
+    products,
+    currency_code,
+    pricingService,
 }: Props): Promise<typeof products> {
-  for (const product of products) {
-    for (const variant of product.variants) {
-      const priceSetId = variant.price.price_set.id
+    for (const product of products) {
+        for (const variant of product.variants) {
+            const priceSetId = variant.price.price_set.id
 
-      // eslint-disable-next-line no-await-in-loop
-      const [price] = (await pricingService.calculatePrices(
-        { id: [priceSetId] },
-        {
-          context: { currency_code },
+            // eslint-disable-next-line no-await-in-loop
+            const [price] = (await pricingService.calculatePrices(
+                { id: [priceSetId] },
+                {
+                    context: { currency_code },
+                }
+            )) as unknown as CalculatedPriceSetDTO[]
+
+            delete variant.price
+
+            if (!price) {continue}
+
+            variant.price = price
+            variant.calculated_price = price.amount
         }
-      )) as unknown as CalculatedPriceSetDTO[]
-
-      delete variant.price
-
-      if (!price) {continue}
-
-      variant.price = price
-      variant.calculated_price = price.amount
     }
-  }
-  return products
+  
+    return products
 }

@@ -1,40 +1,33 @@
-import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import {
-  getRegion,
+    getRegion,
 } from "@lib/data"
 import ProductTemplate from "@modules/products/templates"
 import { Props } from "./page.types"
-import { staticParams } from "./page.static-params"
-import { _generateMetadata } from "./page.metadata"
 import { getPricedProductByHandle } from "./page.utils"
 
-export function generateStaticParams () { return staticParams()}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return _generateMetadata({ params })
-}
-
+export { generateStaticParams } from './page.static-params';
+export { generateMetadata } from './page.metadata';
 
 export default async function ProductPage({ params }: Props) {
-  const region = await getRegion(params.countryCode)
+    const region = await getRegion(params.countryCode)
 
-  if (!region) {
-    notFound()
-  }
+    if (!region) {
+        notFound()
+    }
 
-  const pricedProduct = await getPricedProductByHandle(params.handle, region)
+    const pricedProduct = await getPricedProductByHandle(params.handle, region)
 
-  if (!pricedProduct) {
-    notFound()
-  }
+    if (!pricedProduct) {
+        notFound()
+    }
 
-  return (
-    <ProductTemplate
-      product={pricedProduct}
-      region={region}
-      countryCode={params.countryCode}
-    />
-  )
+    return (
+        <ProductTemplate
+            product={pricedProduct}
+            region={region}
+            countryCode={params.countryCode}
+        />
+    )
 }
