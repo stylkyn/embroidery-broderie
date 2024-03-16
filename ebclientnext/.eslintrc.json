@@ -19,8 +19,15 @@
 			}
 		}
 	],
-	"plugins": ["react-hooks", "@next/eslint-plugin-next", "eslint-plugin-react-hooks"],
+	"plugins": [
+		"react-hooks",
+		"@next/eslint-plugin-next",
+		 "eslint-plugin-react-hooks",
+		 "unused-imports"
+	],
 	"rules": {
+        "unused-imports/no-unused-imports": "error",
+		"object-curly-spacing": ["error", "always"],
 		"@typescript-eslint/naming-convention": "off",
 		"multiline-ternary": 0,
 		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],

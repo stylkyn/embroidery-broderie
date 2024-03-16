@@ -4,7 +4,7 @@ import { RadioGroup } from "@headlessui/react"
 import { CheckCircleSolid } from "@medusajs/icons"
 import { Cart } from "@medusajs/medusa"
 import { PricedShippingOption } from "@medusajs/medusa/dist/types/pricing"
-import { Button, Heading, Text, clx, useToggleState } from "@medusajs/ui"
+import { Button, Heading, Text, clx } from "@medusajs/ui"
 import { formatAmount } from "@lib/util/prices"
 
 import Divider from "@modules/common/components/divider"
