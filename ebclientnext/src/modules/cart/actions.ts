@@ -70,6 +70,7 @@ export async function retrieveCart() {
     const cart = await getCart(cartId).then((cart) => cart)
     return cart
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.log(e)
     return null
   }

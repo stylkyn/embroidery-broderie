@@ -22,6 +22,7 @@ export async function getPricesByPriceSetId({
     for (const variant of product.variants) {
       const priceSetId = variant.price.price_set.id
 
+      // eslint-disable-next-line no-await-in-loop
       const [price] = (await pricingService.calculatePrices(
         { id: [priceSetId] },
         {
@@ -31,7 +32,7 @@ export async function getPricesByPriceSetId({
 
       delete variant.price
 
-      if (!price) continue
+      if (!price) {continue}
 
       variant.price = price
       variant.calculated_price = price.amount

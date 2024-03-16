@@ -25,7 +25,7 @@ export default function CategoryTemplate({
   const category = categories[categories.length - 1]
   const parents = categories.slice(0, categories.length - 1)
 
-  if (!category || !countryCode) notFound()
+  if (!category || !countryCode) {notFound()}
 
   return (
     <div className="flex flex-col small:flex-row small:items-start py-6 content-container">

@@ -5,5 +5,10 @@
   },
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "git-blame.gitWebUrl": "",
-  "cSpell.words": ["accum", "chakra", "Strapi"]
+  "cSpell.words": ["accum", "chakra", "Strapi"],
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  }
 }

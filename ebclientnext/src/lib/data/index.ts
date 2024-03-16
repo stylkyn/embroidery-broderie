@@ -50,19 +50,20 @@ const getMedusaHeaders = (tags: string[] = []) => {
 }
 
 // Cart actions
-export async function createCart(data = {}) {
+export function createCart(data = {}) {
   const headers = getMedusaHeaders(["cart"])
 
   return medusaClient.carts
     .create(data, headers)
     .then(({ cart }) => cart)
     .catch((err) => {
-      console.log(err)
+      // eslint-disable-next-line no-console
+      console.error(err)
       return null
     })
 }
 
-export async function updateCart(cartId: string, data: StorePostCartsCartReq) {
+export function updateCart(cartId: string, data: StorePostCartsCartReq) {
   const headers = getMedusaHeaders(["cart"])
 
   return medusaClient.carts
@@ -71,19 +72,20 @@ export async function updateCart(cartId: string, data: StorePostCartsCartReq) {
     .catch((error) => medusaError(error))
 }
 
-export const getCart = cache(async function (cartId: string) {
+export const getCart = cache(function (cartId: string) {
   const headers = getMedusaHeaders(["cart"])
 
   return medusaClient.carts
     .retrieve(cartId, headers)
     .then(({ cart }) => cart)
     .catch((err) => {
-      console.log(err)
+      // eslint-disable-next-line no-console
+      console.error(err)
       return null
     })
 })
 
-export async function addItem({
+export function addItem({
   cartId,
   variantId,
   quantity,
@@ -98,12 +100,13 @@ export async function addItem({
     .create(cartId, { variant_id: variantId, quantity }, headers)
     .then(({ cart }) => cart)
     .catch((err) => {
-      console.log(err)
+      // eslint-disable-next-line no-console
+      console.error(err)
       return null
     })
 }
 
-export async function updateItem({
+export function updateItem({
   cartId,
   lineId,
   quantity,
@@ -120,7 +123,7 @@ export async function updateItem({
     .catch((err) => medusaError(err))
 }
 
-export async function removeItem({
+export function removeItem({
   cartId,
   lineId,
 }: {
@@ -133,36 +136,39 @@ export async function removeItem({
     .delete(cartId, lineId, headers)
     .then(({ cart }) => cart)
     .catch((err) => {
-      console.log(err)
+      // eslint-disable-next-line no-console
+      console.error(err)
       return null
     })
 }
 
-export async function deleteDiscount(cartId: string, code: string) {
+export function deleteDiscount(cartId: string, code: string) {
   const headers = getMedusaHeaders(["cart"])
 
   return medusaClient.carts
     .deleteDiscount(cartId, code, headers)
     .then(({ cart }) => cart)
     .catch((err) => {
-      console.log(err)
+      // eslint-disable-next-line no-console
+      console.error(err)
       return null
     })
 }
 
-export async function createPaymentSessions(cartId: string) {
+export function createPaymentSessions(cartId: string) {
   const headers = getMedusaHeaders(["cart"])
 
   return medusaClient.carts
     .createPaymentSessions(cartId, headers)
     .then(({ cart }) => cart)
     .catch((err) => {
-      console.log(err)
+      // eslint-disable-next-line no-console
+      console.error(err)
       return null
     })
 }
 
-export async function setPaymentSession({
+export function setPaymentSession({
   cartId,
   providerId,
 }: {
@@ -177,7 +183,7 @@ export async function setPaymentSession({
     .catch((err) => medusaError(err))
 }
 
-export async function completeCart(cartId: string) {
+export function completeCart(cartId: string) {
   const headers = getMedusaHeaders(["cart"])
 
   return medusaClient.carts
@@ -187,7 +193,7 @@ export async function completeCart(cartId: string) {
 }
 
 // Order actions
-export const retrieveOrder = cache(async function (id: string) {
+export const retrieveOrder = cache(function (id: string) {
   const headers = getMedusaHeaders(["order"])
 
   return medusaClient.orders
@@ -197,7 +203,7 @@ export const retrieveOrder = cache(async function (id: string) {
 })
 
 // Shipping actions
-export const listShippingMethods = cache(async function listShippingMethods(
+export const listShippingMethods = cache(function listShippingMethods(
   regionId: string,
   productIds?: string[]
 ) {
@@ -215,12 +221,13 @@ export const listShippingMethods = cache(async function listShippingMethods(
     )
     .then(({ shipping_options }) => shipping_options)
     .catch((err) => {
-      console.log(err)
+      // eslint-disable-next-line no-console
+      console.error(err)
       return null
     })
 })
 
-export async function addShippingMethod({
+export function addShippingMethod({
   cartId,
   shippingMethodId,
 }: {
@@ -236,7 +243,7 @@ export async function addShippingMethod({
 }
 
 // Authentication actions
-export async function getToken(credentials: StorePostAuthReq) {
+export function getToken(credentials: StorePostAuthReq) {
   return medusaClient.auth
     .getToken(credentials, {
       next: {
@@ -258,7 +265,7 @@ export async function getToken(credentials: StorePostAuthReq) {
     })
 }
 
-export async function authenticate(credentials: StorePostAuthReq) {
+export function authenticate(credentials: StorePostAuthReq) {
   const headers = getMedusaHeaders(["auth"])
 
   return medusaClient.auth
@@ -267,7 +274,7 @@ export async function authenticate(credentials: StorePostAuthReq) {
     .catch((err) => medusaError(err))
 }
 
-export const getSession = cache(async function getSession() {
+export const getSession = cache(function getSession() {
   const headers = getMedusaHeaders(["auth"])
 
   return medusaClient.auth
@@ -277,7 +284,7 @@ export const getSession = cache(async function getSession() {
 })
 
 // Customer actions
-export async function getCustomer() {
+export function getCustomer() {
   const headers = getMedusaHeaders(["customer"])
 
   return medusaClient.customers
@@ -286,7 +293,7 @@ export async function getCustomer() {
     .catch((err) => null)
 }
 
-export async function createCustomer(data: StorePostCustomersReq) {
+export function createCustomer(data: StorePostCustomersReq) {
   const headers = getMedusaHeaders(["customer"])
 
   return medusaClient.customers
@@ -295,7 +302,7 @@ export async function createCustomer(data: StorePostCustomersReq) {
     .catch((err) => medusaError(err))
 }
 
-export async function updateCustomer(data: StorePostCustomersCustomerReq) {
+export function updateCustomer(data: StorePostCustomersCustomerReq) {
   const headers = getMedusaHeaders(["customer"])
 
   return medusaClient.customers
@@ -304,7 +311,7 @@ export async function updateCustomer(data: StorePostCustomersCustomerReq) {
     .catch((err) => medusaError(err))
 }
 
-export async function addShippingAddress(
+export function addShippingAddress(
   data: StorePostCustomersCustomerAddressesReq
 ) {
   const headers = getMedusaHeaders(["customer"])
@@ -315,7 +322,7 @@ export async function addShippingAddress(
     .catch((err) => medusaError(err))
 }
 
-export async function deleteShippingAddress(addressId: string) {
+export function deleteShippingAddress(addressId: string) {
   const headers = getMedusaHeaders(["customer"])
 
   return medusaClient.customers.addresses
@@ -324,7 +331,7 @@ export async function deleteShippingAddress(addressId: string) {
     .catch((err) => medusaError(err))
 }
 
-export async function updateShippingAddress(
+export function updateShippingAddress(
   addressId: string,
   data: StorePostCustomersCustomerAddressesAddressReq
 ) {
@@ -336,7 +343,7 @@ export async function updateShippingAddress(
     .catch((err) => medusaError(err))
 }
 
-export const listCustomerOrders = cache(async function (
+export const listCustomerOrders = cache(function (
   limit: number = 10,
   offset: number = 0
 ) {
@@ -349,17 +356,18 @@ export const listCustomerOrders = cache(async function (
 })
 
 // Region actions
-export const listRegions = cache(async function () {
+export const listRegions = cache(function () {
   return medusaClient.regions
     .list()
     .then(({ regions }) => regions)
     .catch((err) => {
-      console.log(err)
+      // eslint-disable-next-line no-console
+      console.error(err)
       return null
     })
 })
 
-export const retrieveRegion = cache(async function (id: string) {
+export const retrieveRegion = cache(function (id: string) {
   const headers = getMedusaHeaders(["regions"])
 
   return medusaClient.regions
@@ -394,13 +402,14 @@ export const getRegion = cache(async function (countryCode: string) {
 
     return region
   } catch (e: any) {
-    console.log(e.toString())
+    // eslint-disable-next-line no-console
+    console.error(e.toString())
     return null
   }
 })
 
 // Product actions
-export const getProductsById = cache(async function ({
+export const getProductsById = cache(function ({
   ids,
   regionId,
 }: {
@@ -413,12 +422,13 @@ export const getProductsById = cache(async function ({
     .list({ id: ids, region_id: regionId }, headers)
     .then(({ products }) => products)
     .catch((err) => {
-      console.log(err)
+      // eslint-disable-next-line no-console
+      console.error(err)
       return null
     })
 })
 
-export const retrievePricedProductById = cache(async function ({
+export const retrievePricedProductById = cache(function ({
   id,
   regionId,
 }: {
@@ -431,7 +441,8 @@ export const retrievePricedProductById = cache(async function ({
     .retrieve(`${id}?region_id=${regionId}`, headers)
     .then(({ product }) => product)
     .catch((err) => {
-      console.log(err)
+      // eslint-disable-next-line no-console
+      console.error(err)
       return null
     })
 })
@@ -561,11 +572,10 @@ export const getHomepageProducts = cache(async function getHomepageProducts({
 
   const { collections } = await getCollectionsList(0, 3)
 
-  if (!collectionHandles) {
-    collectionHandles = collections.map((collection) => collection.handle)
-  }
+  const finalCollections = collectionHandles ?? collections.map((collection) => collection.handle)
 
-  for (const handle of collectionHandles) {
+  for (const handle of finalCollections) {
+    // eslint-disable-next-line no-await-in-loop
     const products = await getProductsByCollectionHandle({
       handle,
       currencyCode,
@@ -579,7 +589,7 @@ export const getHomepageProducts = cache(async function getHomepageProducts({
 })
 
 // Collection actions
-export const retrieveCollection = cache(async function (id: string) {
+export const retrieveCollection = cache(function (id: string) {
   return medusaClient.collections
     .retrieve(id, {
       next: {
@@ -662,7 +672,7 @@ export const getProductsByCollectionHandle = cache(
 )
 
 // Category actions
-export const listCategories = cache(async function () {
+export const listCategories = cache(function () {
   const headers = {
     next: {
       tags: ["collections"],
@@ -708,6 +718,7 @@ export const getCategoryByHandle = cache(async function (
   const product_categories = [] as ProductCategoryWithChildren[]
 
   for (const handle of handles) {
+    // eslint-disable-next-line no-await-in-loop
     const category = await medusaClient.productCategories
       .list(
         {

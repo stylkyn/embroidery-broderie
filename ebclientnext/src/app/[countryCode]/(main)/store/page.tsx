@@ -18,7 +18,7 @@ type Params = {
   }
 }
 
-export default async function StorePage({ searchParams, params }: Params) {
+export default function StorePage({ searchParams, params }: Params) {
   const { sortBy, page } = searchParams
 
   return (

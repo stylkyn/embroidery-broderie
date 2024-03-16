@@ -8,7 +8,7 @@ const stripCurrency = (price: string) => {
 const sortProducts = (products: ProductPreviewType[], sortBy: SortOptions) => {
   if (sortBy === "price_asc") {
     return products.sort((a, b) => {
-      if (!a.price?.calculated_price || !b.price?.calculated_price) return 0
+      if (!a.price?.calculated_price || !b.price?.calculated_price) {return 0}
 
       return (
         stripCurrency(a.price?.calculated_price) -
@@ -19,7 +19,7 @@ const sortProducts = (products: ProductPreviewType[], sortBy: SortOptions) => {
 
   if (sortBy === "price_desc") {
     return products.sort((a, b) => {
-      if (!a.price?.calculated_price || !b.price?.calculated_price) return 0
+      if (!a.price?.calculated_price || !b.price?.calculated_price) {return 0}
 
       return (
         stripCurrency(b.price?.calculated_price) -
@@ -30,7 +30,7 @@ const sortProducts = (products: ProductPreviewType[], sortBy: SortOptions) => {
 
   if (sortBy === "created_at") {
     return products.sort((a, b) => {
-      if (!a.created_at || !b.created_at) return 0
+      if (!a.created_at || !b.created_at) {return 0}
 
       return new Date(b.created_at).valueOf() - new Date(a.created_at).valueOf()
     })

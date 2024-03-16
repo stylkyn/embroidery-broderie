@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export default function medusaError(error: any) {
   if (error.response) {
     // The request was made and the server responded with a status code

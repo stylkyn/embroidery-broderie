@@ -153,10 +153,12 @@ const PayPalPaymentButton = ({
 
   const session = cart.payment_session as PaymentSession
 
+  // TODO: Fixnout
   const handlePayment = async (
     _data: OnApproveData,
     actions: OnApproveActions
-  ) => {
+  // eslint-disable-next-line require-await
+  ): Promise<void> => {
     actions?.order
       ?.authorize()
       .then((authorization) => {
@@ -183,7 +185,9 @@ const PayPalPaymentButton = ({
       <>
         <PayPalButtons
           style={{ layout: "horizontal" }}
-          createOrder={async () => session.data.id as string}
+          // TODO: Fixnout
+          // eslint-disable-next-line require-await
+          createOrder={async (): Promise<string> => session.data.id as string}
           onApprove={handlePayment}
           disabled={notReady || submitting || isPending}
         />

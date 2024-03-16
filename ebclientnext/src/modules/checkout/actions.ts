@@ -16,7 +16,7 @@ import { redirect } from "next/navigation"
 export async function cartUpdate(data: StorePostCartsCartReq) {
   const cartId = cookies().get("_medusa_cart_id")?.value
 
-  if (!cartId) return "No cartId cookie found"
+  if (!cartId) {return "No cartId cookie found"}
 
   try {
     await updateCart(cartId, data)
@@ -29,7 +29,7 @@ export async function cartUpdate(data: StorePostCartsCartReq) {
 export async function applyDiscount(code: string) {
   const cartId = cookies().get("_medusa_cart_id")?.value
 
-  if (!cartId) return "No cartId cookie found"
+  if (!cartId) {return "No cartId cookie found"}
 
   try {
     await updateCart(cartId, { discounts: [{ code }] }).then(() => {
@@ -43,7 +43,7 @@ export async function applyDiscount(code: string) {
 export async function applyGiftCard(code: string) {
   const cartId = cookies().get("_medusa_cart_id")?.value
 
-  if (!cartId) return "No cartId cookie found"
+  if (!cartId) {return "No cartId cookie found"}
 
   try {
     await updateCart(cartId, { gift_cards: [{ code }] }).then(() => {
@@ -57,7 +57,7 @@ export async function applyGiftCard(code: string) {
 export async function removeDiscount(code: string) {
   const cartId = cookies().get("_medusa_cart_id")?.value
 
-  if (!cartId) return "No cartId cookie found"
+  if (!cartId) {return "No cartId cookie found"}
 
   try {
     await deleteDiscount(cartId, code)
@@ -73,7 +73,7 @@ export async function removeGiftCard(
 ) {
   const cartId = cookies().get("_medusa_cart_id")?.value
 
-  if (!cartId) return "No cartId cookie found"
+  if (!cartId) {return "No cartId cookie found"}
 
   try {
     await updateCart(cartId, {
@@ -105,11 +105,11 @@ export async function submitDiscountForm(
 }
 
 export async function setAddresses(currentState: unknown, formData: FormData) {
-  if (!formData) return "No form data received"
+  if (!formData) {return "No form data received"}
 
   const cartId = cookies().get("_medusa_cart_id")?.value
 
-  if (!cartId) return { message: "No cartId cookie found" }
+  if (!cartId) {return { message: "No cartId cookie found" }}
 
   const data = {
     shipping_address: {
@@ -129,10 +129,10 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
 
   const sameAsBilling = formData.get("same_as_billing")
 
-  if (sameAsBilling === "on") data.billing_address = data.shipping_address
+  if (sameAsBilling === "on") {data.billing_address = data.shipping_address}
 
   if (sameAsBilling !== "on")
-    data.billing_address = {
+    {data.billing_address = {
       first_name: formData.get("billing_address.first_name"),
       last_name: formData.get("billing_address.last_name"),
       address_1: formData.get("billing_address.address_1"),
@@ -143,7 +143,7 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
       country_code: formData.get("billing_address.country_code"),
       province: formData.get("billing_address.province"),
       phone: formData.get("billing_address.phone"),
-    } as StorePostCartsCartReq
+    } as StorePostCartsCartReq}
 
   try {
     await updateCart(cartId, data)
@@ -160,7 +160,7 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
 export async function setShippingMethod(shippingMethodId: string) {
   const cartId = cookies().get("_medusa_cart_id")?.value
 
-  if (!cartId) throw new Error("No cartId cookie found")
+  if (!cartId) {throw new Error("No cartId cookie found")}
 
   try {
     await addShippingMethod({ cartId, shippingMethodId })
@@ -173,7 +173,7 @@ export async function setShippingMethod(shippingMethodId: string) {
 export async function setPaymentMethod(providerId: string) {
   const cartId = cookies().get("_medusa_cart_id")?.value
 
-  if (!cartId) throw new Error("No cartId cookie found")
+  if (!cartId) {throw new Error("No cartId cookie found")}
 
   try {
     const cart = await setPaymentSession({ cartId, providerId })
@@ -187,7 +187,7 @@ export async function setPaymentMethod(providerId: string) {
 export async function placeOrder() {
   const cartId = cookies().get("_medusa_cart_id")?.value
 
-  if (!cartId) throw new Error("No cartId cookie found")
+  if (!cartId) {throw new Error("No cartId cookie found")}
 
   let cart
 

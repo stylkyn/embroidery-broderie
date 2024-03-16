@@ -8,8 +8,8 @@ const ShowAll = () => {
   const { query } = useSearchBox()
   const width = typeof window !== "undefined" ? window.innerWidth : 0
 
-  if (query === "") return null
-  if (hits.length > 0 && hits.length <= 6) return null
+  if (query === "") {return null}
+  if (hits.length > 0 && hits.length <= 6) {return null}
 
   if (hits.length === 0) {
     return (

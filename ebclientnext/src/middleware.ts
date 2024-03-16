@@ -47,7 +47,7 @@ async function getRegionMap() {
  * @param request
  * @param response
  */
-async function getCountryCode(
+function getCountryCode(
   request: NextRequest,
   regionMap: Map<string, Region | number>
 ) {
@@ -73,6 +73,7 @@ async function getCountryCode(
     return countryCode
   } catch (error) {
     if (process.env.NODE_ENV === "development") {
+      // eslint-disable-next-line no-console
       console.error(
         "Middleware.ts: Error getting the country code. Did you set up regions in your Medusa Admin and define a NEXT_PUBLIC_MEDUSA_BACKEND_URL environment variable?"
       )

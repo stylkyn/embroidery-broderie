@@ -71,7 +71,7 @@ const Payment = ({
     await setPaymentMethod(providerId)
       .catch((err) => setError(err.toString()))
       .finally(() => {
-        if (providerId === "paypal") return
+        if (providerId === "paypal") {return}
         setIsLoading(false)
       })
   }

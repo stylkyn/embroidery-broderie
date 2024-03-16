@@ -54,7 +54,7 @@ export default function ProductActions({
     const map: Record<string, Record<string, string>> = {}
 
     for (const variant of variants) {
-      if (!variant.options || !variant.id) continue
+      if (!variant.options || !variant.id) {continue}
 
       const temp: Record<string, string> = {}
 
@@ -110,7 +110,7 @@ export default function ProductActions({
 
   // add the selected variant to the cart
   const handleAddToCart = async () => {
-    if (!variant?.id) return null
+    if (!variant?.id) {return null}
 
     setIsAdding(true)
 
