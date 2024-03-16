@@ -12,47 +12,15 @@ import { Region } from "@medusajs/medusa"
 import ProductTemplate from "@modules/products/templates"
 import { Props } from "./page.types"
 import { staticParams } from "./page.static-params"
+import { _generateMetadata } from "./page.metadata"
+import { getPricedProductByHandle } from "./page.utils"
 
 export function generateStaticParams () { return staticParams()}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { handle } = params
-
-  const { product } = await getProductByHandle(handle).then(
-    (product) => product
-  )
-
-  if (!product) {
-    notFound()
-  }
-
-  return {
-    title: `${product.title} | Medusa Store`,
-    description: `${product.title}`,
-    openGraph: {
-      title: `${product.title} | Medusa Store`,
-      description: `${product.title}`,
-      images: product.thumbnail ? [product.thumbnail] : [],
-    },
-  }
+  return _generateMetadata(params)
 }
 
-const getPricedProductByHandle = async (handle: string, region: Region) => {
-  const { product } = await getProductByHandle(handle).then(
-    (product) => product
-  )
-
-  if (!product || !product.id) {
-    return null
-  }
-
-  const pricedProduct = await retrievePricedProductById({
-    id: product.id,
-    regionId: region.id,
-  })
-
-  return pricedProduct
-}
 
 export default async function ProductPage({ params }: Props) {
   const region = await getRegion(params.countryCode)

@@ -2,11 +2,11 @@
 
 import React, { createContext, useContext } from "react"
 
-interface ModalContext {
+interface ModalContextProps {
   close: () => void
 }
 
-const ModalContext = createContext<ModalContext | null>(null)
+const ModalContext = createContext<ModalContextProps | null>(null)
 
 interface ModalProviderProps {
   children?: React.ReactNode

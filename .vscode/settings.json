@@ -4,11 +4,22 @@
     "**/.pnp.*": true
   },
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "eslint.nodePath": ".yarn/sdks",
   "git-blame.gitWebUrl": "",
-  "cSpell.words": ["accum", "chakra", "Strapi"],
+  "cSpell.words": [
+    "accum",
+    "chakra",
+    "Strapi"
+  ],
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
-    "**/node_modules/*/**": true
-  }
+    "**/node_modules/*/**": true,
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  // Zajišťuje automatické opravy při uložení souboru (lze odebrat)
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  },
 }
