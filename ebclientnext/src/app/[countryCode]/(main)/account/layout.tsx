@@ -1,5 +1,5 @@
 import { getCustomer } from '@lib/medusajs';
-import AccountLayout from '@modules/account/templates/account-layout';
+import { AccountLayout } from '@modules/account';
 
 export default async function AccountPageLayout({
     dashboard,

@@ -1,30 +1,30 @@
-import { Dialog, Transition } from "@headlessui/react"
+import { Dialog, Transition } from '@headlessui/react';
 import {
     PricedProduct,
-    PricedVariant,
-} from "@medusajs/medusa/dist/types/pricing"
-import { Button, clx } from "@medusajs/ui"
-import React, { Fragment, useMemo } from "react"
+    PricedVariant
+} from '@medusajs/medusa/dist/types/pricing';
+import { Button, clx } from '@medusajs/ui';
+import React, { Fragment, useMemo } from 'react';
 
-import useToggleState from "@lib/hooks/use-toggle-state"
-import ChevronDown from "@modules/common/icons/chevron-down"
-import X from "@modules/common/icons/x"
+import { useToggleState } from '@lib/hooks';
+import ChevronDown from '@modules/common/icons/chevron-down';
+import X from '@modules/common/icons/x';
 
-import { getProductPrice } from "@lib/util/get-product-price"
-import { Region } from "@medusajs/medusa"
-import OptionSelect from "../option-select"
+import { getProductPrice } from '@lib/util/get-product-price';
+import { Region } from '@medusajs/medusa';
+import OptionSelect from '../option-select';
 
 type MobileActionsProps = {
-  product: PricedProduct
-  variant?: PricedVariant
-  region: Region
-  options: Record<string, string>
-  updateOptions: (update: Record<string, string>) => void
-  inStock?: boolean
-  handleAddToCart: () => void
-  isAdding?: boolean
-  show: boolean
-}
+    product: PricedProduct;
+    variant?: PricedVariant;
+    region: Region;
+    options: Record<string, string>;
+    updateOptions: (update: Record<string, string>) => void;
+    inStock?: boolean;
+    handleAddToCart: () => void;
+    isAdding?: boolean;
+    show: boolean;
+};
 
 const MobileActions: React.FC<MobileActionsProps> = ({
     product,
@@ -35,30 +35,30 @@ const MobileActions: React.FC<MobileActionsProps> = ({
     inStock,
     handleAddToCart,
     isAdding,
-    show,
+    show
 }) => {
-    const { state, open, close } = useToggleState()
+    const { state, open, close } = useToggleState();
 
     const price = getProductPrice({
         product: product,
         variantId: variant?.id,
-        region,
-    })
+        region
+    });
 
     const selectedPrice = useMemo(() => {
         if (!price) {
-            return null
+            return null;
         }
-        const { variantPrice, cheapestPrice } = price
+        const { variantPrice, cheapestPrice } = price;
 
-        return variantPrice || cheapestPrice || null
-    }, [price])
+        return variantPrice || cheapestPrice || null;
+    }, [price]);
 
     return (
         <>
             <div
-                className={clx("lg:hidden inset-x-0 bottom-0 fixed", {
-                    "pointer-events-none": !show,
+                className={clx('lg:hidden inset-x-0 bottom-0 fixed', {
+                    'pointer-events-none': !show
                 })}
             >
                 <Transition
@@ -77,7 +77,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                             <span>—</span>
                             {selectedPrice ? (
                                 <div className="flex items-end gap-x-2 text-ui-fg-base">
-                                    {selectedPrice.price_type === "sale" && (
+                                    {selectedPrice.price_type === 'sale' && (
                                         <p>
                                             <span className="line-through text-small-regular">
                                                 {selectedPrice.original_price}
@@ -86,8 +86,9 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                                     )}
                                     <span
                                         className={clx({
-                                            "text-ui-fg-interactive":
-                        selectedPrice.price_type === "sale",
+                                            'text-ui-fg-interactive':
+                                                selectedPrice.price_type ===
+                                                'sale'
                                         })}
                                     >
                                         {selectedPrice.calculated_price}
@@ -98,12 +99,16 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                             )}
                         </div>
                         <div className="grid grid-cols-2 w-full gap-x-4">
-                            <Button onClick={open} variant="secondary" className="w-full">
+                            <Button
+                                onClick={open}
+                                variant="secondary"
+                                className="w-full"
+                            >
                                 <div className="flex items-center justify-between w-full">
                                     <span>
                                         {variant
-                                            ? Object.values(options).join(" / ")
-                                            : "Select Options"}
+                                            ? Object.values(options).join(' / ')
+                                            : 'Select Options'}
                                     </span>
                                     <ChevronDown />
                                 </div>
@@ -115,10 +120,10 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                                 isLoading={isAdding}
                             >
                                 {!variant
-                                    ? "Select variant"
+                                    ? 'Select variant'
                                     : !inStock
-                                        ? "Out of stock"
-                                        : "Add to cart"}
+                                    ? 'Out of stock'
+                                    : 'Add to cart'}
                             </Button>
                         </div>
                     </div>
@@ -161,18 +166,33 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                                     <div className="bg-white px-6 py-12">
                                         {product.variants.length > 1 && (
                                             <div className="flex flex-col gap-y-6">
-                                                {(product.options || []).map((option) => {
-                                                    return (
-                                                        <div key={option.id}>
-                                                            <OptionSelect
-                                                                option={option}
-                                                                current={options[option.id]}
-                                                                updateOption={updateOptions}
-                                                                title={option.title}
-                                                            />
-                                                        </div>
-                                                    )
-                                                })}
+                                                {(product.options || []).map(
+                                                    (option) => {
+                                                        return (
+                                                            <div
+                                                                key={option.id}
+                                                            >
+                                                                <OptionSelect
+                                                                    option={
+                                                                        option
+                                                                    }
+                                                                    current={
+                                                                        options[
+                                                                            option
+                                                                                .id
+                                                                        ]
+                                                                    }
+                                                                    updateOption={
+                                                                        updateOptions
+                                                                    }
+                                                                    title={
+                                                                        option.title
+                                                                    }
+                                                                />
+                                                            </div>
+                                                        );
+                                                    }
+                                                )}
                                             </div>
                                         )}
                                     </div>
@@ -183,7 +203,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                 </Dialog>
             </Transition>
         </>
-    )
-}
+    );
+};
 
-export default MobileActions
+export default MobileActions;

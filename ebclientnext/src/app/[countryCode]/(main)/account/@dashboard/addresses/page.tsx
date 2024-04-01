@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import AddressBook from '@modules/account/components/address-book';
+import { AddressBook } from '@modules/account';
 import { getCustomer, getRegion } from '@lib/medusajs';
 import { headers } from 'next/headers';
 

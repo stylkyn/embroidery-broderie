@@ -1,4 +1,4 @@
-import OrderOverview from '@modules/account/components/order-overview';
+import { OrderOverview } from '@modules/account';
 import { listCustomerOrders } from '@lib/medusajs';
 import { notFound } from 'next/navigation';
 
