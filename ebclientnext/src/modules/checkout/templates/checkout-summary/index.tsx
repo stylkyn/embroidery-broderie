@@ -1,23 +1,23 @@
-import { Heading } from "@medusajs/ui"
+import { Heading } from '@medusajs/ui';
 
-import ItemsPreviewTemplate from "@modules/cart/templates/preview"
-import DiscountCode from "@modules/checkout/components/discount-code"
-import CartTotals from "@modules/common/components/cart-totals"
-import Divider from "@modules/common/components/divider"
-import { cookies } from "next/headers"
-import { getCart } from "@lib/data"
+import ItemsPreviewTemplate from '@modules/cart/templates/preview';
+import DiscountCode from '@modules/checkout/components/discount-code';
+import CartTotals from '@modules/common/components/cart-totals';
+import Divider from '@modules/common/components/divider';
+import { cookies } from 'next/headers';
+import { getCart } from '@lib/medusajs';
 
 const CheckoutSummary = async () => {
-    const cartId = cookies().get("_medusa_cart_id")?.value
+    const cartId = cookies().get('_medusa_cart_id')?.value;
 
     if (!cartId) {
-        return null
+        return null;
     }
 
-    const cart = await getCart(cartId).then((cart) => cart)
+    const cart = await getCart(cartId).then((cart) => cart);
 
     if (!cart) {
-        return null
+        return null;
     }
 
     return (
@@ -28,17 +28,20 @@ const CheckoutSummary = async () => {
                     level="h2"
                     className="flex flex-row text-3xl-regular items-baseline"
                 >
-          In your Cart
+                    In your Cart
                 </Heading>
                 <Divider className="my-6" />
                 <CartTotals data={cart} />
-                <ItemsPreviewTemplate region={cart?.region} items={cart?.items} />
+                <ItemsPreviewTemplate
+                    region={cart?.region}
+                    items={cart?.items}
+                />
                 <div className="my-6">
                     <DiscountCode cart={cart} />
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default CheckoutSummary
+export default CheckoutSummary;

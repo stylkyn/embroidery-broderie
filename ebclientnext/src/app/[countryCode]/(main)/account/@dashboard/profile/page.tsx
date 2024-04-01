@@ -1,21 +1,20 @@
+import ProfilePhone from '@modules/account//components/profile-phone';
+import ProfileBillingAddress from '@modules/account/components/profile-billing-address';
+import ProfileEmail from '@modules/account/components/profile-email';
+import ProfileName from '@modules/account/components/profile-name';
+import ProfilePassword from '@modules/account/components/profile-password';
 
-import ProfilePhone from "@modules/account//components/profile-phone"
-import ProfileBillingAddress from "@modules/account/components/profile-billing-address"
-import ProfileEmail from "@modules/account/components/profile-email"
-import ProfileName from "@modules/account/components/profile-name"
-import ProfilePassword from "@modules/account/components/profile-password"
+import { getCustomer, listRegions } from '@lib/medusajs';
+import { notFound } from 'next/navigation';
 
-import { getCustomer, listRegions } from "@lib/data"
-import { notFound } from "next/navigation"
-
-export { metadata } from "./page.metadata"
+export { metadata } from './page.metadata';
 
 export default async function Profile() {
-    const customer = await getCustomer()
-    const regions = await listRegions()
+    const customer = await getCustomer();
+    const regions = await listRegions();
 
     if (!customer || !regions) {
-        notFound()
+        notFound();
     }
 
     return (
@@ -23,9 +22,9 @@ export default async function Profile() {
             <div className="mb-8 flex flex-col gap-y-4">
                 <h1 className="text-2xl-semi">Profile</h1>
                 <p className="text-base-regular">
-          View and update your profile information, including your name, email,
-          and phone number. You can also update your billing address, or change
-          your password.
+                    View and update your profile information, including your
+                    name, email, and phone number. You can also update your
+                    billing address, or change your password.
                 </p>
             </div>
             <div className="flex flex-col gap-y-8 w-full">
@@ -40,9 +39,9 @@ export default async function Profile() {
                 <ProfileBillingAddress customer={customer} regions={regions} />
             </div>
         </div>
-    )
+    );
 }
 
 const Divider = () => {
-    return <div className="w-full h-px bg-gray-200" />
-}
+    return <div className="w-full h-px bg-gray-200" />;
+};

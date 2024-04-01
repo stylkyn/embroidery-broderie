@@ -1,5 +1,5 @@
-import { getProductByHandle, retrievePricedProductById } from '@lib/data'
-import { Region } from '@medusajs/medusa'
+import { getProductByHandle, retrievePricedProductById } from '@lib/medusajs';
+import { Region } from '@medusajs/medusa';
 
 export const getPricedProductByHandle = async (
     handle: string,
@@ -7,16 +7,16 @@ export const getPricedProductByHandle = async (
 ) => {
     const { product } = await getProductByHandle(handle).then(
         (product) => product
-    )
+    );
 
     if (!product || !product.id) {
-        return null
+        return null;
     }
 
     const pricedProduct = await retrievePricedProductById({
         id: product.id,
-        regionId: region.id,
-    })
+        regionId: region.id
+    });
 
-    return pricedProduct
-}
+    return pricedProduct;
+};

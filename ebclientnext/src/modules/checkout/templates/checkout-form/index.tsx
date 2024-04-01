@@ -1,45 +1,45 @@
-import Addresses from "@modules/checkout/components/addresses"
-import Shipping from "@modules/checkout/components/shipping"
-import Payment from "@modules/checkout/components/payment"
-import Review from "@modules/checkout/components/review"
+import Addresses from '@modules/checkout/components/addresses';
+import Shipping from '@modules/checkout/components/shipping';
+import Payment from '@modules/checkout/components/payment';
+import Review from '@modules/checkout/components/review';
 import {
     createPaymentSessions,
     getCustomer,
-    listShippingMethods,
-} from "@lib/data"
-import { cookies } from "next/headers"
-import { CartWithCheckoutStep } from "types/global"
-import { getCheckoutStep } from "@lib/util/get-checkout-step"
+    listShippingMethods
+} from '@lib/medusajs';
+import { cookies } from 'next/headers';
+import { CartWithCheckoutStep } from 'types/global';
+import { getCheckoutStep } from '@lib/util/get-checkout-step';
 
 export default async function CheckoutForm() {
-    const cartId = cookies().get("_medusa_cart_id")?.value
+    const cartId = cookies().get('_medusa_cart_id')?.value;
 
     if (!cartId) {
-        return null
+        return null;
     }
 
     // create payment sessions and get cart
     const cart = (await createPaymentSessions(cartId).then(
         (cart) => cart
-    )) as CartWithCheckoutStep
+    )) as CartWithCheckoutStep;
 
     if (!cart) {
-        return null
+        return null;
     }
 
-    cart.checkout_step = cart && getCheckoutStep(cart)
+    cart.checkout_step = cart && getCheckoutStep(cart);
 
     // get available shipping methods
     const availableShippingMethods = await listShippingMethods(
         cart.region_id
-    ).then((methods) => methods?.filter((m) => !m.is_return))
+    ).then((methods) => methods?.filter((m) => !m.is_return));
 
     if (!availableShippingMethods) {
-        return null
+        return null;
     }
 
     // get customer if logged in
-    const customer = await getCustomer()
+    const customer = await getCustomer();
 
     return (
         <div>
@@ -64,5 +64,5 @@ export default async function CheckoutForm() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

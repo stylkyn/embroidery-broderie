@@ -1,12 +1,12 @@
-import { Suspense } from "react"
+import { Suspense } from 'react';
 
-import { listRegions } from "@lib/data"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import CartButton from "@modules/layout/components/cart-button"
-import SideMenu from "@modules/layout/components/side-menu"
+import { listRegions } from '@lib/medusajs';
+import LocalizedClientLink from '@modules/common/components/localized-client-link';
+import CartButton from '@modules/layout/components/cart-button';
+import SideMenu from '@modules/layout/components/side-menu';
 
 export default async function Nav() {
-    const regions = await listRegions().then((regions) => regions)
+    const regions = await listRegions().then((regions) => regions);
 
     return (
         <div className="sticky top-0 inset-x-0 z-50 group">
@@ -23,7 +23,7 @@ export default async function Nav() {
                             href="/"
                             className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
                         >
-              Medusa Store
+                            Medusa Store
                         </LocalizedClientLink>
                     </div>
 
@@ -35,14 +35,14 @@ export default async function Nav() {
                                     href="/search"
                                     scroll={false}
                                 >
-                  Search
+                                    Search
                                 </LocalizedClientLink>
                             )}
                             <LocalizedClientLink
                                 className="hover:text-ui-fg-base"
                                 href="/account"
                             >
-                Account
+                                Account
                             </LocalizedClientLink>
                         </div>
                         <Suspense
@@ -51,7 +51,7 @@ export default async function Nav() {
                                     className="hover:text-ui-fg-base flex gap-2"
                                     href="/cart"
                                 >
-                  Cart (0)
+                                    Cart (0)
                                 </LocalizedClientLink>
                             }
                         >
@@ -61,5 +61,5 @@ export default async function Nav() {
                 </nav>
             </header>
         </div>
-    )
+    );
 }

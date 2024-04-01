@@ -1,17 +1,17 @@
-import { getProductByHandle } from '@lib/data'
-import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { Props } from './page.types'
+import { getProductByHandle } from '@lib/medusajs';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { Props } from './page.types';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { handle } = params
+    const { handle } = params;
 
     const { product } = await getProductByHandle(handle).then(
         (product) => product
-    )
+    );
 
     if (!product) {
-        notFound()
+        notFound();
     }
 
     return {
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         openGraph: {
             title: `${product.title} | Medusa Store`,
             description: `${product.title}`,
-            images: product.thumbnail ? [product.thumbnail] : [],
-        },
-    }
+            images: product.thumbnail ? [product.thumbnail] : []
+        }
+    };
 }

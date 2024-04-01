@@ -1,4 +1,4 @@
-import { getCustomer, listCustomerOrders } from '@lib/data';
+import { getCustomer, listCustomerOrders } from '@lib/medusajs';
 import Overview from '@modules/account/components/overview';
 import { notFound } from 'next/navigation';
 
