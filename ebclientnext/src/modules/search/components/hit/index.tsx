@@ -1,23 +1,23 @@
-import { ProductVariant } from "@medusajs/medusa"
-import { Container, Text } from "@medusajs/ui"
+import { ProductVariant } from '@medusajs/medusa';
+import { Container, Text } from '@medusajs/ui';
 
-import Thumbnail from "@modules/products/components/thumbnail"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import Thumbnail from '@modules/products/components/thumbnail';
+import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
 
 export type ProductHit = {
-  id: string
-  title: string
-  handle: string
-  description: string | null
-  thumbnail: string | null
-  variants: ProductVariant[]
-  collection_handle: string | null
-  collection_id: string | null
-}
+    id: string;
+    title: string;
+    handle: string;
+    description: string | null;
+    thumbnail: string | null;
+    variants: ProductVariant[];
+    collection_handle: string | null;
+    collection_id: string | null;
+};
 
 type HitProps = {
-  hit: ProductHit
-}
+    hit: ProductHit;
+};
 
 const Hit = ({ hit }: HitProps) => {
     return (
@@ -38,7 +38,7 @@ const Hit = ({ hit }: HitProps) => {
                 </div>
             </Container>
         </LocalizedClientLink>
-    )
-}
+    );
+};
 
-export default Hit
+export default Hit;

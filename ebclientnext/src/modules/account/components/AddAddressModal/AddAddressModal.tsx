@@ -7,8 +7,8 @@ import { useFormState } from 'react-dom';
 
 import { useToggleState } from '@lib/hooks';
 import CountrySelect from '@modules/checkout/components/country-select';
-import Input from '@modules/common/components/input';
-import Modal from '@modules/common/components/modal';
+import Input from '@modules/common/components/Input';
+import Modal from '@modules/common/components/Modal';
 import { SubmitButton } from '@modules/checkout/components/submit-button';
 import { addCustomerShippingAddress } from '@modules/account/actions';
 import { AddAddressModalProps } from './AddAddressModal.types';

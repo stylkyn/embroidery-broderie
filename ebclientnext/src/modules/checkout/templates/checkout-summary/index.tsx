@@ -2,8 +2,8 @@ import { Heading } from '@medusajs/ui';
 
 import ItemsPreviewTemplate from '@modules/cart/templates/preview';
 import DiscountCode from '@modules/checkout/components/discount-code';
-import CartTotals from '@modules/common/components/cart-totals';
-import Divider from '@modules/common/components/divider';
+import CartTotals from '@modules/common/components/CartTotals';
+import Divider from '@modules/common/components/Divider';
 import { cookies } from 'next/headers';
 import { getCart } from '@lib/medusajs';
 

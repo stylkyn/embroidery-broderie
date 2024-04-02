@@ -9,7 +9,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { useIntersection } from '@lib/hooks/useInView';
 import { addToCart } from '@modules/cart/actions';
-import Divider from '@modules/common/components/divider';
+import Divider from '@modules/common/components/Divider';
 import OptionSelect from '@modules/products/components/option-select';
 
 import MobileActions from '../mobile-actions';

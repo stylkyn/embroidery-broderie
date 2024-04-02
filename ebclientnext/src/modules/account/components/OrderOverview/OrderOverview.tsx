@@ -3,7 +3,7 @@
 import { Button } from '@medusajs/ui';
 
 import { OrderCard } from '../OrderCard';
-import LocalizedClientLink from '@modules/common/components/localized-client-link';
+import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
 import { OrderOverviewProps } from './OrderOverview.types';
 
 export const OrderOverview = ({ orders }: OrderOverviewProps) => {

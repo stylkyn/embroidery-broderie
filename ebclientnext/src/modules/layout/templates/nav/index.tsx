@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 import { listRegions } from '@lib/medusajs';
-import LocalizedClientLink from '@modules/common/components/localized-client-link';
+import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
 import CartButton from '@modules/layout/components/cart-button';
 import SideMenu from '@modules/layout/components/side-menu';
 

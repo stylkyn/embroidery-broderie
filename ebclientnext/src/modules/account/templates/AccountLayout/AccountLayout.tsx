@@ -1,6 +1,6 @@
 import React from 'react';
 
-import UnderlineLink from '@modules/common/components/interactive-link';
+import UnderlineLink from '@modules/common/components/interactiveLink';
 
 import { AccountNav } from '../../components/AccountNav';
 import { AccountLayoutProps } from './AccountLayout.types';

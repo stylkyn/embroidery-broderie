@@ -1,66 +1,68 @@
-"use client"
+'use client';
 
-import { InformationCircleSolid } from "@medusajs/icons"
-import { Cart } from "@medusajs/medusa"
-import { Heading, Label, Text, Tooltip } from "@medusajs/ui"
-import React, { useMemo } from "react"
-import { useFormState } from "react-dom"
+import { InformationCircleSolid } from '@medusajs/icons';
+import { Cart } from '@medusajs/medusa';
+import { Heading, Label, Text, Tooltip } from '@medusajs/ui';
+import React, { useMemo } from 'react';
+import { useFormState } from 'react-dom';
 
-import Input from "@modules/common/components/input"
-import Trash from "@modules/common/icons/trash"
-import ErrorMessage from "@modules/checkout/components/error-message"
-import { SubmitButton } from "@modules/checkout/components/submit-button"
+import Input from '@modules/common/components/Input';
+import Trash from '@modules/common/icons/trash';
+import ErrorMessage from '@modules/checkout/components/error-message';
+import { SubmitButton } from '@modules/checkout/components/submit-button';
 import {
     removeDiscount,
     removeGiftCard,
-    submitDiscountForm,
-} from "@modules/checkout/actions"
-import { formatAmount } from "@lib/util/prices"
+    submitDiscountForm
+} from '@modules/checkout/actions';
+import { formatAmount } from '@lib/util/prices';
 
 type DiscountCodeProps = {
-  cart: Omit<Cart, "refundable_amount" | "refunded_total">
-}
+    cart: Omit<Cart, 'refundable_amount' | 'refunded_total'>;
+};
 
 const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
-    const [isOpen, setIsOpen] = React.useState(false)
+    const [isOpen, setIsOpen] = React.useState(false);
 
-    const { discounts, gift_cards, region } = cart
+    const { discounts, gift_cards, region } = cart;
 
     const appliedDiscount = useMemo(() => {
         if (!discounts || !discounts.length) {
-            return undefined
+            return undefined;
         }
 
         switch (discounts[0].rule.type) {
-        case "percentage":
-            return `${discounts[0].rule.value}%`
-        case "fixed":
-            return `- ${formatAmount({
-                amount: discounts[0].rule.value,
-                region: region,
-            })}`
+            case 'percentage':
+                return `${discounts[0].rule.value}%`;
+            case 'fixed':
+                return `- ${formatAmount({
+                    amount: discounts[0].rule.value,
+                    region: region
+                })}`;
 
-        default:
-            return "Free shipping"
+            default:
+                return 'Free shipping';
         }
-    }, [discounts, region])
+    }, [discounts, region]);
 
     const removeGiftCardCode = async (code: string) => {
-        await removeGiftCard(code, gift_cards)
-    }
+        await removeGiftCard(code, gift_cards);
+    };
 
     const removeDiscountCode = async () => {
-        await removeDiscount(discounts[0].code)
-    }
+        await removeDiscount(discounts[0].code);
+    };
 
-    const [message, formAction] = useFormState(submitDiscountForm, null)
+    const [message, formAction] = useFormState(submitDiscountForm, null);
 
     return (
         <div className="w-full bg-white flex flex-col">
             <div className="txt-medium">
                 {gift_cards.length > 0 && (
                     <div className="flex flex-col mb-4">
-                        <Heading className="txt-medium">Gift card(s) applied:</Heading>
+                        <Heading className="txt-medium">
+                            Gift card(s) applied:
+                        </Heading>
                         {gift_cards?.map((gc) => (
                             <div
                                 className="flex items-center justify-between txt-small-plus"
@@ -74,7 +76,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                                     {formatAmount({
                                         region: region,
                                         amount: gc.balance,
-                                        includeTaxes: false,
+                                        includeTaxes: false
                                     })}
                                 </Text>
                                 <button
@@ -82,7 +84,9 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                                     onClick={() => removeGiftCardCode(gc.code)}
                                 >
                                     <Trash size={14} />
-                                    <span className="sr-only">Remove gift card from order</span>
+                                    <span className="sr-only">
+                                        Remove gift card from order
+                                    </span>
                                 </button>
                             </div>
                         ))}
@@ -92,12 +96,18 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 {appliedDiscount ? (
                     <div className="w-full flex items-center">
                         <div className="flex flex-col w-full">
-                            <Heading className="txt-medium">Discount applied:</Heading>
+                            <Heading className="txt-medium">
+                                Discount applied:
+                            </Heading>
                             <div className="flex items-center justify-between w-full max-w-full">
                                 <Text className="flex gap-x-1 items-baseline txt-small-plus w-4/5 pr-1">
                                     <span>Code:</span>
-                                    <span className="truncate">{discounts[0].code}</span>
-                                    <span className="min-w-fit">({appliedDiscount})</span>
+                                    <span className="truncate">
+                                        {discounts[0].code}
+                                    </span>
+                                    <span className="min-w-fit">
+                                        ({appliedDiscount})
+                                    </span>
                                 </Text>
                                 <button
                                     className="flex items-center"
@@ -105,7 +115,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                                 >
                                     <Trash size={14} />
                                     <span className="sr-only">
-                    Remove discount code from order
+                                        Remove discount code from order
                                     </span>
                                 </button>
                             </div>
@@ -119,7 +129,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                                 type="button"
                                 className="txt-medium text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
                             >
-                Add gift card or discount code
+                                Add gift card or discount code
                             </button>
                             <Tooltip content="You can add multiple gift cards, but only one discount code.">
                                 <InformationCircleSolid color="var(--fg-muted)" />
@@ -134,7 +144,9 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                                         type="text"
                                         autoFocus={false}
                                     />
-                                    <SubmitButton variant="secondary">Apply</SubmitButton>
+                                    <SubmitButton variant="secondary">
+                                        Apply
+                                    </SubmitButton>
                                 </div>
                                 <ErrorMessage error={message} />
                             </>
@@ -143,7 +155,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 )}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default DiscountCode
+export default DiscountCode;

@@ -1,67 +1,67 @@
-"use client"
+'use client';
 
-import { RadioGroup } from "@headlessui/react"
-import { CheckCircleSolid } from "@medusajs/icons"
-import { Cart } from "@medusajs/medusa"
-import { PricedShippingOption } from "@medusajs/medusa/dist/types/pricing"
-import { Button, Heading, Text, clx } from "@medusajs/ui"
-import { formatAmount } from "@lib/util/prices"
+import { RadioGroup } from '@headlessui/react';
+import { CheckCircleSolid } from '@medusajs/icons';
+import { Cart } from '@medusajs/medusa';
+import { PricedShippingOption } from '@medusajs/medusa/dist/types/pricing';
+import { Button, Heading, Text, clx } from '@medusajs/ui';
+import { formatAmount } from '@lib/util/prices';
 
-import Divider from "@modules/common/components/divider"
-import Radio from "@modules/common/components/radio"
-import Spinner from "@modules/common/icons/spinner"
-import ErrorMessage from "@modules/checkout/components/error-message"
-import { setShippingMethod } from "@modules/checkout/actions"
-import { useRouter, useSearchParams, usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import Divider from '@modules/common/components/Divider';
+import Radio from '@modules/common/components/Radio';
+import Spinner from '@modules/common/icons/spinner';
+import ErrorMessage from '@modules/checkout/components/error-message';
+import { setShippingMethod } from '@modules/checkout/actions';
+import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 type ShippingProps = {
-  cart: Omit<Cart, "refundable_amount" | "refunded_total">
-  availableShippingMethods: PricedShippingOption[] | null
-}
+    cart: Omit<Cart, 'refundable_amount' | 'refunded_total'>;
+    availableShippingMethods: PricedShippingOption[] | null;
+};
 
 const Shipping: React.FC<ShippingProps> = ({
     cart,
-    availableShippingMethods,
+    availableShippingMethods
 }) => {
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState<string | null>(null)
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
-    const searchParams = useSearchParams()
-    const router = useRouter()
-    const pathname = usePathname()
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const pathname = usePathname();
 
-    const isOpen = searchParams.get("step") === "delivery"
+    const isOpen = searchParams.get('step') === 'delivery';
 
     const handleEdit = () => {
-        router.push(pathname + "?step=delivery", { scroll: false })
-    }
+        router.push(pathname + '?step=delivery', { scroll: false });
+    };
 
     const handleSubmit = () => {
-        setIsLoading(true)
-        router.push(pathname + "?step=payment", { scroll: false })
-    }
+        setIsLoading(true);
+        router.push(pathname + '?step=payment', { scroll: false });
+    };
 
     const set = async (id: string) => {
-        setIsLoading(true)
+        setIsLoading(true);
         await setShippingMethod(id)
             .then(() => {
-                setIsLoading(false)
+                setIsLoading(false);
             })
             .catch((err) => {
-                setError(err.toString())
-                setIsLoading(false)
-            })
-    }
+                setError(err.toString());
+                setIsLoading(false);
+            });
+    };
 
     const handleChange = (value: string) => {
-        set(value)
-    }
+        set(value);
+    };
 
     useEffect(() => {
-        setIsLoading(false)
-        setError(null)
-    }, [isOpen])
+        setIsLoading(false);
+        setError(null);
+    }, [isOpen]);
 
     return (
         <div className="bg-white">
@@ -69,29 +69,31 @@ const Shipping: React.FC<ShippingProps> = ({
                 <Heading
                     level="h2"
                     className={clx(
-                        "flex flex-row text-3xl-regular gap-x-2 items-baseline",
+                        'flex flex-row text-3xl-regular gap-x-2 items-baseline',
                         {
-                            "opacity-50 pointer-events-none select-none":
-                !isOpen && cart.shipping_methods.length === 0,
+                            'opacity-50 pointer-events-none select-none':
+                                !isOpen && cart.shipping_methods.length === 0
                         }
                     )}
                 >
-          Delivery
-                    {!isOpen && cart.shipping_methods.length > 0 && <CheckCircleSolid />}
+                    Delivery
+                    {!isOpen && cart.shipping_methods.length > 0 && (
+                        <CheckCircleSolid />
+                    )}
                 </Heading>
                 {!isOpen &&
-          cart?.shipping_address &&
-          cart?.billing_address &&
-          cart?.email && (
-                    <Text>
-                        <button
-                            onClick={handleEdit}
-                            className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
-                        >
-                Edit
-                        </button>
-                    </Text>
-                )}
+                    cart?.shipping_address &&
+                    cart?.billing_address &&
+                    cart?.email && (
+                        <Text>
+                            <button
+                                onClick={handleEdit}
+                                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+                            >
+                                Edit
+                            </button>
+                        </Text>
+                    )}
             </div>
             {isOpen ? (
                 <div>
@@ -107,11 +109,12 @@ const Shipping: React.FC<ShippingProps> = ({
                                             key={option.id}
                                             value={option.id}
                                             className={clx(
-                                                "flex items-center justify-between text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
+                                                'flex items-center justify-between text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active',
                                                 {
-                                                    "border-ui-border-interactive":
-                            option.id ===
-                            cart.shipping_methods[0]?.shipping_option_id,
+                                                    'border-ui-border-interactive':
+                                                        option.id ===
+                                                        cart.shipping_methods[0]
+                                                            ?.shipping_option_id
                                                 }
                                             )}
                                         >
@@ -119,20 +122,23 @@ const Shipping: React.FC<ShippingProps> = ({
                                                 <Radio
                                                     checked={
                                                         option.id ===
-                            cart.shipping_methods[0]?.shipping_option_id
+                                                        cart.shipping_methods[0]
+                                                            ?.shipping_option_id
                                                     }
                                                 />
-                                                <span className="text-base-regular">{option.name}</span>
+                                                <span className="text-base-regular">
+                                                    {option.name}
+                                                </span>
                                             </div>
                                             <span className="justify-self-end text-ui-fg-base">
                                                 {formatAmount({
                                                     amount: option.amount!,
                                                     region: cart?.region,
-                                                    includeTaxes: false,
+                                                    includeTaxes: false
                                                 })}
                                             </span>
                                         </RadioGroup.Option>
-                                    )
+                                    );
                                 })
                             ) : (
                                 <div className="flex flex-col items-center justify-center px-4 py-8 text-ui-fg-base">
@@ -151,7 +157,7 @@ const Shipping: React.FC<ShippingProps> = ({
                         isLoading={isLoading}
                         disabled={!cart.shipping_methods[0]}
                     >
-            Continue to payment
+                        Continue to payment
                     </Button>
                 </div>
             ) : (
@@ -160,18 +166,22 @@ const Shipping: React.FC<ShippingProps> = ({
                         {cart && cart.shipping_methods.length > 0 && (
                             <div className="flex flex-col w-1/3">
                                 <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Method
+                                    Method
                                 </Text>
                                 <Text className="txt-medium text-ui-fg-subtle">
-                                    {cart.shipping_methods[0].shipping_option.name} (
+                                    {
+                                        cart.shipping_methods[0].shipping_option
+                                            .name
+                                    }{' '}
+                                    (
                                     {formatAmount({
                                         amount: cart.shipping_methods[0].price,
                                         region: cart.region,
-                                        includeTaxes: false,
+                                        includeTaxes: false
                                     })
-                                        .replace(/,/g, "")
-                                        .replace(/\./g, ",")}
-                  )
+                                        .replace(/,/g, '')
+                                        .replace(/\./g, ',')}
+                                    )
                                 </Text>
                             </div>
                         )}
@@ -180,7 +190,7 @@ const Shipping: React.FC<ShippingProps> = ({
             )}
             <Divider className="mt-8" />
         </div>
-    )
-}
+    );
+};
 
-export default Shipping
+export default Shipping;

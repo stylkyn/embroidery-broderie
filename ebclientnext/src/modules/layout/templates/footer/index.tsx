@@ -2,7 +2,7 @@ import { Text, clx } from '@medusajs/ui';
 
 import { getCategoriesList, getCollectionsList } from '@lib/medusajs';
 
-import LocalizedClientLink from '@modules/common/components/localized-client-link';
+import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
 import MedusaCTA from '@modules/layout/components/medusa-cta';
 
 export default async function Footer() {

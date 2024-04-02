@@ -1,22 +1,22 @@
-"use client"
+'use client';
 
-import { Order } from "@medusajs/medusa"
-import { XMark } from "@medusajs/icons"
-import React from "react"
+import { Order } from '@medusajs/medusa';
+import { XMark } from '@medusajs/icons';
+import React from 'react';
 
-import Help from "@modules/order/components/help"
-import Items from "@modules/order/components/items"
-import OrderDetails from "@modules/order/components/order-details"
-import OrderSummary from "@modules/order/components/order-summary"
-import ShippingDetails from "@modules/order/components/shipping-details"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import Help from '@modules/order/components/help';
+import Items from '@modules/order/components/items';
+import OrderDetails from '@modules/order/components/order-details';
+import OrderSummary from '@modules/order/components/order-summary';
+import ShippingDetails from '@modules/order/components/shipping-details';
+import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
 
 type OrderDetailsTemplateProps = {
-  order: Order
-}
+    order: Order;
+};
 
 const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
-    order,
+    order
 }) => {
     return (
         <div className="flex flex-col justify-center gap-y-4">
@@ -37,7 +37,7 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
                 <Help />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default OrderDetailsTemplate
+export default OrderDetailsTemplate;

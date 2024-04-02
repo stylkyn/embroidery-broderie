@@ -1,10 +1,10 @@
-import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
-import { Heading, Text } from "@medusajs/ui"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { PricedProduct } from '@medusajs/medusa/dist/types/pricing';
+import { Heading, Text } from '@medusajs/ui';
+import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
 
 type ProductInfoProps = {
-  product: PricedProduct
-}
+    product: PricedProduct;
+};
 
 const ProductInfo = ({ product }: ProductInfoProps) => {
     return (
@@ -18,7 +18,10 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
                         {product.collection.title}
                     </LocalizedClientLink>
                 )}
-                <Heading level="h2" className="text-3xl leading-10 text-ui-fg-base">
+                <Heading
+                    level="h2"
+                    className="text-3xl leading-10 text-ui-fg-base"
+                >
                     {product.title}
                 </Heading>
 
@@ -27,7 +30,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
                 </Text>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ProductInfo
+export default ProductInfo;

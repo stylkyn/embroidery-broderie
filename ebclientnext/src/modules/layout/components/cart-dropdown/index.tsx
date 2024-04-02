@@ -1,74 +1,74 @@
-"use client"
+'use client';
 
-import { Popover, Transition } from "@headlessui/react"
-import { Cart } from "@medusajs/medusa"
-import { Button } from "@medusajs/ui"
-import { useParams, usePathname } from "next/navigation"
-import { Fragment, useEffect, useRef, useState } from "react"
+import { Popover, Transition } from '@headlessui/react';
+import { Cart } from '@medusajs/medusa';
+import { Button } from '@medusajs/ui';
+import { useParams, usePathname } from 'next/navigation';
+import { Fragment, useEffect, useRef, useState } from 'react';
 
-import { formatAmount } from "@lib/util/prices"
-import DeleteButton from "@modules/common/components/delete-button"
-import LineItemOptions from "@modules/common/components/line-item-options"
-import LineItemPrice from "@modules/common/components/line-item-price"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import Thumbnail from "@modules/products/components/thumbnail"
+import { formatAmount } from '@lib/util/prices';
+import DeleteButton from '@modules/common/components/DeleteButton';
+import LineItemOptions from '@modules/common/components/LineItemOptions';
+import LineItemPrice from '@modules/common/components/LineItemPrice';
+import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
+import Thumbnail from '@modules/products/components/thumbnail';
 
 const CartDropdown = ({
-    cart: cartState,
+    cart: cartState
 }: {
-  cart?: Omit<Cart, "beforeInsert" | "afterLoad"> | null
+    cart?: Omit<Cart, 'beforeInsert' | 'afterLoad'> | null;
 }) => {
     const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
         undefined
-    )
-    const [cartDropdownOpen, setCartDropdownOpen] = useState(false)
+    );
+    const [cartDropdownOpen, setCartDropdownOpen] = useState(false);
 
-    const { countryCode } = useParams()
+    const { countryCode } = useParams();
 
-    const open = () => setCartDropdownOpen(true)
-    const close = () => setCartDropdownOpen(false)
+    const open = () => setCartDropdownOpen(true);
+    const close = () => setCartDropdownOpen(false);
 
     const totalItems =
-    cartState?.items?.reduce((acc, item) => {
-        return acc + item.quantity
-    }, 0) || 0
+        cartState?.items?.reduce((acc, item) => {
+            return acc + item.quantity;
+        }, 0) || 0;
 
-    const itemRef = useRef<number>(totalItems || 0)
+    const itemRef = useRef<number>(totalItems || 0);
 
     const timedOpen = () => {
-        open()
+        open();
 
-        const timer = setTimeout(close, 5000)
+        const timer = setTimeout(close, 5000);
 
-        setActiveTimer(timer)
-    }
+        setActiveTimer(timer);
+    };
 
     const openAndCancel = () => {
         if (activeTimer) {
-            clearTimeout(activeTimer)
+            clearTimeout(activeTimer);
         }
 
-        open()
-    }
+        open();
+    };
 
     // Clean up the timer when the component unmounts
     useEffect(() => {
         return () => {
             if (activeTimer) {
-                clearTimeout(activeTimer)
+                clearTimeout(activeTimer);
             }
-        }
-    }, [activeTimer])
+        };
+    }, [activeTimer]);
 
-    const pathname = usePathname()
+    const pathname = usePathname();
 
     // open cart dropdown when modifying the cart items, but only if we're not on the cart page
     useEffect(() => {
-        if (itemRef.current !== totalItems && !pathname.includes("/cart")) {
-            timedOpen()
+        if (itemRef.current !== totalItems && !pathname.includes('/cart')) {
+            timedOpen();
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [totalItems, itemRef.current])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [totalItems, itemRef.current]);
 
     return (
         <div
@@ -105,7 +105,9 @@ const CartDropdown = ({
                                 <div className="overflow-y-scroll max-h-[402px] px-4 grid grid-cols-1 gap-y-8 no-scrollbar p-px">
                                     {cartState.items
                                         .sort((a, b) => {
-                                            return a.created_at > b.created_at ? -1 : 1
+                                            return a.created_at > b.created_at
+                                                ? -1
+                                                : 1;
                                         })
                                         .map((item) => (
                                             <div
@@ -116,7 +118,12 @@ const CartDropdown = ({
                                                     href={`/products/${item.variant.product.handle}`}
                                                     className="w-24"
                                                 >
-                                                    <Thumbnail thumbnail={item.thumbnail} size="square" />
+                                                    <Thumbnail
+                                                        thumbnail={
+                                                            item.thumbnail
+                                                        }
+                                                        size="square"
+                                                    />
                                                 </LocalizedClientLink>
                                                 <div className="flex flex-col justify-between flex-1">
                                                     <div className="flex flex-col flex-1">
@@ -126,23 +133,39 @@ const CartDropdown = ({
                                                                     <LocalizedClientLink
                                                                         href={`/products/${item.variant.product.handle}`}
                                                                     >
-                                                                        {item.title}
+                                                                        {
+                                                                            item.title
+                                                                        }
                                                                     </LocalizedClientLink>
                                                                 </h3>
-                                                                <LineItemOptions variant={item.variant} />
-                                                                <span>Quantity: {item.quantity}</span>
+                                                                <LineItemOptions
+                                                                    variant={
+                                                                        item.variant
+                                                                    }
+                                                                />
+                                                                <span>
+                                                                    Quantity:{' '}
+                                                                    {
+                                                                        item.quantity
+                                                                    }
+                                                                </span>
                                                             </div>
                                                             <div className="flex justify-end">
                                                                 <LineItemPrice
-                                                                    region={cartState.region}
+                                                                    region={
+                                                                        cartState.region
+                                                                    }
                                                                     item={item}
                                                                     style="tight"
                                                                 />
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <DeleteButton id={item.id} className="mt-1">
-                            Remove
+                                                    <DeleteButton
+                                                        id={item.id}
+                                                        className="mt-1"
+                                                    >
+                                                        Remove
                                                     </DeleteButton>
                                                 </div>
                                             </div>
@@ -151,20 +174,22 @@ const CartDropdown = ({
                                 <div className="p-4 flex flex-col gap-y-4 text-small-regular">
                                     <div className="flex items-center justify-between">
                                         <span className="text-ui-fg-base font-semibold">
-                      Subtotal{" "}
-                                            <span className="font-normal">(excl. taxes)</span>
+                                            Subtotal{' '}
+                                            <span className="font-normal">
+                                                (excl. taxes)
+                                            </span>
                                         </span>
                                         <span className="text-large-semi">
                                             {formatAmount({
                                                 amount: cartState.subtotal || 0,
                                                 region: cartState.region,
-                                                includeTaxes: false,
+                                                includeTaxes: false
                                             })}
                                         </span>
                                     </div>
                                     <LocalizedClientLink href="/cart" passHref>
                                         <Button className="w-full" size="large">
-                      Go to cart
+                                            Go to cart
                                         </Button>
                                     </LocalizedClientLink>
                                 </div>
@@ -179,8 +204,12 @@ const CartDropdown = ({
                                     <div>
                                         <LocalizedClientLink href="/store">
                                             <>
-                                                <span className="sr-only">Go to all products page</span>
-                                                <Button onClick={close}>Explore products</Button>
+                                                <span className="sr-only">
+                                                    Go to all products page
+                                                </span>
+                                                <Button onClick={close}>
+                                                    Explore products
+                                                </Button>
                                             </>
                                         </LocalizedClientLink>
                                     </div>
@@ -191,7 +220,7 @@ const CartDropdown = ({
                 </Transition>
             </Popover>
         </div>
-    )
-}
+    );
+};
 
-export default CartDropdown
+export default CartDropdown;

@@ -6,8 +6,8 @@ import { Button, Heading, Text, clx } from '@medusajs/ui';
 
 import { useToggleState } from '@lib/hooks';
 import CountrySelect from '@modules/checkout/components/country-select';
-import Input from '@modules/common/components/input';
-import Modal from '@modules/common/components/modal';
+import Input from '@modules/common/components/Input';
+import Modal from '@modules/common/components/Modal';
 import {
     deleteCustomerShippingAddress,
     updateCustomerShippingAddress

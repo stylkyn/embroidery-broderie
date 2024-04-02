@@ -2,8 +2,8 @@
 
 import React, { useEffect, useMemo } from 'react';
 
-import Input from '@modules/common/components/input';
-import NativeSelect from '@modules/common/components/native-select';
+import Input from '@modules/common/components/Input';
+import NativeSelect from '@modules/common/components/NativeSelect';
 
 import { AccountInfo } from '../AccountInfo';
 import { useFormState } from 'react-dom';

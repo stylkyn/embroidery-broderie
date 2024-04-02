@@ -2,7 +2,7 @@ import { Container } from '@medusajs/ui';
 import { formatAmount } from '@lib/util/prices';
 
 import ChevronDown from '@modules/common/icons/chevron-down';
-import LocalizedClientLink from '@modules/common/components/localized-client-link';
+import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
 import { OverviewProps } from './Overview.types';
 import { getProfileCompletion } from './Overview.utils';
 

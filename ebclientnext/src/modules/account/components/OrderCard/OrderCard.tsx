@@ -2,7 +2,7 @@ import { Button } from '@medusajs/ui';
 import { useMemo } from 'react';
 
 import Thumbnail from '@modules/products/components/thumbnail';
-import LocalizedClientLink from '@modules/common/components/localized-client-link';
+import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
 import { formatAmount } from '@lib/util/prices';
 import { OrderCardProps } from './OrderCard.types';
 
