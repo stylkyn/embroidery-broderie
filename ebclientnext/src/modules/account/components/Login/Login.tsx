@@ -3,8 +3,8 @@ import { useFormState } from 'react-dom';
 import { LOGIN_VIEW } from '@modules/account/templates';
 import Input from '@modules/common/components/Input';
 import { logCustomerIn } from '@modules/account/actions';
-import ErrorMessage from '@modules/checkout/components/error-message';
-import { SubmitButton } from '@modules/checkout/components/submit-button';
+import ErrorMessage from '@modules/checkout/components/ErrorMessage';
+import { SubmitButton } from '@modules/checkout/components/SubmitButton';
 import { LoginProps } from './Login.types';
 
 export const Login = ({ setCurrentView }: LoginProps) => {

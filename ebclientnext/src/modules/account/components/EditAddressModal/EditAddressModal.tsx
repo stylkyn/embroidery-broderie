@@ -5,7 +5,7 @@ import { PencilSquare as Edit, Trash } from '@medusajs/icons';
 import { Button, Heading, Text, clx } from '@medusajs/ui';
 
 import { useToggleState } from '@lib/hooks';
-import CountrySelect from '@modules/checkout/components/country-select';
+import CountrySelect from '@modules/checkout/components/CountrySelect';
 import Input from '@modules/common/components/Input';
 import Modal from '@modules/common/components/Modal';
 import {
@@ -14,7 +14,7 @@ import {
 } from '@modules/account/actions';
 import Spinner from '@modules/common/icons/spinner';
 import { useFormState } from 'react-dom';
-import { SubmitButton } from '@modules/checkout/components/submit-button';
+import { SubmitButton } from '@modules/checkout/components/SubmitButton';
 import { EditAddressModalProps } from './EditAddressModal.types';
 
 export const EditAddressModal: React.FC<EditAddressModalProps> = ({

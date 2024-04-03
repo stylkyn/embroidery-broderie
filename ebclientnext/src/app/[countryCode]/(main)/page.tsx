@@ -1,6 +1,5 @@
 import { getRegion } from '@lib/medusajs';
-import FeaturedProducts from '@modules/home/components/featured-products';
-import Hero from '@modules/home/components/hero';
+import { FeaturedProducts, Hero } from '@modules/home';
 import { getCollectionsWithProducts } from './page.utils';
 
 export { metadata } from './page.metadata';

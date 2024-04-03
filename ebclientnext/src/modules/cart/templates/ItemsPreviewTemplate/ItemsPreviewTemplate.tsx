@@ -6,7 +6,10 @@ import { Item } from '@modules/cart/components/item';
 import SkeletonLineItem from '@modules/skeletons/components/skeleton-line-item';
 import { ItemsPreviewTemplateProps } from './ItemsPreviewTemplate.types';
 
-const ItemsPreviewTemplate = ({ items, region }: ItemsPreviewTemplateProps) => {
+export const ItemsPreviewTemplate = ({
+    items,
+    region
+}: ItemsPreviewTemplateProps) => {
     const hasOverflow = items && items.length > 4;
 
     return (
@@ -41,5 +44,3 @@ const ItemsPreviewTemplate = ({ items, region }: ItemsPreviewTemplateProps) => {
         </div>
     );
 };
-
-export default ItemsPreviewTemplate;

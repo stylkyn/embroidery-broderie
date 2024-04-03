@@ -6,10 +6,10 @@ import { useEffect, useState } from 'react';
 import { useFormState } from 'react-dom';
 
 import { useToggleState } from '@lib/hooks';
-import CountrySelect from '@modules/checkout/components/country-select';
+import CountrySelect from '@modules/checkout/components/CountrySelect';
 import Input from '@modules/common/components/Input';
 import Modal from '@modules/common/components/Modal';
-import { SubmitButton } from '@modules/checkout/components/submit-button';
+import { SubmitButton } from '@modules/checkout/components/SubmitButton';
 import { addCustomerShippingAddress } from '@modules/account/actions';
 import { AddAddressModalProps } from './AddAddressModal.types';
 
