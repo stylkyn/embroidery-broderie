@@ -27,13 +27,15 @@
         "react-hooks",
         "@next/eslint-plugin-next",
         "eslint-plugin-react-hooks",
-        "unused-imports"
+        "unused-imports",
+        "import"
     ],
     "rules": {
         "padding-line-between-statements": [
             "error",
             { "blankLine": "always", "prev": "import", "next": "export" }
         ],
+        "import/no-duplicates": "error",
         "newline-before-return": "error",
         "unused-imports/no-unused-imports": "error",
         "object-curly-spacing": ["error", "always"],

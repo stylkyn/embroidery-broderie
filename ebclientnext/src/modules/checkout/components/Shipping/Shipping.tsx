@@ -5,8 +5,7 @@ import { CheckCircleSolid } from '@medusajs/icons';
 import { Button, Heading, Text, clx } from '@medusajs/ui';
 import { formatAmount } from '@lib/util/prices';
 
-import { Divider } from '@modules/common';
-import { Radio } from '@modules/common';
+import { Divider , Radio } from '@modules/common';
 import Spinner from '@modules/common/icons/spinner';
 import { ErrorMessage } from '../ErrorMessage';
 import { setShippingMethod } from '@modules/checkout/actions';

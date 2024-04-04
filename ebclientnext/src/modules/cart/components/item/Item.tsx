@@ -7,7 +7,7 @@ import DeleteButton from '@modules/common/components/DeleteButton';
 import LineItemOptions from '@modules/common/components/LineItemOptions';
 import LineItemPrice from '@modules/common/components/LineItemPrice';
 import LineItemUnitPrice from '@modules/common/components/LineItemUnitPrice';
-import Thumbnail from '@modules/products/components/thumbnail';
+import Thumbnail from '@modules/products/components/Thumbnail';
 import { updateLineItem } from '@modules/cart/actions';
 import Spinner from '@modules/common/icons/spinner';
 import { useState } from 'react';

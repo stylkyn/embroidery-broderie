@@ -1,7 +1,7 @@
 import { ProductVariant } from '@medusajs/medusa';
 import { Container, Text } from '@medusajs/ui';
 
-import Thumbnail from '@modules/products/components/thumbnail';
+import Thumbnail from '@modules/products/components/Thumbnail';
 import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
 
 export type ProductHit = {
