@@ -2,12 +2,11 @@
 
 import React, { useEffect, useMemo } from 'react';
 
-import Input from '@modules/common/components/Input';
-import NativeSelect from '@modules/common/components/NativeSelect';
+import { Input, NativeSelect } from '@modules/common';
 
 import { AccountInfo } from '../AccountInfo';
 import { useFormState } from 'react-dom';
-import { updateCustomerBillingAddress } from '@modules/account/actions';
+import { updateCustomerBillingAddress } from '@modules/account';
 import { ProfileBillingAddressProps } from './ProfileBillingAddress.types';
 
 export const ProfileBillingAddress: React.FC<ProfileBillingAddressProps> = ({

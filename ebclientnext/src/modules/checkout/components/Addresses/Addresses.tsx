@@ -10,8 +10,7 @@ import { Cart, Customer } from '@medusajs/medusa';
 import { CheckCircleSolid } from '@medusajs/icons';
 import { Heading, Text, useToggleState } from '@medusajs/ui';
 
-import { Divider } from '@modules/common';
-import Spinner from '@modules/common/icons/spinner';
+import { Divider, Spinner } from '@modules/common';
 
 import { BillingAddress } from '../BillingAddress';
 import { ShippingAddress } from '../ShippingAddress';

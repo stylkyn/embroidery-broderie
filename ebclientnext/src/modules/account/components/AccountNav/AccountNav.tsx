@@ -4,12 +4,14 @@ import { Customer } from '@medusajs/medusa';
 import { ArrowRightOnRectangle } from '@medusajs/icons';
 import { useParams, usePathname } from 'next/navigation';
 
-import ChevronDown from '@modules/common/icons/chevron-down';
-import { signOut } from '@modules/account/actions';
-import User from '@modules/common/icons/user';
-import MapPin from '@modules/common/icons/map-pin';
-import Package from '@modules/common/icons/package';
-import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
+import {
+    ChevronDown,
+    User,
+    Package,
+    LocalizedClientLink,
+    MapPin
+} from '@modules/common';
+import { signOut } from '@modules/account';
 import { AccountNavLink } from './AccountNavLink';
 
 export const AccountNav = ({

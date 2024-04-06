@@ -3,10 +3,10 @@
 import React, { useEffect } from 'react';
 import { useFormState } from 'react-dom';
 
-import Input from '@modules/common/components/Input';
+import { Input } from '@modules/common';
 
 import { AccountInfo } from '../AccountInfo';
-import { updateCustomerEmail } from '@modules/account/actions';
+import { updateCustomerEmail } from '@modules/account';
 import { ProfileEmailProps } from './ProfileEmail.types';
 
 export const ProfileEmail: React.FC<ProfileEmailProps> = ({ customer }) => {

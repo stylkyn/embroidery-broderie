@@ -5,12 +5,14 @@ import { Button } from '@medusajs/ui';
 import { useParams, usePathname } from 'next/navigation';
 import { Fragment, useEffect, useRef, useState } from 'react';
 
-import { formatAmount } from '@lib/util/prices';
-import { DeleteButton } from '@modules/common/components/DeleteButton';
-import { LineItemOptions } from '@modules/common/components/LineItemOptions';
-import { LineItemPrice } from '@modules/common/components/LineItemPrice';
-import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
-import Thumbnail from '@modules/products/components/Thumbnail';
+import { formatAmount } from '@lib/util';
+import {
+    DeleteButton,
+    LineItemOptions,
+    LineItemPrice,
+    LocalizedClientLink
+} from '@modules/common';
+import { Thumbnail } from '@modules/products';
 import { CartDropdownProps } from './CartDropdown.types';
 
 export const CartDropdown = ({ cart: cartState }: CartDropdownProps) => {

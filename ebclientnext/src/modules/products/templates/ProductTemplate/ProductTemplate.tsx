@@ -1,17 +1,17 @@
 import React, { Suspense } from 'react';
 
-import { SkeletonRelatedProducts } from '@modules/skeletons/templates/SkeletonRelatedProducts';
+import { SkeletonRelatedProducts } from '@modules/skeletons';
 import { notFound } from 'next/navigation';
 import { ProductTemplateProps } from './ProductTemplate.types';
 
-import { ImageGallery } from '@modules/products/components/ImageGallery';
-import { ProductInfo } from '../ProductInfo';
 import {
+    ImageGallery,
     ProductActions,
     ProductOnboardingCta,
     ProductTabs,
     RelatedProducts
-} from '@modules/products/components';
+} from '@modules/products';
+import { ProductInfo } from '../ProductInfo';
 import { ProductActionsWrapper } from '../ProductActionsWrapper';
 
 export const ProductTemplate: React.FC<ProductTemplateProps> = ({

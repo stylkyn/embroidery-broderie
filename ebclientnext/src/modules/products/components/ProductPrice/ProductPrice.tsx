@@ -3,11 +3,11 @@ import { clx } from '@medusajs/ui';
 import { getProductPrice } from '@lib/util/get-product-price';
 import { ProductPriceProps } from './ProductPrice.types';
 
-export default function ProductPrice({
+export const ProductPrice = ({
     product,
     variant,
     region
-}: ProductPriceProps) {
+}: ProductPriceProps) => {
     const { cheapestPrice, variantPrice } = getProductPrice({
         product,
         variantId: variant?.id,
@@ -46,4 +46,4 @@ export default function ProductPrice({
             )}
         </div>
     );
-}
+};

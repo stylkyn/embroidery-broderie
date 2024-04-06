@@ -1,8 +1,7 @@
 import { Suspense } from 'react';
 
-import { SkeletonProductGrid } from '@modules/skeletons/templates/SkeletonProductGrid';
-import { RefinementList } from '@modules/store/components';
-import { SortOptions } from '@modules/store/components/RefinementList/SortProducts';
+import { SkeletonProductGrid } from '@modules/skeletons';
+import { RefinementList, SortOptions } from '@modules/store/components';
 
 import { PaginatedProducts } from '../PaginatedProducts/PaginatedProducts';
 

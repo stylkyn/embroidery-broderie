@@ -2,8 +2,8 @@ import { Text } from '@medusajs/ui';
 
 import { retrievePricedProductById } from '@lib/medusajs';
 import { getProductPrice } from '@lib/util/get-product-price';
-import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
-import Thumbnail from '../Thumbnail';
+import { LocalizedClientLink } from '@modules/common';
+import { Thumbnail } from '../Thumbnail';
 import { ProductPreviewProps } from './ProductPreview.types';
 import { PreviewPrice } from './PreviewPrice';
 

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Register , Login } from '@modules/account/components';
+import { Register, Login } from '@modules/account';
 
 export const LoginTemplate = () => {
     const [currentView, setCurrentView] = useState('sign-in');

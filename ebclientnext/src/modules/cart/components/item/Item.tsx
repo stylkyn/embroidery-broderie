@@ -2,17 +2,18 @@
 
 import { Table, Text, clx } from '@medusajs/ui';
 
-import { CartItemSelect } from '@modules/cart/components/CardItemSelect';
-import DeleteButton from '@modules/common/components/DeleteButton';
-import LineItemOptions from '@modules/common/components/LineItemOptions';
-import LineItemPrice from '@modules/common/components/LineItemPrice';
-import LineItemUnitPrice from '@modules/common/components/LineItemUnitPrice';
-import Thumbnail from '@modules/products/components/Thumbnail';
-import { updateLineItem } from '@modules/cart/actions';
-import Spinner from '@modules/common/icons/spinner';
+import { CartItemSelect, updateLineItem } from '@modules/cart';
+import {
+    DeleteButton,
+    LineItemOptions,
+    LineItemPrice,
+    LineItemUnitPrice,
+    Spinner,
+    LocalizedClientLink
+} from '@modules/common';
+import { Thumbnail } from '@modules/products';
 import { useState } from 'react';
-import ErrorMessage from '@modules/checkout/components/ErrorMessage';
-import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
+import { ErrorMessage } from '@modules/checkout';
 import { ItemProps } from './Item.types';
 
 export const Item = ({ item, region, type = 'full' }: ItemProps) => {

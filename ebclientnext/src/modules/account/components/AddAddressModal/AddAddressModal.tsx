@@ -6,11 +6,9 @@ import { useEffect, useState } from 'react';
 import { useFormState } from 'react-dom';
 
 import { useToggleState } from '@lib/hooks';
-import CountrySelect from '@modules/checkout/components/CountrySelect';
-import Input from '@modules/common/components/Input';
-import Modal from '@modules/common/components/Modal';
-import { SubmitButton } from '@modules/checkout/components/SubmitButton';
-import { addCustomerShippingAddress } from '@modules/account/actions';
+import { CountrySelect, SubmitButton } from '@modules/checkout';
+import { Input, Modal } from '@modules/common';
+import { addCustomerShippingAddress } from '@modules/account';
 import { AddAddressModalProps } from './AddAddressModal.types';
 
 export const AddAddressModal = ({ region }: AddAddressModalProps) => {

@@ -1,8 +1,7 @@
 import { Container } from '@medusajs/ui';
 import { formatAmount } from '@lib/util/prices';
 
-import ChevronDown from '@modules/common/icons/chevron-down';
-import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
+import { ChevronDown, LocalizedClientLink } from '@modules/common';
 import { OverviewProps } from './Overview.types';
 import { getProfileCompletion } from './Overview.utils';
 

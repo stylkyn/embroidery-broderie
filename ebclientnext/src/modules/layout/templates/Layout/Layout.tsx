@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Footer } from '@modules/layout/templates/Footer';
-import { Nav } from '@modules/layout/templates/Nav';
+import { Footer, Nav } from '@modules/layout';
 import { LayoutProps } from './Layout.types';
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {

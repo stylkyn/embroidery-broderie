@@ -1,5 +1,5 @@
 import { Heading } from '@medusajs/ui';
-import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
+import { LocalizedClientLink } from '@modules/common';
 import React from 'react';
 
 export const Help = () => {

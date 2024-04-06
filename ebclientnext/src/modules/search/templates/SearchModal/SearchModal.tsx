@@ -5,9 +5,7 @@ import { useRouter } from 'next/navigation';
 import { MagnifyingGlassMini } from '@medusajs/icons';
 
 import { SEARCH_INDEX_NAME, searchClient } from '@lib/search-client';
-import { Hit } from '@modules/search/components/Hit';
-import { Hits } from '@modules/search/components/Hits';
-import { SearchBox } from '@modules/search/components/SearchBox';
+import { Hit, Hits, SearchBox } from '@modules/search';
 import { useEffect, useRef } from 'react';
 
 export const SearchModal = () => {

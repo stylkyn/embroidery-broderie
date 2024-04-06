@@ -3,7 +3,7 @@
 import { PaymentSession } from '@medusajs/medusa';
 import { Button } from '@medusajs/ui';
 import { useElements, useStripe } from '@stripe/react-stripe-js';
-import { placeOrder } from '@modules/checkout/actions';
+import { placeOrder } from '@modules/checkout';
 import React, { useState } from 'react';
 import { ErrorMessage } from '../../ErrorMessage';
 import { StripePaymentButtonProps } from './StripePaymentButton.types';

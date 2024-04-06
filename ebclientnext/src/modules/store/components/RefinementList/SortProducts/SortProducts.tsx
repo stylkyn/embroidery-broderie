@@ -3,7 +3,7 @@
 import { ChangeEvent } from 'react';
 import { SortOptions, SortProductsProps } from './SortProducts.types';
 
-import { FilterRadioGroup } from '@modules/common/components/FiilterRadioGroup';
+import { FilterRadioGroup } from '@modules/common';
 import { SORT_OPTIONS } from './SortProducts.consts';
 
 export const SortProducts = ({ sortBy, setQueryParams }: SortProductsProps) => {

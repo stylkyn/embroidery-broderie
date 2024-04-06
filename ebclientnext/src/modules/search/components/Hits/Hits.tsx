@@ -2,7 +2,7 @@ import { clx } from '@medusajs/ui';
 import React from 'react';
 import { useHits, useSearchBox } from 'react-instantsearch-hooks-web';
 
-import ShowAll from '../ShowAll';
+import { ShowAll } from '../ShowAll';
 import { HitsProps } from './Hits.types';
 import { ProductHit } from '../Hit/Hit.types';
 

@@ -5,10 +5,9 @@ import { CheckCircleSolid } from '@medusajs/icons';
 import { Button, Heading, Text, clx } from '@medusajs/ui';
 import { formatAmount } from '@lib/util/prices';
 
-import { Divider , Radio } from '@modules/common';
-import Spinner from '@modules/common/icons/spinner';
+import { Divider, Radio, Spinner } from '@modules/common';
 import { ErrorMessage } from '../ErrorMessage';
-import { setShippingMethod } from '@modules/checkout/actions';
+import { setShippingMethod } from '@modules/checkout';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { ShippingProps } from './Shipping.types';

@@ -4,8 +4,7 @@ import { Button, clx } from '@medusajs/ui';
 import React, { Fragment, useMemo } from 'react';
 
 import { useToggleState } from '@lib/hooks';
-import ChevronDown from '@modules/common/icons/chevron-down';
-import X from '@modules/common/icons/x';
+import { ChevronDown, X } from '@modules/common';
 
 import { getProductPrice } from '@lib/util/get-product-price';
 import { OptionSelect } from '../OptionSelect';

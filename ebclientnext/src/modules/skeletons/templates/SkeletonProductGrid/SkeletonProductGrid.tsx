@@ -1,5 +1,5 @@
 import repeat from '@lib/util/repeat';
-import { SkeletonProductPreview } from '@modules/skeletons/components/SkeletonProductPreview';
+import { SkeletonProductPreview } from '@modules/skeletons';
 
 export const SkeletonProductGrid = () => {
     return (

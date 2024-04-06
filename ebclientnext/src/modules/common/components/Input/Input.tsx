@@ -1,8 +1,7 @@
 import { Label } from '@medusajs/ui';
 import React, { useEffect, useImperativeHandle, useState } from 'react';
 
-import Eye from '@modules/common/icons/eye';
-import EyeOff from '@modules/common/icons/eye-off';
+import { Eye, EyeOff } from '@modules/common';
 import { InputProps } from './Input.types';
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(

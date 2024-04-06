@@ -1,6 +1,8 @@
-import { SkeletonOrderConfirmedHeader } from '@modules/skeletons/components/SkeletonOrderConfirmedHeader';
-import { SkeletonOrderInformation } from '@modules/skeletons/components/SkeletonOrderInformation';
-import { SkeletonOrderItems } from '@modules/skeletons/components/SkeletonOrderItems';
+import {
+    SkeletonOrderConfirmedHeader,
+    SkeletonOrderInformation,
+    SkeletonOrderItems
+} from '@modules/skeletons';
 
 export const SkeletonOrderConfirmed = () => {
     return (

@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { useFormState } from 'react-dom';
 
-import Input from '@modules/common/components/Input';
+import { Input } from '@modules/common';
 
 import { AccountInfo } from '../AccountInfo';
 import { updateCustomerPhone } from '@modules/account/actions';

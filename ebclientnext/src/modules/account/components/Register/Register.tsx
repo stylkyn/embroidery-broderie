@@ -2,12 +2,9 @@
 
 import { useFormState } from 'react-dom';
 
-import Input from '@modules/common/components/Input';
-import { LOGIN_VIEW } from '@modules/account/templates';
-import { signUp } from '@modules/account/actions';
-import ErrorMessage from '@modules/checkout/components/ErrorMessage';
-import { SubmitButton } from '@modules/checkout/components/SubmitButton';
-import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
+import { Input, LocalizedClientLink } from '@modules/common';
+import { LOGIN_VIEW, signUp } from '@modules/account';
+import { ErrorMessage, SubmitButton } from '@modules/checkout';
 import { RegisterProps } from './Register.types';
 
 export const Register = ({ setCurrentView }: RegisterProps) => {

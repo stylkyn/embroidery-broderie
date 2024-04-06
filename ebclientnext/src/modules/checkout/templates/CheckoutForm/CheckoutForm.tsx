@@ -1,7 +1,4 @@
-import { Addresses } from '@modules/checkout/components/Addresses';
-import { Shipping } from '@modules/checkout/components/Shipping';
-import { Payment } from '@modules/checkout/components/Payment';
-import { Review } from '@modules/checkout/components/Review';
+import { Addresses, Shipping, Payment, Review } from '@modules/checkout';
 import {
     createPaymentSessions,
     getCustomer,

@@ -1,6 +1,6 @@
 import { ArrowUpRightMini } from '@medusajs/icons';
 import { Text } from '@medusajs/ui';
-import LocalizedClientLink from '../LocalizedClientLink';
+import { LocalizedClientLink } from '../LocalizedClientLink';
 import { InteractiveLinkProps } from './InteractiveLink.types';
 
 export const InteractiveLink = ({

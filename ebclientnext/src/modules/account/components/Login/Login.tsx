@@ -1,10 +1,8 @@
 import { useFormState } from 'react-dom';
 
-import { LOGIN_VIEW } from '@modules/account/templates';
-import Input from '@modules/common/components/Input';
-import { logCustomerIn } from '@modules/account/actions';
-import ErrorMessage from '@modules/checkout/components/ErrorMessage';
-import { SubmitButton } from '@modules/checkout/components/SubmitButton';
+import { LOGIN_VIEW, logCustomerIn } from '@modules/account';
+import { Input } from '@modules/common';
+import { ErrorMessage, SubmitButton } from '@modules/checkout';
 import { LoginProps } from './Login.types';
 
 export const Login = ({ setCurrentView }: LoginProps) => {

@@ -3,8 +3,8 @@
 import React, { useEffect } from 'react';
 import { useFormState } from 'react-dom';
 
-import Input from '@modules/common/components/Input';
-import { updateCustomerName } from '@modules/account/actions';
+import { Input } from '@modules/common';
+import { updateCustomerName } from '@modules/account';
 
 import { AccountInfo } from '../AccountInfo';
 import { ProfileNameProps } from './ProfileName.types';

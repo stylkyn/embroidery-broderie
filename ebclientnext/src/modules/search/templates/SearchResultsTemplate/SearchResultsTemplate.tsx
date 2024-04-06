@@ -1,8 +1,7 @@
 import { Heading, Text } from '@medusajs/ui';
 
-import RefinementList from '@modules/store/components/Refinement-list';
-import PaginatedProducts from '@modules/store/templates/paginated-products';
-import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
+import { RefinementList, PaginatedProducts } from '@modules/store';
+import { LocalizedClientLink } from '@modules/common';
 import { SearchResultsTemplateProps } from './SearchResultsTemplate.types';
 
 export const SearchResultsTemplate = ({

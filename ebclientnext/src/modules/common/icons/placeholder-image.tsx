@@ -1,10 +1,10 @@
-import React from "react"
+import React from 'react';
 
-import { IconProps } from "types/icon"
+import { IconProps } from 'types/icon';
 
-const PlaceholderImage: React.FC<IconProps> = ({
-    size = "20",
-    color = "currentColor",
+export const PlaceholderImage: React.FC<IconProps> = ({
+    size = '20',
+    color = 'currentColor',
     ...attributes
 }) => {
     return (
@@ -38,7 +38,5 @@ const PlaceholderImage: React.FC<IconProps> = ({
                 strokeLinejoin="round"
             />
         </svg>
-    )
-}
-
-export default PlaceholderImage
+    );
+};

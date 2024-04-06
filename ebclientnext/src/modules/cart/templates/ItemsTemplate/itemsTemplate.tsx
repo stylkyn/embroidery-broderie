@@ -1,7 +1,7 @@
 import { Heading, Table } from '@medusajs/ui';
 
-import { Item } from '@modules/cart/components/item';
-import SkeletonLineItem from '@modules/skeletons/components/SkeletonLineItem';
+import { Item } from '@modules/cart';
+import { SkeletonLineItem } from '@modules/skeletons';
 import { ItemsTemplateProps } from './ItemsTemplate.types';
 
 export const ItemsTemplate = ({ items, region }: ItemsTemplateProps) => {

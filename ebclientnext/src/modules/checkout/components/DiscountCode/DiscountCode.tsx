@@ -5,10 +5,8 @@ import { Heading, Label, Text, Tooltip } from '@medusajs/ui';
 import React, { useMemo } from 'react';
 import { useFormState } from 'react-dom';
 
-import { Input } from '@modules/common';
-import Trash from '@modules/common/icons/trash';
-import { ErrorMessage } from '@modules/checkout/components/ErrorMessage';
-import { SubmitButton } from '@modules/checkout/components/SubmitButton';
+import { Input, Trash } from '@modules/common';
+import { ErrorMessage, SubmitButton } from '@modules/checkout';
 import {
     removeDiscount,
     removeGiftCard,

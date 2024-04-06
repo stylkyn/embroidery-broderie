@@ -1,6 +1,6 @@
 import { Heading, Text } from '@medusajs/ui';
 
-import InteractiveLink from '@modules/common/components/interactiveLink';
+import { InteractiveLink } from '@modules/common';
 
 export const EmptyCartMessage = () => {
     return (

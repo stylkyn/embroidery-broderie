@@ -1,6 +1,6 @@
 import { retrievePricedProductById } from '@lib/medusajs';
 import { Region } from '@medusajs/medusa';
-import { ProductActions } from '@modules/products/components/ProductActions';
+import { ProductActions } from '@modules/products';
 
 /**
  * Fetches real time pricing for a product and renders the product actions component.

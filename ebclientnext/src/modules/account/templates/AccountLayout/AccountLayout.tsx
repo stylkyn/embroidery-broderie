@@ -1,9 +1,9 @@
 import React from 'react';
-
-import UnderlineLink from '@modules/common/components/interactiveLink';
-
+// TODO: Omylem jsem to smazal
+// import { UnderlineLink } from '@modules/common/components';
 import { AccountNav } from '../../components/AccountNav';
 import { AccountLayoutProps } from './AccountLayout.types';
+import Link from 'next/link';
 
 export const AccountLayout: React.FC<AccountLayoutProps> = ({
     customer,
@@ -25,9 +25,11 @@ export const AccountLayout: React.FC<AccountLayoutProps> = ({
                         </span>
                     </div>
                     <div>
-                        <UnderlineLink href="/customer-service">
+                        {/* // TODO: Omylem jsem to smazal */}
+                        <Link href="/customer-service">Customer Service</Link>
+                        {/* <UnderlineLink href="/customer-service">
                             Customer Service
-                        </UnderlineLink>
+                        </UnderlineLink> */}
                     </div>
                 </div>
             </div>

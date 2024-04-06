@@ -2,7 +2,7 @@ import { Region } from '@medusajs/medusa';
 import { Text } from '@medusajs/ui';
 import { InteractiveLink } from '@modules/common';
 
-import ProductPreview from '@modules/products/components/ProductPreview';
+import { ProductPreview } from '@modules/products';
 import { ProductCollectionWithPreviews } from 'types/global';
 
 export const ProductRail = ({

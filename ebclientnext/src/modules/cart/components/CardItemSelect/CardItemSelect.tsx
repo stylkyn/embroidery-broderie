@@ -9,7 +9,7 @@ import {
     useState
 } from 'react';
 
-import ChevronDown from '@modules/common/icons/chevron-down';
+import { ChevronDown } from '@modules/common';
 import { NativeSelectProps } from './CardItemSelect.types';
 
 export const CartItemSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
