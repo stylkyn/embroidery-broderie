@@ -7,11 +7,11 @@ import Thumbnail from '../Thumbnail';
 import { ProductPreviewProps } from './ProductPreview.types';
 import { PreviewPrice } from './PreviewPrice';
 
-export default async function ProductPreview({
+export const ProductPreview = async ({
     productPreview,
     isFeatured,
     region
-}: ProductPreviewProps) {
+}: ProductPreviewProps) => {
     const pricedProduct = await retrievePricedProductById({
         id: productPreview.id,
         regionId: region.id
@@ -50,4 +50,4 @@ export default async function ProductPreview({
             </div>
         </LocalizedClientLink>
     );
-}
+};

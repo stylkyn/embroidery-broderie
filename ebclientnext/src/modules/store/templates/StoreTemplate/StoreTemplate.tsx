@@ -1,0 +1,37 @@
+import { Suspense } from 'react';
+
+import { SkeletonProductGrid } from '@modules/skeletons/templates/SkeletonProductGrid';
+import { RefinementList } from '@modules/store/components';
+import { SortOptions } from '@modules/store/components/RefinementList/SortProducts';
+
+import { PaginatedProducts } from '../PaginatedProducts/PaginatedProducts';
+
+export const StoreTemplate = ({
+    sortBy,
+    page,
+    countryCode
+}: {
+    sortBy?: SortOptions;
+    page?: string;
+    countryCode: string;
+}) => {
+    const pageNumber = page ? parseInt(page) : 1;
+
+    return (
+        <div className="flex flex-col small:flex-row small:items-start py-6 content-container">
+            <RefinementList sortBy={sortBy || 'created_at'} />
+            <div className="w-full">
+                <div className="mb-8 text-2xl-semi">
+                    <h1>All products</h1>
+                </div>
+                <Suspense fallback={<SkeletonProductGrid />}>
+                    <PaginatedProducts
+                        sortBy={sortBy || 'created_at'}
+                        page={pageNumber}
+                        countryCode={countryCode}
+                    />
+                </Suspense>
+            </div>
+        </div>
+    );
+};

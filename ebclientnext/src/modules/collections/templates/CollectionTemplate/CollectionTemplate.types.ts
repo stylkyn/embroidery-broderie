@@ -1,5 +1,5 @@
 import { ProductCollection } from '@medusajs/medusa';
-import { SortOptions } from '@modules/store/components/refinement-list/sort-products/types';
+import { SortOptions } from '@modules/store/components/RefinementList/SortProducts/types';
 
 export interface CollectionTemplateProps {
     sortBy?: SortOptions;

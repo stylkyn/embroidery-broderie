@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
-import SkeletonProductGrid from '@modules/skeletons/templates/skeleton-product-grid';
-import RefinementList from '@modules/store/components/refinement-list';
+import SkeletonProductGrid from '@modules/skeletons/templates/SkeletonProductGrid';
+import RefinementList from '@modules/store/components/Refinement-list';
 import PaginatedProducts from '@modules/store/templates/paginated-products';
 import { CollectionTemplateProps } from './CollectionTemplate.types';
 

@@ -1,4 +1,4 @@
-import SearchResultsTemplate from '@modules/search/templates/search-results-template';
+import { SearchResultsTemplate } from '@modules/search/templates/SearchResultsTemplate';
 
 import { search } from '@modules/search/actions';
 import { Params } from './page.types';
