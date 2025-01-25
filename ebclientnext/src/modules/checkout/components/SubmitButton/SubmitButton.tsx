@@ -1,9 +1,9 @@
 'use client';
 
-import { Button } from '@medusajs/ui';
 import React from 'react';
 import { useFormStatus } from 'react-dom';
 import { SubmitButtonProps } from './SubmitButton.types';
+import { Button } from '@medusajs/ui';
 
 export const SubmitButton = ({
     children,

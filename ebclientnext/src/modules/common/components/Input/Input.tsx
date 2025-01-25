@@ -1,8 +1,10 @@
+'use client';
+
 import { Label } from '@medusajs/ui';
 import React, { useEffect, useImperativeHandle, useState } from 'react';
 
-import { Eye, EyeOff } from '@modules/common';
 import { InputProps } from './Input.types';
+import { Eye, EyeOff } from '@modules/common/icons';
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({ type, name, label, touched, required, topLabel, ...props }, ref) => {

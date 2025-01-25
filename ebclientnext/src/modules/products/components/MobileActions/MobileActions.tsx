@@ -4,11 +4,11 @@ import { Button, clx } from '@medusajs/ui';
 import React, { Fragment, useMemo } from 'react';
 
 import { useToggleState } from '@lib/hooks';
-import { ChevronDown, X } from '@modules/common';
 
 import { getProductPrice } from '@lib/util/get-product-price';
 import { OptionSelect } from '../OptionSelect';
 import { MobileActionsProps } from './MobileActions.types';
+import { ChevronDown, X } from '@modules/common/icons';
 
 export const MobileActions: React.FC<MobileActionsProps> = ({
     product,

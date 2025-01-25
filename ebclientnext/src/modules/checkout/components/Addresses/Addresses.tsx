@@ -10,7 +10,6 @@ import { Cart, Customer } from '@medusajs/medusa';
 import { CheckCircleSolid } from '@medusajs/icons';
 import { Heading, Text, useToggleState } from '@medusajs/ui';
 
-import { Divider, Spinner } from '@modules/common';
 
 import { BillingAddress } from '../BillingAddress';
 import { ShippingAddress } from '../ShippingAddress';
@@ -19,6 +18,8 @@ import { SubmitButton } from '../SubmitButton';
 import { useFormState } from 'react-dom';
 import { ErrorMessage } from '../ErrorMessage';
 import compareAddresses from '@lib/util/compare-addresses';
+import { Spinner } from '@modules/common/icons';
+import { Divider } from '@modules/common/components/Divider';
 
 export const Addresses = ({
     cart,

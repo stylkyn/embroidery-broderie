@@ -1,9 +1,9 @@
 'use client';
 
 import { Button } from '@medusajs/ui';
-import { placeOrder } from '@modules/checkout';
 import React, { useState } from 'react';
 import { ErrorMessage } from '../../ErrorMessage';
+import { placeOrder } from '@modules/checkout/actions';
 
 export const ManualTestPaymentButton = ({
     notReady

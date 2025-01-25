@@ -1,10 +1,10 @@
 import { Button } from '@medusajs/ui';
 import { useMemo } from 'react';
 
-import { Thumbnail } from '@modules/products';
-import { LocalizedClientLink } from '@modules/common';
 import { formatAmount } from '@lib/util/prices';
 import { OrderCardProps } from './OrderCard.types';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
+import { Thumbnail } from '@modules/products/components/Thumbnail';
 
 export const OrderCard = ({ order }: OrderCardProps) => {
     const numberOfLines = useMemo(() => {

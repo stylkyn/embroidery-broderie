@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 
 import { getCollectionByHandle } from '@lib/medusajs';
-import CollectionTemplate from '@modules/collections/templates';
 import { Props } from './page.types';
+import { CollectionTemplate } from '@modules/collections/templates/CollectionTemplate';
 
 export { generateMetadata } from './page.metadata';
 export { generateStaticParams } from './page.static-params';

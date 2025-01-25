@@ -3,8 +3,8 @@
 import { ChangeEvent } from 'react';
 import { SortOptions, SortProductsProps } from './SortProducts.types';
 
-import { FilterRadioGroup } from '@modules/common';
 import { SORT_OPTIONS } from './SortProducts.consts';
+import { FilterRadioGroup } from '@modules/common/components/FiilterRadioGroup';
 
 export const SortProducts = ({ sortBy, setQueryParams }: SortProductsProps) => {
     const handleChange = (e: ChangeEvent<HTMLButtonElement>) => {

@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
 
-import { PaymentWrapper } from '@modules/checkout/components/PaymentWrapper';
 import { CheckoutForm } from '@modules/checkout/templates/CheckoutForm';
-import { CheckoutSummary } from '@modules/checkout/templates/CheckoutSummary';
 import { fetchCart } from './page.utils';
+import { PaymentWrapper } from '@modules/checkout/components/PaymentWrapper';
+import { CheckoutSummary } from '@modules/checkout/templates/CheckoutSummary';
 
 export { metadata } from './page.metadata';
 

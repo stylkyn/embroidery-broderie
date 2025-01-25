@@ -2,8 +2,8 @@ import { Container, Heading, Text } from '@medusajs/ui';
 import { formatAmount } from '@lib/util/prices';
 
 import { paymentInfoMap } from '@lib/constants';
-import { Divider } from '@modules/common';
 import { PaymentDetailsProps } from './PaymentDetails.types';
+import { Divider } from '@modules/common/components/Divider';
 
 export const PaymentDetails = ({ order }: PaymentDetailsProps) => {
     const payment = order.payments[0];

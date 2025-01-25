@@ -1,12 +1,12 @@
 'use client';
 
-import { InstantSearch } from 'react-instantsearch-hooks-web';
 import { useRouter } from 'next/navigation';
 import { MagnifyingGlassMini } from '@medusajs/icons';
 
 import { SEARCH_INDEX_NAME, searchClient } from '@lib/search-client';
-import { Hit, Hits, SearchBox } from '@modules/search';
 import { useEffect, useRef } from 'react';
+import { Hit, Hits, SearchBox } from '@modules/search/components';
+import { InstantSearch } from 'react-instantsearch-hooks-web';
 
 export const SearchModal = () => {
     const router = useRouter();

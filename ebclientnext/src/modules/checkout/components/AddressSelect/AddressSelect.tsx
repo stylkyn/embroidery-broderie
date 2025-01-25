@@ -5,10 +5,10 @@ import { clx } from '@medusajs/ui';
 import { omit } from 'lodash';
 import { Fragment, useMemo } from 'react';
 
-import { Radio } from '@modules/common';
 import { cartUpdate } from '@modules/checkout/actions';
 import compareAddresses from '@lib/util/compare-addresses';
 import { AddressSelectProps } from './AddressSelect.types';
+import { Radio } from '@modules/common/components/Radio';
 
 export const AddressSelect = ({ addresses, cart }: AddressSelectProps) => {
     const handleSelect = (id: string) => {

@@ -3,11 +3,11 @@
 import React, { useEffect } from 'react';
 import { useFormState } from 'react-dom';
 
-import { Input } from '@modules/common';
 
 import { AccountInfo } from '../AccountInfo';
 import { updateCustomerPhone } from '@modules/account/actions';
 import { ProfilePhoneProps } from './ProfilePhone.types';
+import { Input } from '@modules/common/components/Input';
 
 export const ProfilePhone: React.FC<ProfilePhoneProps> = ({ customer }) => {
     const [successState, setSuccessState] = React.useState(false);

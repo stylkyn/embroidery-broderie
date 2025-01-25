@@ -1,4 +1,4 @@
-import InteractiveLink from '@modules/common/components/interactiveLink';
+import { InteractiveLink } from '@modules/common/components/InteractiveLink';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

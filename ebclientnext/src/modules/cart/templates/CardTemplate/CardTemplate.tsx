@@ -2,7 +2,7 @@ import { ItemsTemplate } from '../ItemsTemplate';
 import { SummaryTemplate } from '../SummaryTemplate/SummaryTemplate';
 import { EmptyCartMessage } from '../../components/EmptyCardMessage';
 import { SignInPrompt } from '../../components/SingInPrompt';
-import Divider from '@modules/common/components/Divider';
+import { Divider } from '@modules/common/components/Divider';
 import { CardTemplateProps } from './CardTemplate.types';
 
 export const CartTemplate = ({ cart, customer }: CardTemplateProps) => {

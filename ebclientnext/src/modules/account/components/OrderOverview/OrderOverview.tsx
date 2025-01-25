@@ -3,8 +3,8 @@
 import { Button } from '@medusajs/ui';
 
 import { OrderCard } from '../OrderCard';
-import { LocalizedClientLink } from '@modules/common';
 import { OrderOverviewProps } from './OrderOverview.types';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
 
 export const OrderOverview = ({ orders }: OrderOverviewProps) => {
     if (orders?.length) {

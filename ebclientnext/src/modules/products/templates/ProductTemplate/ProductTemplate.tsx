@@ -1,17 +1,16 @@
 import React, { Suspense } from 'react';
 
-import { SkeletonRelatedProducts } from '@modules/skeletons';
 import { notFound } from 'next/navigation';
 import { ProductTemplateProps } from './ProductTemplate.types';
 
-import {
-    ImageGallery,
-    ProductActions,
-    ProductOnboardingCta,
-    ProductTabs,
-    RelatedProducts
-} from '@modules/products';
+
 import { ProductInfo } from '../ProductInfo';
+import { ImageGallery } from '@modules/products/components/ImageGallery';
+import { ProductOnboardingCta } from '@modules/products/components/ProductOnboardingCta';
+import { ProductTabs } from '@modules/products/components/ProductTabs';
+import { RelatedProducts } from '@modules/products/components/RelatedProducts';
+import { SkeletonRelatedProducts } from '@modules/skeletons/templates/SkeletonRelatedProducts';
+import { ProductActions } from '@modules/products/components/ProductActions';
 import { ProductActionsWrapper } from '../ProductActionsWrapper';
 
 export const ProductTemplate: React.FC<ProductTemplateProps> = ({

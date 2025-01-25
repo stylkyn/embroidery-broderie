@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import InteractiveLink from '@modules/common/components/interactiveLink';
+import { InteractiveLink } from '@modules/common/components/InteractiveLink';
 
 export const metadata: Metadata = {
     title: '404',

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IconProps } from 'types/icon';
 
-export const Ideal: React.FC<IconProps> = ({
+export const Bancontact: React.FC<IconProps> = ({
     size = '20',
     color = 'currentColor',
     ...attributes

@@ -1,9 +1,9 @@
 import { Table } from '@medusajs/ui';
 
-import { Divider } from '@modules/common';
-import { Item } from '@modules/order';
-import { SkeletonLineItem } from '@modules/skeletons';
 import { ItemsProps } from './Items.types';
+import { Divider } from '@modules/common/components/Divider';
+import { SkeletonLineItem } from '@modules/skeletons/components/SkeletonLineItem';
+import { Item } from '../Item';
 
 export const Items = ({ items, region }: ItemsProps) => {
     return (

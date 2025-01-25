@@ -1,6 +1,6 @@
-import CartTemplate from '@modules/cart/templates';
 import { getCustomer } from '@lib/medusajs';
 import { fetchCart } from './page.utils';
+import { CartTemplate } from '@modules/cart/templates/CardTemplate';
 
 export { metadata } from './page.metadata';
 

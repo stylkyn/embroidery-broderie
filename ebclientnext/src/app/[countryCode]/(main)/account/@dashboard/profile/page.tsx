@@ -1,11 +1,10 @@
 import { getCustomer, listRegions } from '@lib/medusajs';
-import {
-    ProfileBillingAddress,
-    ProfileEmail,
-    ProfileName,
-    ProfilePassword,
-    ProfilePhone
-} from '@modules/account';
+import { ProfileBillingAddress } from '@modules/account/components/ProfileBillingAddress';
+import { ProfileEmail } from '@modules/account/components/ProfileEmail';
+import { ProfileName } from '@modules/account/components/ProfileName';
+import { ProfilePassword } from '@modules/account/components/ProfilePassword';
+import { ProfilePhone } from '@modules/account/components/ProfilePhone';
+
 import { notFound } from 'next/navigation';
 
 export { metadata } from './page.metadata';

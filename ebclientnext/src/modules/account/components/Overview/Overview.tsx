@@ -1,9 +1,10 @@
 import { Container } from '@medusajs/ui';
 import { formatAmount } from '@lib/util/prices';
 
-import { ChevronDown, LocalizedClientLink } from '@modules/common';
 import { OverviewProps } from './Overview.types';
 import { getProfileCompletion } from './Overview.utils';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
+import { ChevronDown } from '@modules/common/icons';
 
 export const Overview = ({ customer, orders }: OverviewProps) => {
     return (

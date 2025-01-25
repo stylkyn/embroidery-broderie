@@ -1,5 +1,5 @@
 import { Region } from '@medusajs/medusa';
-import { ProductPreviewType } from '@types/global';
+import { ProductPreviewType } from 'types/global';
 
 export interface ProductPreviewProps {
     productPreview: ProductPreviewType;

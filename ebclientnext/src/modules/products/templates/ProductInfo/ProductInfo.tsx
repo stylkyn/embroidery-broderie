@@ -1,6 +1,6 @@
 import { Heading, Text } from '@medusajs/ui';
-import { LocalizedClientLink } from '@modules/common';
 import { ProductInfoProps } from './ProductInfo.types';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
 
 export const ProductInfo = ({ product }: ProductInfoProps) => {
     return (

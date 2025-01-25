@@ -1,8 +1,9 @@
 'use client';
 
+import { Login } from '@modules/account/components/Login';
+import { Register } from '@modules/account/components/Register';
 import { useState } from 'react';
 
-import { Register, Login } from '@modules/account';
 
 export const LoginTemplate = () => {
     const [currentView, setCurrentView] = useState('sign-in');

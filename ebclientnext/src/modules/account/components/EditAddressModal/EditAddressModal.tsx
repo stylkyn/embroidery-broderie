@@ -1,18 +1,17 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { PencilSquare as Edit, Trash } from '@medusajs/icons';
+import { PencilSquare as Edit, Spinner, Trash } from '@medusajs/icons';
 import { Button, Heading, Text, clx } from '@medusajs/ui';
 
 import { useToggleState } from '@lib/hooks';
-import { CountrySelect, SubmitButton } from '@modules/checkout';
-import { Input, Modal, Spinner } from '@modules/common';
-import {
-    deleteCustomerShippingAddress,
-    updateCustomerShippingAddress
-} from '@modules/account';
+import { CountrySelect } from '@modules/checkout/components/CountrySelect';
+import { SubmitButton } from '@modules/checkout/components/SubmitButton';
+import { Input } from '@modules/common/components/Input';
 import { useFormState } from 'react-dom';
 import { EditAddressModalProps } from './EditAddressModal.types';
+import { deleteCustomerShippingAddress, updateCustomerShippingAddress } from '@modules/account/actions';
+import { Modal } from '@modules/common/components/Modal/Modal';
 
 export const EditAddressModal: React.FC<EditAddressModalProps> = ({
     region,

@@ -6,9 +6,9 @@ import { Region } from '@medusajs/medusa';
 import { Text, clx, useToggleState } from '@medusajs/ui';
 import { Fragment } from 'react';
 
-import { LocalizedClientLink } from '@modules/common';
 import { CountrySelect } from '../CountrySelect';
 import { SideMenuItems } from './SideMenu.consts';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
 
 export const SideMenu = ({ regions }: { regions: Region[] | null }) => {
     const toggleState = useToggleState();

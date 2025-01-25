@@ -1,4 +1,4 @@
-import StoreTemplate from '@modules/store/templates';
+import { StoreTemplate } from '@modules/store/templates/StoreTemplate';
 import { Params } from './page.types';
 
 export default function StorePage({ searchParams, params }: Params) {

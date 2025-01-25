@@ -1,5 +1,5 @@
 import { Region } from '@medusajs/medusa';
-import { StateType } from '@lib/hooks/use-toggle-state';
+import { StateType } from 'lib/hooks';
 
 export interface CountryOption {
     country: string;

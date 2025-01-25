@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Input } from '@modules/common';
 import { CountrySelect } from '../CountrySelect';
 import { BillingAddressProps } from './BillingAddress.types';
+import { Input } from '@modules/common/components/Input';
 
 export const BillingAddress = ({ cart, countryCode }: BillingAddressProps) => {
     const [formData, setFormData] = useState({

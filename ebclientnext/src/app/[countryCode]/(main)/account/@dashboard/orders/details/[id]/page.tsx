@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { retrieveOrder } from '@lib/medusajs';
-import OrderDetailsTemplate from '@modules/order/templates/order-details-template';
 import { Props } from './page.types';
+import { OrderDetailsTemplate } from '@modules/order/templates/OrderDetailsTemplate';
 
 export { generateMetadata } from './page.metadata';
 

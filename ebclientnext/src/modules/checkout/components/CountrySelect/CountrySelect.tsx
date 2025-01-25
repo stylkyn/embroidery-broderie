@@ -1,7 +1,7 @@
 import { forwardRef, useImperativeHandle, useMemo, useRef } from 'react';
 
-import { NativeSelect } from '@modules/common';
 import { CountrySelectProps } from './CountrySelect.types';
+import { NativeSelect } from '@modules/common/components/NativeSelect';
 
 export const CountrySelect = forwardRef<HTMLSelectElement, CountrySelectProps>(
     ({ placeholder = 'Country', region, defaultValue, ...props }, ref) => {

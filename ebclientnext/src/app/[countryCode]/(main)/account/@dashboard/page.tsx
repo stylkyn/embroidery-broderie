@@ -1,5 +1,5 @@
 import { getCustomer, listCustomerOrders } from '@lib/medusajs';
-import { Overview } from '@modules/account';
+import { Overview } from '@modules/account/components/Overview';
 import { notFound } from 'next/navigation';
 
 export { metadata } from './page.metadata';

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
-import Footer from '@modules/layout/templates/Footer';
-import Nav from '@modules/layout/templates/Nav';
+import { Footer } from '@modules/layout/templates/Footer';
+import { Nav } from '@modules/layout/templates/Nav';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://localhost:8000';
 

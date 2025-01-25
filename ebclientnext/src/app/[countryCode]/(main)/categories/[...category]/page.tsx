@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { Props } from './page.types';
 
 import { getCategoryByHandle } from '@lib/medusajs';
-import CategoryTemplate from '@modules/categories/templates';
+import { CategoryTemplate } from '@modules/categories/templates/CategoryTemplate';
 
 export { generateStaticParams } from './page.static-params';
 export { generateMetadata } from './page.metadata';

@@ -9,8 +9,8 @@ import {
     useState
 } from 'react';
 
-import { ChevronDown } from '@modules/common';
 import { NativeSelectProps } from './CardItemSelect.types';
+import { ChevronDown } from '@modules/common/icons';
 
 export const CartItemSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
     ({ placeholder = 'Select...', className, children, ...props }, ref) => {

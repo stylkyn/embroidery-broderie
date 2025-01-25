@@ -5,8 +5,6 @@ import { Heading, Label, Text, Tooltip } from '@medusajs/ui';
 import React, { useMemo } from 'react';
 import { useFormState } from 'react-dom';
 
-import { Input, Trash } from '@modules/common';
-import { ErrorMessage, SubmitButton } from '@modules/checkout';
 import {
     removeDiscount,
     removeGiftCard,
@@ -14,6 +12,10 @@ import {
 } from '@modules/checkout/actions';
 import { formatAmount } from '@lib/util/prices';
 import { DiscountCodeProps } from './DiscountCode.types';
+import { SubmitButton } from '../SubmitButton';
+import { ErrorMessage } from '../ErrorMessage';
+import { Trash } from '@modules/common/icons';
+import { Input } from '@modules/common/components/Input';
 
 export const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
     const [isOpen, setIsOpen] = React.useState(false);

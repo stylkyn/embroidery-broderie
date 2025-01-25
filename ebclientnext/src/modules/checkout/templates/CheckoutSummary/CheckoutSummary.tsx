@@ -1,10 +1,11 @@
 import { Heading } from '@medusajs/ui';
 
-import { ItemsPreviewTemplate } from '@modules/cart';
-import { DiscountCode } from '@modules/checkout';
-import { CartTotals, Divider } from '@modules/common';
 import { cookies } from 'next/headers';
 import { getCart } from '@lib/medusajs';
+import { ItemsPreviewTemplate } from '@modules/cart/templates/ItemsPreviewTemplate';
+import { DiscountCode } from '@modules/checkout/components/DiscountCode';
+import { CartTotals } from '@modules/common/components/CartTotals';
+import { Divider } from '@modules/common/components/Divider';
 
 export const CheckoutSummary = async () => {
     const cartId = cookies().get('_medusa_cart_id')?.value;

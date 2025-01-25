@@ -1,12 +1,10 @@
 import { Table, Text } from '@medusajs/ui';
 
-import {
-    LineItemOptions,
-    LineItemPrice,
-    LineItemUnitPrice
-} from '@modules/common';
-import { Thumbnail } from '@modules/products';
 import { ItemProps } from './Item.types';
+import { LineItemOptions } from '@modules/common/components/LineItemOptions';
+import { LineItemPrice } from '@modules/common/components/LineItemPrice';
+import { LineItemUnitPrice } from '@modules/common/components/LineItemUnitPrice';
+import { Thumbnail } from '@modules/products/components/Thumbnail';
 
 export const Item = ({ item, region }: ItemProps) => {
     return (

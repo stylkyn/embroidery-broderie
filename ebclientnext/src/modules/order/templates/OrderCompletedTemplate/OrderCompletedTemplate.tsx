@@ -1,16 +1,14 @@
 import { Heading } from '@medusajs/ui';
 import { cookies } from 'next/headers';
 
-import { CartTotals } from '@modules/common';
-import {
-    Help,
-    Items,
-    OnboardingCta,
-    OrderDetails,
-    ShippingDetails,
-    PaymentDetails
-} from '@modules/order/components';
 import { OrderCompletedTemplateProps } from './OrderCompletedTemplate.types';
+import { CartTotals } from '@modules/common/components/CartTotals';
+import { Help } from '@modules/order/components/Help';
+import { Items } from '@modules/order/components/Items';
+import { OnboardingCta } from '@modules/order/components/OnboardingCta';
+import { OrderDetails } from '@modules/order/components/OrderDetails';
+import { PaymentDetails } from '@modules/order/components/PaymentDetails';
+import { ShippingDetails } from '@modules/order/components/ShippingDetails';
 
 export const OrderCompletedTemplate = ({
     order

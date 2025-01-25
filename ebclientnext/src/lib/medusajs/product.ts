@@ -9,7 +9,7 @@ import { ProductPreviewType } from 'types/global';
 import { medusaClient } from '@lib/config';
 import { getMedusaHeaders } from './base';
 import { getRegion } from './region';
-import { SortOptions } from '@modules/store/components/RefinementList/SortProducts/types';
+import { SortOptions } from '@modules/store/components/RefinementList/SortProducts/SortProducts.types';
 import {
     getCollectionsList,
     getProductsByCollectionHandle

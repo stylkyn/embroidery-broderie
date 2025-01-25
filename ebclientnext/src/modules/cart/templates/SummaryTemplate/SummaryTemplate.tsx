@@ -2,9 +2,11 @@
 
 import { Button, Heading } from '@medusajs/ui';
 
-import { CartTotals, Divider, LocalizedClientLink } from '@modules/common';
-import { DiscountCode } from '@modules/checkout';
 import { SummaryTemplateProps } from './SummaryTemplate.types';
+import { DiscountCode } from '@modules/checkout/components/DiscountCode';
+import { CartTotals } from '@modules/common/components/CartTotals';
+import { Divider } from '@modules/common/components/Divider';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
 
 export const SummaryTemplate = ({ cart }: SummaryTemplateProps) => {
     return (

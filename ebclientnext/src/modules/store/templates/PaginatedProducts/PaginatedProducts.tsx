@@ -1,11 +1,11 @@
 import { getProductsListWithSort, getRegion } from '@lib/medusajs';
-import { ProductPreview } from '@modules/products';
-import { Pagination } from '@modules/store';
 import {
     PaginatedProductsParams,
     PaginatedProductsProps
 } from './PaginatedProducts.types';
 import { PRODUCT_LIMIT } from './PaginatedProducts.consts';
+import { ProductPreview } from '@modules/products/components/ProductPreview';
+import { Pagination } from '@modules/store/components/Pagination';
 
 export const PaginatedProducts = async ({
     sortBy,

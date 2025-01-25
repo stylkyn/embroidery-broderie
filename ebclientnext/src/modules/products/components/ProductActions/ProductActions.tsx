@@ -6,13 +6,13 @@ import { useParams } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { useIntersection } from '@lib/hooks';
-import { addToCart } from '@modules/cart';
-import { Divider } from '@modules/common';
-import { OptionSelect } from '@modules/products';
 
 import { MobileActions } from '../MobileActions';
 import { ProductPrice } from '../ProductPrice';
 import { ProductActionsProps } from './ProductActions.types';
+import { addToCart } from '@modules/cart/actions';
+import { Divider } from '@modules/common/components/Divider';
+import { OptionSelect } from '../OptionSelect';
 
 export const ProductActions = ({ product, region }: ProductActionsProps) => {
     const [options, setOptions] = useState<Record<string, string>>({});

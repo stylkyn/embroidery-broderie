@@ -1,7 +1,7 @@
 import { Text, clx } from '@medusajs/ui';
-import * as AccordionPrimitive from '@radix-ui/react-accordion';
 import React from 'react';
 import { AccordionItemProps } from './Accordion.types';
+// import * as RadixAccordion from '@radix-ui/react-accordion';
 
 export const MorphingTrigger = () => {
     return (
@@ -27,8 +27,7 @@ export const Item: React.FC<AccordionItemProps> = ({
     ...props
 }) => {
     return (
-        /* @ts-expect-error */
-        <AccordionPrimitive.Item
+        <div
             {...props}
             className={clx(
                 'border-grey-20 group border-t last:mb-0 last:border-b',
@@ -36,8 +35,7 @@ export const Item: React.FC<AccordionItemProps> = ({
                 className
             )}
         >
-            {/* @ts-expect-error */}
-            <AccordionPrimitive.Header className="px-1">
+            <div className="px-1">
                 <div className="flex flex-col">
                     <div className="flex w-full items-center justify-between">
                         <div className="flex items-center gap-4">
@@ -45,10 +43,7 @@ export const Item: React.FC<AccordionItemProps> = ({
                                 {title}
                             </Text>
                         </div>
-                        {/* @ts-expect-error */}
-                        <AccordionPrimitive.Trigger>
-                            {customTrigger || <MorphingTrigger />}
-                        </AccordionPrimitive.Trigger>
+                        {customTrigger}
                     </div>
                     {subtitle && (
                         <Text as="span" size="small" className="mt-1">
@@ -56,10 +51,9 @@ export const Item: React.FC<AccordionItemProps> = ({
                         </Text>
                     )}
                 </div>
-            </AccordionPrimitive.Header>
-            {/* @ts-expect-error */}
-            <AccordionPrimitive.Content
-                forceMount={forceMountContent}
+            </div>
+            <div
+                // forceMount={forceMountContent}
                 className={clx(
                     'radix-state-closed:animate-accordion-close radix-state-open:animate-accordion-open radix-state-closed:pointer-events-none px-1'
                 )}
@@ -68,7 +62,44 @@ export const Item: React.FC<AccordionItemProps> = ({
                     {description && <Text>{description}</Text>}
                     <div className="w-full">{children}</div>
                 </div>
-            </AccordionPrimitive.Content>
-        </AccordionPrimitive.Item>
+            </div>
+        </div>
+        // <RadixAccordion.Item
+        //     {...props}
+        //     className={clx(
+        //         'border-grey-20 group border-t last:mb-0 last:border-b',
+        //         'py-3',
+        //         className
+        //     )}
+        // >
+        //     <RadixAccordion.Header className="px-1">
+        //         <div className="flex flex-col">
+        //             <div className="flex w-full items-center justify-between">
+        //                 <div className="flex items-center gap-4">
+        //                     <Text className="text-ui-fg-subtle text-sm">
+        //                         {title}
+        //                     </Text>
+        //                 </div>
+        //                 <RadixAccordion.Trigger children={customTrigger || <MorphingTrigger />} />
+        //             </div>
+        //             {subtitle && (
+        //                 <Text as="span" size="small" className="mt-1">
+        //                     {subtitle}
+        //                 </Text>
+        //             )}
+        //         </div>
+        //     </RadixAccordion.Header>
+        //     <RadixAccordion.Content
+        //         forceMount={forceMountContent}
+        //         className={clx(
+        //             'radix-state-closed:animate-accordion-close radix-state-open:animate-accordion-open radix-state-closed:pointer-events-none px-1'
+        //         )}
+        //     >
+        //         <div className="inter-base-regular group-radix-state-closed:animate-accordion-close">
+        //             {description && <Text>{description}</Text>}
+        //             <div className="w-full">{children}</div>
+        //         </div>
+        //     </RadixAccordion.Content>
+        // </RadixAccordion.Item>
     );
 };

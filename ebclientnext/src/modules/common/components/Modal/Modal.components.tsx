@@ -2,7 +2,7 @@ import { Dialog } from '@headlessui/react';
 import React from 'react';
 
 import { useModal } from '@lib/context/modalContext';
-import X from '@modules/common/icons/x';
+import { X } from '@modules/common/icons/x';
 
 export const Title: React.FC<{ children: React.ReactNode }> = ({
     children

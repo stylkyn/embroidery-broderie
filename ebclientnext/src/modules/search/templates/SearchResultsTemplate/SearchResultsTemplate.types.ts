@@ -1,4 +1,4 @@
-import { SortOptions } from '@modules/store/components/RefinementList/SortProducts/types';
+import { SortOptions } from '@modules/store/components/RefinementList/SortProducts/SortProducts.types';
 
 export interface SearchResultsTemplateProps {
     query: string;

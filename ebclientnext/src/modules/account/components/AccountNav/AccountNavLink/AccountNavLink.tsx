@@ -3,8 +3,8 @@
 import { clx } from '@medusajs/ui';
 import { useParams } from 'next/navigation';
 
-import { LocalizedClientLink } from '@modules/common';
 import { AccountNavLinkProps } from './AccountNavLink.types';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
 
 export const AccountNavLink = ({
     href,

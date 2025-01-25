@@ -3,11 +3,11 @@
 import { PaymentSession } from '@medusajs/medusa';
 import { OnApproveActions, OnApproveData } from '@paypal/paypal-js';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
-import { placeOrder } from '@modules/checkout';
 import React, { useState } from 'react';
 import { ErrorMessage } from '../../ErrorMessage';
-import { Spinner } from '@modules/common';
 import { PayPalPaymentButtonProps } from './PayPalPaymentButton.types';
+import { placeOrder } from '@modules/checkout/actions';
+import { Spinner } from '@modules/common/icons';
 
 export const PayPalPaymentButton = ({
     cart,

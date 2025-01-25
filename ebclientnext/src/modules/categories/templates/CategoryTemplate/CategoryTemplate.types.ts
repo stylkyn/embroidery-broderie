@@ -1,4 +1,4 @@
-import { SortOptions } from '@modules/store/components/RefinementList/SortProducts/types';
+import { SortOptions } from '@modules/store/components/RefinementList/SortProducts/SortProducts.types';
 import { ProductCategoryWithChildren } from 'types/global';
 
 export interface CategoryTemplateProps {

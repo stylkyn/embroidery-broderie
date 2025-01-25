@@ -1,8 +1,8 @@
 import { Container, Text } from '@medusajs/ui';
 
-import { Thumbnail } from '@modules/products';
-import { LocalizedClientLink } from '@modules/common';
 import { HitProps } from './Hit.types';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
+import { Thumbnail } from '@modules/products/components/Thumbnail';
 
 export const Hit = ({ hit }: HitProps) => {
     return (

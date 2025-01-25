@@ -1,11 +1,12 @@
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
-import { InteractiveLink } from '@modules/common';
 import { SkeletonProductGrid } from '@modules/skeletons/templates/SkeletonProductGrid';
-import { RefinementList, PaginatedProducts } from '@modules/store';
 import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
 import { CategoryTemplateProps } from './CategoryTemplate.types';
+import { InteractiveLink } from '@modules/common/components/InteractiveLink';
+import { PaginatedProducts } from '@modules/store/templates/PaginatedProducts';
+import { RefinementList } from '@modules/store/components/RefinementList';
 
 export const CategoryTemplate = ({
     categories,

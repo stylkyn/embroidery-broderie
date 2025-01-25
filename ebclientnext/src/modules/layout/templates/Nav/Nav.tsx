@@ -1,8 +1,9 @@
 import { Suspense } from 'react';
 
 import { listRegions } from '@lib/medusajs';
-import { LocalizedClientLink } from '@modules/common';
-import { CartButton, SideMenu } from '@modules/layout';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
+import { SideMenu } from '@modules/layout/components/SideMenu';
+import { CartButton } from '@modules/layout/components/CartButton';
 
 export const Nav = async () => {
     const regions = await listRegions().then((regions) => regions);

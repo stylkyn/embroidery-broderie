@@ -1,3 +1,5 @@
+'use client';
+
 import { Spinner, Trash } from '@medusajs/icons';
 import { clx } from '@medusajs/ui';
 import { useState } from 'react';

@@ -1,8 +1,8 @@
 import { Heading, Text } from '@medusajs/ui';
 import { formatAmount } from '@lib/util/prices';
 
-import { Divider } from '@modules/common';
 import { ShippingDetailsProps } from './ShippingDetails.types';
+import { Divider } from '@modules/common/components/Divider';
 
 export const ShippingDetails = ({ order }: ShippingDetailsProps) => {
     return (

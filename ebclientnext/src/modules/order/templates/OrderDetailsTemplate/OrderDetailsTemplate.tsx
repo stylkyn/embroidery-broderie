@@ -3,15 +3,13 @@
 import { XMark } from '@medusajs/icons';
 import React from 'react';
 
-import {
-    Help,
-    Items,
-    OrderDetails,
-    OrderSummary,
-    ShippingDetails
-} from '@modules/order/components';
-import { LocalizedClientLink } from '@modules/common/components';
 import { OrderDetailsTemplateProps } from './OrderDetailsTemplate.types';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
+import { Help } from '@modules/order/components/Help';
+import { Items } from '@modules/order/components/Items';
+import { OrderDetails } from '@modules/order/components/OrderDetails';
+import { OrderSummary } from '@modules/order/components/OrderSummary';
+import { ShippingDetails } from '@modules/order/components/ShippingDetails';
 
 export const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
     order

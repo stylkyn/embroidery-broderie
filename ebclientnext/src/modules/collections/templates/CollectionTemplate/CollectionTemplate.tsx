@@ -1,10 +1,11 @@
 import { Suspense } from 'react';
 
-import { SkeletonProductGrid } from '@modules/skeletons';
-import { RefinementList, PaginatedProducts } from '@modules/store';
 import { CollectionTemplateProps } from './CollectionTemplate.types';
+import { SkeletonProductGrid } from '@modules/skeletons/templates/SkeletonProductGrid';
+import { PaginatedProducts } from '@modules/store/templates/PaginatedProducts';
+import { RefinementList } from '@modules/store/components/RefinementList';
 
-export default function CollectionTemplate({
+export function CollectionTemplate({
     sortBy,
     collection,
     page,

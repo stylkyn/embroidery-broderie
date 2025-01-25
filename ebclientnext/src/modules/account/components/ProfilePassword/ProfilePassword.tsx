@@ -2,12 +2,12 @@
 
 import React, { useEffect } from 'react';
 
-import { Input } from '@modules/common';
 
 import { AccountInfo } from '../AccountInfo';
-import { updateCustomerPassword } from '@modules/account';
 import { useFormState } from 'react-dom';
 import { ProfilePasswordProps } from './ProfilePassword.types';
+import { Input } from '@modules/common/components/Input';
+import { updateCustomerPassword } from '@modules/account/actions';
 
 export const ProfilePassword: React.FC<ProfilePasswordProps> = ({
     customer

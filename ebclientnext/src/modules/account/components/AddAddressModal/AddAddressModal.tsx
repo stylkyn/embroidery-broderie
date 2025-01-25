@@ -6,10 +6,12 @@ import { useEffect, useState } from 'react';
 import { useFormState } from 'react-dom';
 
 import { useToggleState } from '@lib/hooks';
-import { CountrySelect, SubmitButton } from '@modules/checkout';
-import { Input, Modal } from '@modules/common';
-import { addCustomerShippingAddress } from '@modules/account';
 import { AddAddressModalProps } from './AddAddressModal.types';
+import { addCustomerShippingAddress } from '@modules/account/actions';
+import { CountrySelect } from '@modules/checkout/components/CountrySelect';
+import { SubmitButton } from '@modules/checkout/components/SubmitButton';
+import { Modal } from '@modules/common/components/Modal';
+import { Input } from '@modules/common/components/Input';
 
 export const AddAddressModal = ({ region }: AddAddressModalProps) => {
     const [successState, setSuccessState] = useState(false);

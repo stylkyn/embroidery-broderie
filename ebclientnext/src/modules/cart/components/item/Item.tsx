@@ -2,19 +2,18 @@
 
 import { Table, Text, clx } from '@medusajs/ui';
 
-import { CartItemSelect, updateLineItem } from '@modules/cart';
-import {
-    DeleteButton,
-    LineItemOptions,
-    LineItemPrice,
-    LineItemUnitPrice,
-    Spinner,
-    LocalizedClientLink
-} from '@modules/common';
-import { Thumbnail } from '@modules/products';
 import { useState } from 'react';
-import { ErrorMessage } from '@modules/checkout';
 import { ItemProps } from './Item.types';
+import { updateLineItem } from '@modules/cart/actions';
+import { DeleteButton } from '@modules/common/components/DeleteButton';
+import { LineItemOptions } from '@modules/common/components/LineItemOptions';
+import { LineItemPrice } from '@modules/common/components/LineItemPrice';
+import { LineItemUnitPrice } from '@modules/common/components/LineItemUnitPrice';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
+import { Spinner } from '@modules/common/icons';
+import { Thumbnail } from '@modules/products/components/Thumbnail';
+import { CartItemSelect } from '../CardItemSelect';
+import { ErrorMessage } from '@modules/checkout/components/ErrorMessage';
 
 export const Item = ({ item, region, type = 'full' }: ItemProps) => {
     const [updating, setUpdating] = useState(false);

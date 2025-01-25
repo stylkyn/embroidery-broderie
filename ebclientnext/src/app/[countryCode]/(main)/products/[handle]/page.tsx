@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
 
 import { getRegion } from '@lib/medusajs';
-import ProductTemplate from '@modules/products/templates';
 import { Props } from './page.types';
 import { getPricedProductByHandle } from './page.utils';
+import { ProductTemplate } from '@modules/products/templates/ProductTemplate';
 
 export { generateStaticParams } from './page.static-params';
 export { generateMetadata } from './page.metadata';

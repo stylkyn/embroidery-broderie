@@ -1,18 +1,13 @@
 'use client';
 
-import { Customer } from '@medusajs/medusa';
-import { ArrowRightOnRectangle } from '@medusajs/icons';
+import { ArrowRightOnRectangle, ChevronDown } from '@medusajs/icons';
 import { useParams, usePathname } from 'next/navigation';
 
-import {
-    ChevronDown,
-    User,
-    Package,
-    LocalizedClientLink,
-    MapPin
-} from '@modules/common';
-import { signOut } from '@modules/account';
 import { AccountNavLink } from './AccountNavLink';
+import { signOut } from '@modules/account/actions';
+import { LocalizedClientLink } from '@modules/common/components/LocalizedClientLink';
+import { MapPin, Package, User } from '@modules/common/icons';
+import { Customer } from '@medusajs/medusa';
 
 export const AccountNav = ({
     customer

@@ -1,6 +1,6 @@
-import LocalizedClientLink from '@modules/common/components/LocalizedClientLink';
-import ChevronDown from '@modules/common/icons/chevron-down';
-import MedusaCTA from '@modules/layout/components/MedusaCta';
+import { LocalizedClientLink } from "@modules/common/components/LocalizedClientLink";
+import { ChevronDown } from "@modules/common/icons";
+import { MedusaCTA } from "@modules/layout/components/MedusaCta";
 
 export default function CheckoutLayout({
     children

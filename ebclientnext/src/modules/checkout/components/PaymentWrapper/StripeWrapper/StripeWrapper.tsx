@@ -1,5 +1,3 @@
-'use client';
-
 import { StripeElementsOptions } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import { StripeWrapperProps } from './StripeWrapper.types';
