@@ -1,0 +1,29 @@
+# Use Node.js 20 as a parent image
+FROM node:20 AS builder
+
+RUN corepack enable yarn
+
+# Set the working directory
+WORKDIR /app
+
+# Clone the repository
+COPY ../../medusa-store-storefront /app
+
+# Install dependencies
+RUN yarn install
+
+# SECOND STAGE: Minimal image for running the application
+FROM node:20-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy necessary files from the builder stage
+COPY --from=builder /app .
+
+RUN corepack enable yarn
+
+# Expose the application port
+EXPOSE 8000
+
+CMD ["yarn", "dev"]

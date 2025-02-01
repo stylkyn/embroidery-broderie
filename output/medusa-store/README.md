@@ -1,0 +1,53 @@
+# medusa-store
+
+Welcome to medusa-store, a super cool ecommerce store powered with MedusaJS.
+
+## Next steps
+
+Go to you project directory and run:
+```bash
+docker compose up postgres redis medusa_server medusa_worker && docker compose up storefront -d
+```
+
+### Run database migrations
+
+Run database migrations with:
+```bash
+docker compose exec -it medusa_server npx medusa db:migrate
+```
+
+### Create new users
+
+Create a new user with:
+```bash
+docker compose exec -it medusa_server npx medusa user -e admin@example.com -p supersecret
+```
+
+or with the `--invite` flag to generate an invitation url: 
+
+```bash
+docker compose exec -it medusa_server npx medusa user -e admin@example.com --invite
+```
+
+### Add some demo data
+
+Seed your project with some demo data with:
+```bash
+docker compose exec -it medusa_server npx medusa exec ./src/scripts/seed.ts
+```
+
+### Stop the stack
+
+Stop the stack with:
+```bash
+docker compose down --volumes
+```
+
+## Check your new store
+
+- Your admin panel is available at http://localhost:9000/app 
+- Your storefront is available at http://localhost:8000
+
+### 📝 License
+
+Licensed under the [MIT license](LICENSE).
