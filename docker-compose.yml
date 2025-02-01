@@ -4,7 +4,7 @@ services:
             context: ./medusa-store
             dockerfile: Dockerfile
         image: medusa-store:test
-        container_name: medusa-server
+        container_name: medusa-store
         depends_on:
             - postgres
             - redis
@@ -15,38 +15,37 @@ services:
             JWT_SECRET: some_jwt_secret
             COOKIE_SECRET: some_cookie_secret
             PORT: 9000
-
+        volumes:
+            - ./medusa-store:/app/medusa
+        ports:
+            - "9000:9000"
+        networks:
+            - medusapostgressnetwork
     postgres:
         image: postgres:10.4
         ports:
             - "5432:5432"
+        restart: always
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
             POSTGRES_DB: medusa-docker
-
+            PGDATA: /var/lib/postgresql/data/medusa/
+        networks:
+            - medusapostgressnetwork
+        volumes:
+            - pgmedusadata:/var/lib/postgresql/data/medusa
     redis:
         image: redis
         container_name: cache
         expose:
             - 6379
-
-    # admin:
-    #     build:
-    #         context: ./medusa-store
-    #         dockerfile: Dockerfile.admin
-    #     image: admin:test
-    #     depends_on:
-    #         - medusa-store
-    #     container_name: medusa-admin
-    #     environment:
-    #         NODE_OPTIONS: --openssl-legacy-provider
-
-    # ebclientnext:
-    #     build:
-    #         context: ./ebclientnext
-    #         dockerfile: Dockerfile
-    #     image: ebclientnext:test
-    #     container_name: medusa-ebclientnext
-    #     depends_on:
-    #         - medusa-store
+        networks:
+            - medusapostgressnetwork
+networks:
+    medusapostgressnetwork:
+        name: medusapostgressnetwork
+        driver: bridge
+volumes:
+    pgmedusadata:
+    medusa-store:
