@@ -1,9 +1,9 @@
 services:
-    ebadminshop:
+    medusa-store:
         build:
-            context: ./ebadminshop
+            context: ./medusa-store
             dockerfile: Dockerfile
-        image: ebadminshop:test
+        image: medusa-store:test
         container_name: medusa-server
         depends_on:
             - postgres
@@ -33,11 +33,11 @@ services:
 
     # admin:
     #     build:
-    #         context: ./ebadminshop
+    #         context: ./medusa-store
     #         dockerfile: Dockerfile.admin
     #     image: admin:test
     #     depends_on:
-    #         - ebadminshop
+    #         - medusa-store
     #     container_name: medusa-admin
     #     environment:
     #         NODE_OPTIONS: --openssl-legacy-provider
@@ -49,4 +49,4 @@ services:
     #     image: ebclientnext:test
     #     container_name: medusa-ebclientnext
     #     depends_on:
-    #         - ebadminshop
+    #         - medusa-store
