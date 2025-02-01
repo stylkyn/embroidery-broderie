@@ -1,0 +1,24 @@
+services:
+    ebadminshop:
+        environment:
+            NODE_ENV: development
+        volumes:
+            - ./ebadminshop:/app/medusa
+            - ebadminshop_node_modules:/app/medusa/node_modules
+        ports:
+            - "9000:9000"
+
+    # admin:
+    #     ports:
+    #         - "7000:7000"
+
+    # ebclientnext:
+    #     volumes:
+    #         - ./ebclientnext:/app/ebclientnext
+    #         - ebclientnext_node_modules:/app/ebclientnext/node_modules
+    #     ports:
+    #         - "8000:8000"
+
+volumes:
+    ebadminshop_node_modules:
+    # ebclientnext_node_modules:

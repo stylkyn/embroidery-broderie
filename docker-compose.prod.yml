@@ -1,52 +1,55 @@
+version: "3.8"
 services:
     ebadminshop:
         build:
-            context: ./ebadminshop
-            dockerfile: Dockerfile
-        image: ebadminshop:test
+            dockerfile: Dockerfile.prod
+        image: ebadminshop:latest
         container_name: medusa-server
+        restart: always
         depends_on:
             - postgres
             - redis
         environment:
             DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa-docker
-            REDIS_URL: redis://cache
-            NODE_ENV: development
-            JWT_SECRET: some_jwt_secret
-            COOKIE_SECRET: some_cookie_secret
-            PORT: 9000
+            NODE_ENV: production
+            STORE_CORS: http://localhost
+        ports:
+            - "9000:9000"
 
     postgres:
-        image: postgres:10.4
-        ports:
-            - "5432:5432"
+        restart: always
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
             POSTGRES_DB: medusa-docker
 
     redis:
-        image: redis
-        container_name: cache
-        expose:
-            - 6379
+        restart: always
 
     # admin:
     #     build:
-    #         context: ./ebadminshop
-    #         dockerfile: Dockerfile.admin
-    #     image: admin:test
+    #         context: ./admin
+    #         dockerfile: Dockerfile.prod
+    #     image: admin:latest
+    #     restart: always
     #     depends_on:
     #         - ebadminshop
     #     container_name: medusa-admin
     #     environment:
+    #         NODE_ENV: production
     #         NODE_OPTIONS: --openssl-legacy-provider
+    #     ports:
+    #         - "7000:80"
 
     # ebclientnext:
     #     build:
-    #         context: ./ebclientnext
-    #         dockerfile: Dockerfile
-    #     image: ebclientnext:test
+    #         dockerfile: Dockerfile.prod
+    #     image: ebclientnext:latest
     #     container_name: medusa-ebclientnext
+    #     restart: always
+    #     environment:
+    #         NODE_ENV: production
     #     depends_on:
     #         - ebadminshop
+    #     ports:
+    #         - "80:80"
